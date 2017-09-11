@@ -14,10 +14,25 @@ using UnityEngine;
 
 public class thePlotItem : MonoBehaviour {
 
+ 
+	public int thePlotBranchID = 0;
+	public int theBranchTalkID = 0;
+	public string theTalkInformation = "";
 
 	//果然还是更喜欢使用局本树的方法处理
 	private  List<thePlotItem>  theChildItems ;//子控制单元 
 
+
+	public void makeCreate(int thePlotIn,int theBranchIn,string theTalkIn)
+	{
+		 thePlotBranchID = thePlotIn;
+		 theBranchTalkID = theBranchIn;
+		 theTalkInformation = theTalkIn;
+		this.gameObject.name = thePlotBranchID + "_" + theBranchTalkID;
+
+	}
+
+	//这个方法在创建树的时候进行
 	//控制直接子类的方法
 	//剧本单元的递归初始化从这里开始
 	public  void makeStart()

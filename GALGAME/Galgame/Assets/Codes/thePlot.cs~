@@ -11,14 +11,28 @@ using UnityEngine;
 
 public class thePlot : MonoBehaviour {
 
+	public TextAsset [] thePlots;//剧本文件在这里保存
+	private plotTreeMaker theTreeMake;//创建剧本树的控制单元
 	private List<thePlotItem> roots;//局本树丛的小树根
 	private thePlotItem  theItemNow;//当前控制的剧本帧引用 
+	private textController theTextController;//文本显示控制单元
+
+	//本脚本的初始化，这个是最先初始化的内容
+	//初始化第一阶段
+	void makeStart()
+	{
+		theTreeMake = this.GetComponent <plotTreeMaker> ();
+		roots = new List<thePlotItem> ();
+	}
 
 	//全体剧本树的初始化在这里完成
 	//完全自动化处理，只需要在控制面板里面处理好相应的父子关系就可以了
-	public void InitTheTree()
+	//初始化第二阶段
+	public void InitTheTree(TextAsset thePlot)
 	{
-		roots = new List<thePlotItem> ();
+		Transform theRoot = theTreeMake.makeATree (thePlot);
+		theRoot.transform.SetParent (this.transform);
+		//this.GetComponent <allStartController> ().makeATree ();
 		int count = this.transform.childCount;
 		for(int i=0;i< count; i++)
 		{
@@ -81,7 +95,10 @@ public class thePlot : MonoBehaviour {
 	void Update () 
 	{
 		if (Input.GetKeyDown (KeyCode.Space))
-			InitTheTree ();
+		{
+			makeStart ();
+			InitTheTree(thePlots [0]);
+		}
 		//为了迎合安卓和PC，仅仅使用这一种操作方法
 		//打算使用射线进行区分
 		if (Input.GetMouseButtonDown (0)) 
