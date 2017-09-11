@@ -17,17 +17,24 @@ public class thePlotItem : MonoBehaviour {
  
 	public int thePlotBranchID = 0;
 	public int theBranchTalkID = 0;
+	public string theSpeekerName = "";//这个剧本元素说话的人
+	public string theSpeekerPictureType = "";//说话的人的表情 
+	public string theBackPictureName = "";//背景图
 	public string theTalkInformation = "";
-
+	public string theTitleName = "";//额外的缩略标记，用于选项，实际上只有选项分支节点才会显示
 	//果然还是更喜欢使用局本树的方法处理
 	private  List<thePlotItem>  theChildItems ;//子控制单元 
 
 
-	public void makeCreate(int thePlotIn,int theBranchIn,string theTalkIn)
+	public void makeCreate(int thePlotIn,int theBranchIn,string speekerNameIn ,string speekerPictureIn,string backPictureNameIn ,string theTalkIn,string titleIn)
 	{
 		 thePlotBranchID = thePlotIn;
 		 theBranchTalkID = theBranchIn;
 		 theTalkInformation = theTalkIn;
+		theSpeekerName = speekerNameIn;
+		theSpeekerPictureType = speekerPictureIn;
+		theBackPictureName = backPictureNameIn;
+		theTitleName = titleIn;
 		this.gameObject.name = thePlotBranchID + "_" + theBranchTalkID;
 
 	}
@@ -51,6 +58,12 @@ public class thePlotItem : MonoBehaviour {
 		}
 	}
 
+
+	public List<thePlotItem> getChilds()
+	{
+		return this.theChildItems;
+	}
+
 	//是不是一个具有分支的节点，如果是，需要有特殊的处理方式
 	//这个处理的过程不再这里执行，而在主要控制单元里面调用
 	//此方法是一个判定标记
@@ -62,6 +75,7 @@ public class thePlotItem : MonoBehaviour {
 	}
 
 	//跳转到下一个节点
+	//单个分支的节点用这种方式跳转
 	public thePlotItem moveToNext(thePlotItem theAim = null)
 	{
 		//直接控制跳转
@@ -69,7 +83,10 @@ public class thePlotItem : MonoBehaviour {
 			return theAim;
 		//实际上只有单个分支的节点才会调用这个方法
 		//但是稳妥起见还是用下标标记吧
+		if(this.theChildItems .Count >0)
 		return this.theChildItems [0];
+
+		return null;
 	}
 
 

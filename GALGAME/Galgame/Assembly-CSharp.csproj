@@ -46,7 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Codes\UIController.cs" />
+     <Compile Include="Assets\Codes\choice.cs" />
+     <Compile Include="Assets\Codes\choiceController.cs" />
      <Compile Include="Assets\Codes\plotTreeMaker.cs" />
+     <Compile Include="Assets\Codes\systemInformations.cs" />
      <Compile Include="Assets\Codes\textController.cs" />
      <Compile Include="Assets\Codes\thePlot.cs" />
      <Compile Include="Assets\Codes\thePlotItem.cs" />

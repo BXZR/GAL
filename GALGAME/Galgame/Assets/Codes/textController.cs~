@@ -15,45 +15,69 @@ public class textController : MonoBehaviour {
 	private int indexNow = 0;//完整文本的下标获取值
 	private string theShowString = "";//正式用于显示的字符串
 	private float theFlashWaitTime = 0.2f;//Invoke的更新速率，这个数值越小更新越快
-
+	private string showName = "【???】";//显示的任务的名字
 	//对外调用接口
 	//外面的方法只会知道这一个方法并加以调用
 	//此外这个方法仅仅会被调用一次
+	public void setTheString(thePlotItem theItem)
+	{
+		showName = "【" + systemInformations.getShowNameWithProName (theItem.theSpeekerName) + "】";
+		//下面是具体的工作细节，上面是标记量
+		this.theInformation =  theItem .theTalkInformation;
+		indexNow = 0;//这个可以更稳妥地关掉显示文本的显示器
+		theShowString = "";
+	}
+
 	public void setTheString(string theInformationGet)
 	{
-		if (isStarted == false)
-		{
-			isStarted = true;
 			//下面是具体的工作细节，上面是标记量
 			this.theInformation = theInformationGet;
-			indexNow = 9999;//这个可以更稳妥地关掉显示文本的显示器
- 			InvokeRepeating ("makeShowUpdate",0,theFlashWaitTime);
-		}
+			indexNow = 0;//这个可以更稳妥地关掉显示文本的显示器
+		    theShowString = "";
+ 			
 	}
 
 	public void showAll()//直接显示所有的内容
 	{
-		theShowInformationText.text = theInformation;
-		CancelInvoke ();//取消Invoke调用
+		theShowInformationText.text =showName+"\n"+ theInformation;
+		indexNow = 999999;
 	}
+
+ 
+
 	public bool isShowOver()//所有需要显示的信息是否都显示完
 	{
 		//这是一个外部查询用的方法
 		//在这个类里面没有必要使用
-		if (indexNow <= theInformation.Length)
+		if (indexNow < theInformation.Length)
 			return false;
 		return true;
 	}
 
+	public void openTEXT()
+	{
+		theShowInformationText.transform .parent.gameObject.SetActive (true);
+	}
+
+	public void shutTEXT()
+	{
+		theShowInformationText.transform .parent.gameObject.SetActive (false);
+	}
+
 	private	void makeShowUpdate()
 	{
-		if (indexNow <= theInformation.Length) 
+		if (indexNow < theInformation.Length) 
 		{
 			theShowString += theInformation [indexNow];
 			//更新显示的文本就可以了
-			theShowInformationText .text = theShowString;//显示文本，必有改动吧，纯文本可能会有各种小问题吧
+			theShowInformationText .text = showName+"\n"+theShowString;//显示文本，必有改动吧，纯文本可能会有各种小问题吧
 			indexNow ++;
 		}
+	}
+
+	void Start () 
+	{
+		InvokeRepeating ("makeShowUpdate",0,theFlashWaitTime);
 	}
 
 	void OnDestroy()//非常必要

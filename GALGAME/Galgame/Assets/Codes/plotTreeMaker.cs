@@ -44,15 +44,31 @@ public class plotTreeMaker : MonoBehaviour {
 		string[] theInformation = thePlot.text.Split ('\n');
 		for (int j = 0; j < theInformation.Length; j++) 
 		{
+			if (theInformation[j].StartsWith ("///////"))
+				continue;
+			//"///////"是一个文本编辑用的分隔符号，顺带用于注释
 			try
 			{
+				//在这里需要追加更加细致的设定和分割
 				string[] theInformationIn = theInformation [j].Split (',');
 				int thePlotBranchID = Convert.ToInt32 (theInformationIn[0]);
 				int theBranchTalkID = Convert.ToInt32 (theInformationIn [1]);
-				string theTalkInformation = theInformationIn [2];
+
+				string theSpeekerName = theInformationIn [2];
+				string theSpeekerPictureType= theInformationIn [3];
+				/*
+                  speakerName  说话的人
+                  SpeakerPictureName 说话的人的图的特征
+                  speakerName_picName 就是资源的名字
+                  例如 alice_happy
+                  至于中文名称显示翻译，用一个数组做映射就行，反正也没几个人
+                */
+				string theBackPictureName = theInformationIn [4];
+				string theTalkInformation = theInformationIn [5];
+				string title = theInformationIn [6];//额外标记
 				GameObject theNewItem = GameObject.Instantiate <GameObject> (theProfabForItem);
 				thePlotItem theItem = theNewItem.GetComponent <thePlotItem> ();
-				theItem.makeCreate (thePlotBranchID , theBranchTalkID , theTalkInformation);
+				theItem.makeCreate (thePlotBranchID , theBranchTalkID , theSpeekerName ,theSpeekerPictureType ,theBackPictureName,theTalkInformation ,title);
 				theStartItems.Add (theItem);//直接按照分支进行整理，但是顺序和父子关系在这一步还没有确定
 			}
 			catch
