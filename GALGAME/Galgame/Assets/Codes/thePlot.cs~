@@ -19,6 +19,10 @@ public class thePlot : MonoBehaviour {
 	private textController theTextController;//文本显示控制单元
 	private choiceController theChoiceController;//分支选择控制单元
 	private UIController theUIController;//非文本显示的UI控制单元
+
+	//不使用invoke因为这个需要非常频繁地开关
+	public float watiForSkipTimer = 77887;
+
 //-------------------------------三阶段的初始化------------------------------------------------------//
 	//本脚本的初始化，这个是最先初始化的内容
 	//初始化第一阶段
@@ -49,6 +53,7 @@ public class thePlot : MonoBehaviour {
 		}
 
 		theItemNow = theRoot.GetComponent<thePlotItem> ();//初始化当前处理的项目
+		watiForSkipTimer = theItemNow .waitTimeForAutoSkip;
 	}
 
 	//其余元素的初始化，有些初始化只应该在剧本树建立完成之后做
@@ -72,14 +77,11 @@ public class thePlot : MonoBehaviour {
 		//如果是一个分支节点
 		if (theItemNow.isASpitRoot ()) 
 		{
-			print ("这是一个分支节点，有待选择");
-
+			//print ("这是一个分支节点，有待选择");
 			//进入选择界面，在这里不标明要走哪一条路线，在UI选择的时候才会真的有所选择
 			theChoiceController .openSelect(theItemNow .getChilds());
-
 			//可选功能，在选择的时候关闭文本框
 			//theTextController.shutTEXT ();
-
 		} 
 		else 
 		{
@@ -101,17 +103,25 @@ public class thePlot : MonoBehaviour {
 			return;
 		}
 		theItemNow = theItem;
+		watiForSkipTimer = theItemNow .waitTimeForAutoSkip;
 		//各种控制单元对这个单元的操作
 		theTextController.setTheString (theItem);
 		theUIController.makeShow (theItem);	
 	}
 
 
+	//判断当前的剧本元素是不是已经完成了
+	private bool isTheItemNowOver()
+	{
+		bool isOver = true ;
+		return isOver && theTextController.isShowOver ();
+	}
 
 //------------------------------------控制方法------------------------------------------------//
 	//全是鼠标点击
 	//如果射线命中的是UI，就执行UI操作，否则就是一般的鼠标嗲你操作
 	//返回的是UI类别，不同类别的操作不同
+	//0 -> 不是UI
 	//1 -> 对话文本框
 	int isOperatingUI ()
 	{
@@ -131,6 +141,7 @@ public class thePlot : MonoBehaviour {
 			}
 
 		}
+		//这是两个平台的不同判断方法
 		else if (EventSystem.current.IsPointerOverGameObject ())
 		{
 			//print  ("当前触摸在UI上");
@@ -144,21 +155,21 @@ public class thePlot : MonoBehaviour {
 
 		 
 
-//下面这个方法是使用纯粹的2D模式而不是UI的方法显示的时候使用的
-//但是这种方法对文本的兼容性一般，暂时先放在这里
-//		Ray mRay = Camera.main.ScreenPointToRay (Input.mousePosition);
-//		RaycastHit2D mHi = Physics2D.Raycast (Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-//
-//		if (mHi.collider != null )
-//		{
-//
-//			if (mHi.collider.gameObject.transform.tag == "UI") 
-//			{
-//				print ("UI");
-//				return 1;
-//			}
-//		}
-//		return 0;
+		//下面这个方法是使用纯粹的2D模式而不是UI的方法显示的时候使用的
+		//但是这种方法对文本的兼容性一般，暂时先放在这里
+		//		Ray mRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+		//		RaycastHit2D mHi = Physics2D.Raycast (Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+		//
+		//		if (mHi.collider != null )
+		//		{
+		//
+		//			if (mHi.collider.gameObject.transform.tag == "UI") 
+		//			{
+		//				print ("UI");
+		//				return 1;
+		//			}
+		//		}
+		//		return 0;
 
 	}
 		
@@ -166,13 +177,20 @@ public class thePlot : MonoBehaviour {
 	public	void turnMake(int type = 0 )
 	{
 		//暂时先取消按在不同的地方有不同的效果的选定
-
+		//这是因为有一些UI的button等功能也是要提供的，但是这个点击事件与鼠标点击事件实际上有一点冲突
+		//所以用这种方法区分点击在不同位置的功能
+		//点击到UI上就立即完成本剧本元素的显示，并且触发UI的事件
+		//点击到不是UI的地方，第一次可以完成本剧本元素的显示，下一次点击可以跳到下一个剧本元素
 		switch (type)
 		{
-		case 0: //不是UI操作
+		  case 0: //不是UI操作
 			{
 				//点击文本框的时候，第一下是显示整个文本，第二下才是跳过
-				if (!theTextController.isShowOver ()) 
+				//这个只是因为个人比较喜欢这样的方式，当然也可以直接
+				//theTextController.showAll ();
+				//moveToNextItem ();	
+				//快速跳过
+				if (!isTheItemNowOver()) 
 				{
 					//print ("本剧本元素直接全文显示");
 					theTextController.showAll ();
@@ -184,7 +202,7 @@ public class thePlot : MonoBehaviour {
 				}
 			}
 			break;
-		case 1:
+		case 1: //是的，是UI操作
 			{
 				//点击文本框的时候，第一下是显示整个文本，第二下才是跳过
 				if (!theTextController.isShowOver ()) 
@@ -195,14 +213,13 @@ public class thePlot : MonoBehaviour {
 				else 
 				{
 					//print ("跳转到下一个剧本元素");
-					moveToNextItem ();	
+					//moveToNextItem ();	
 				}
 			}
 			break;
 		}
-
 	}
-
+ 
 //------------------------------------系统自然回调方法------------------------------------------------//
 
 	void Start () 
@@ -223,7 +240,17 @@ public class thePlot : MonoBehaviour {
 		{   
 			int type = isOperatingUI ();
 			turnMake(type);	 
-
+		}
+		//这是自动跳转的处理，用的是一个统一的时间
+		//如果这个时候玩家点击鼠标，调用了moveToNextItem ();
+		//时间就会刷新
+		if (watiForSkipTimer > 0 ) 
+		{
+			watiForSkipTimer -= Time.deltaTime;
+			if (watiForSkipTimer < 0) 
+			{
+				moveToNextItem ();
+			}
 		}
 	}
 }

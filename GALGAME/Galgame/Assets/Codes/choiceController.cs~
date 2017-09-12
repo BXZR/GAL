@@ -36,10 +36,5 @@ public class choiceController : MonoBehaviour {
 		}
 		shutSelect ();
 	}
-
-
-	// Update is called once per frame
-	void Update () {
 		
-	}
 }

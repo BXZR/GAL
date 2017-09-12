@@ -50,12 +50,12 @@ public class plotTreeMaker : MonoBehaviour {
 			try
 			{
 				//在这里需要追加更加细致的设定和分割
+				//并且首位随意添加空格
 				string[] theInformationIn = theInformation [j].Split (',');
-				int thePlotBranchID = Convert.ToInt32 (theInformationIn[0]);
-				int theBranchTalkID = Convert.ToInt32 (theInformationIn [1]);
+				int thePlotBranchID = Convert.ToInt32 (theInformationIn[0].Trim());
+				int theBranchTalkID = Convert.ToInt32 (theInformationIn [1].Trim());
 
-				string theSpeekerName = theInformationIn [2];
-				string theSpeekerPictureType= theInformationIn [3];
+				string theSpeekerName = theInformationIn [2].Trim();
 				/*
                   speakerName  说话的人
                   SpeakerPictureName 说话的人的图的特征
@@ -63,12 +63,19 @@ public class plotTreeMaker : MonoBehaviour {
                   例如 alice_happy
                   至于中文名称显示翻译，用一个数组做映射就行，反正也没几个人
                 */
-				string theBackPictureName = theInformationIn [4];
-				string theTalkInformation = theInformationIn [5];
-				string title = theInformationIn [6];//额外标记
+				string player1 = theInformationIn[3].Trim();//参与说话的第一个人
+				string player2 = theInformationIn[4].Trim();//参与说话的第二个人
+				string player3 = theInformationIn[5].Trim();//参与说话的第三个人
+
+				string theBackPictureName = theInformationIn [6].Trim();
+				string theTalkInformation = theInformationIn [7].Trim();
+				string title = theInformationIn [8].Trim();//额外标记
+
 				GameObject theNewItem = GameObject.Instantiate <GameObject> (theProfabForItem);
 				thePlotItem theItem = theNewItem.GetComponent <thePlotItem> ();
-				theItem.makeCreate (thePlotBranchID , theBranchTalkID , theSpeekerName ,theSpeekerPictureType ,theBackPictureName,theTalkInformation ,title);
+				theItem.makeCreate1 (thePlotBranchID , theBranchTalkID , theSpeekerName ,theBackPictureName,theTalkInformation ,title);
+				print("====="+player1 +"======"+player2 +"======"+player3);
+				theItem .makeCreate2(player1 , player2 , player3);
 				theStartItems.Add (theItem);//直接按照分支进行整理，但是顺序和父子关系在这一步还没有确定
 			}
 			catch

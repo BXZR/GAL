@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class systemInformations : MonoBehaviour {
 
-	private static string [] proName = {"alice"} ;
-	private static string [] showName = {"艾丽斯"};
+	private static string [] proName = {"alice","fione","jik"} ;
+	private static string [] showName = {"艾丽斯","菲奥奈","吉克"};
 
 	public static string getShowNameWithProName(string pro)
 	{

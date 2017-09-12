@@ -21,7 +21,7 @@ public class textController : MonoBehaviour {
 	//此外这个方法仅仅会被调用一次
 	public void setTheString(thePlotItem theItem)
 	{
-		showName = "【" + systemInformations.getShowNameWithProName (theItem.theSpeekerName) + "】";
+		showName = "【" + systemInformations.getShowNameWithProName (theItem.theSpeekerName.Split ('_')[0]) + "】";
 		//下面是具体的工作细节，上面是标记量
 		this.theInformation =  theItem .theTalkInformation;
 		indexNow = 0;//这个可以更稳妥地关掉显示文本的显示器

@@ -18,25 +18,44 @@ public class thePlotItem : MonoBehaviour {
 	public int thePlotBranchID = 0;
 	public int theBranchTalkID = 0;
 	public string theSpeekerName = "";//这个剧本元素说话的人
-	public string theSpeekerPictureType = "";//说话的人的表情 
 	public string theBackPictureName = "";//背景图
 	public string theTalkInformation = "";
 	public string theTitleName = "";//额外的缩略标记，用于选项，实际上只有选项分支节点才会显示
+	public string [] thePartyplayers = {"" , "" , ""}; //在屏幕显示的一共可以有三个
+
+
 	//果然还是更喜欢使用局本树的方法处理
 	private  List<thePlotItem>  theChildItems ;//子控制单元 
 
+	public float waitTimeForAutoSkip = 10f;//这个剧本元素的时间，超过这个时间自动跳到下一个
 
-	public void makeCreate(int thePlotIn,int theBranchIn,string speekerNameIn ,string speekerPictureIn,string backPictureNameIn ,string theTalkIn,string titleIn)
+	//第一阶段的初始化
+	public void makeCreate1(int thePlotIn,int theBranchIn,string speekerNameIn,string backPictureNameIn ,string theTalkIn,string titleIn)
 	{
 		 thePlotBranchID = thePlotIn;
 		 theBranchTalkID = theBranchIn;
 		 theTalkInformation = theTalkIn;
 		theSpeekerName = speekerNameIn;
-		theSpeekerPictureType = speekerPictureIn;
 		theBackPictureName = backPictureNameIn;
 		theTitleName = titleIn;
 		this.gameObject.name = thePlotBranchID + "_" + theBranchTalkID;
+		waitTimeForAutoSkip = theTalkInformation.Length * 0.75f;
 
+	}
+	public void makeCreate2(string player1, string player2 , string player3)
+	{
+		if(string .IsNullOrEmpty (player1))
+			thePartyplayers [0] = "noOne";
+		else
+			thePartyplayers [0] = player1;
+		if(string .IsNullOrEmpty (player2))
+			thePartyplayers [1] = "noOne";
+		else
+			thePartyplayers [1] = player2;
+		if(string .IsNullOrEmpty (player3))
+			thePartyplayers [2] = "noOne";
+		else
+			thePartyplayers [2] = player3;
 	}
 
 	//这个方法在创建树的时候进行
@@ -89,6 +108,7 @@ public class thePlotItem : MonoBehaviour {
 		return null;
 	}
 
+ 
 
 	void Start () {
 		
