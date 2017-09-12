@@ -14,7 +14,18 @@ using UnityEngine;
 
 public class thePlotItem : MonoBehaviour {
 
- 
+	//剧本元素全世界唯一标志
+	//在初始化的进行计算得到
+	//这个标志用于存档和跳转
+	//顺带一提，存档的标志有两个，一个是ID一个是文件名
+	private int thePlotItemID = 100000000;//唯一标识的ID，这个只读
+	public int ThePlotItemID 
+	{
+		get//只读
+		{
+			return thePlotItemID;
+		}
+	}
 	public int thePlotBranchID = 0;
 	public int theBranchTalkID = 0;
 	public string theSpeekerName = "";//这个剧本元素说话的人
@@ -22,6 +33,7 @@ public class thePlotItem : MonoBehaviour {
 	public string theTalkInformation = "";
 	public string theTitleName = "";//额外的缩略标记，用于选项，实际上只有选项分支节点才会显示
 	public string [] thePartyplayers = {"" , "" , ""}; //在屏幕显示的一共可以有三个
+
 
 
 	//果然还是更喜欢使用局本树的方法处理
@@ -38,6 +50,7 @@ public class thePlotItem : MonoBehaviour {
 		theSpeekerName = speekerNameIn;
 		theBackPictureName = backPictureNameIn;
 		theTitleName = titleIn;
+		thePlotItemID = thePlotBranchID * 1000 + theBranchTalkID;
 		this.gameObject.name = thePlotBranchID + "_" + theBranchTalkID;
 		waitTimeForAutoSkip = theTalkInformation.Length * 0.75f;
 

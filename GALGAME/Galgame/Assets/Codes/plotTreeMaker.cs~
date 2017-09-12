@@ -6,6 +6,9 @@ using System;
 public class plotTreeMaker : MonoBehaviour {
 
 	//文本剧本树
+	//最开头的第一位表示剧本文件编号
+	//例如 100,001 在剧本文件1
+	//又如 200,001 在剧本文件2
 	//	100,001,100号分支第001句话
 	//	100,002,100号分支第002句话
 	//	110,001,110号分支第001句话
@@ -74,7 +77,7 @@ public class plotTreeMaker : MonoBehaviour {
 				GameObject theNewItem = GameObject.Instantiate <GameObject> (theProfabForItem);
 				thePlotItem theItem = theNewItem.GetComponent <thePlotItem> ();
 				theItem.makeCreate1 (thePlotBranchID , theBranchTalkID , theSpeekerName ,theBackPictureName,theTalkInformation ,title);
-				print("====="+player1 +"======"+player2 +"======"+player3);
+				//print("====="+player1 +"======"+player2 +"======"+player3);
 				theItem .makeCreate2(player1 , player2 , player3);
 				theStartItems.Add (theItem);//直接按照分支进行整理，但是顺序和父子关系在这一步还没有确定
 			}

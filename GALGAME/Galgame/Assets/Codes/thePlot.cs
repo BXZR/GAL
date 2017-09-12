@@ -12,17 +12,25 @@ using UnityEngine.EventSystems;
 
 public class thePlot : MonoBehaviour {
 
-	public TextAsset [] thePlots;//剧本文件在这里保存
+	public TextAsset thePlotNow;//最初的剧本文件在这里保存，之后所有的跳转都由剧本自动执行
 	private plotTreeMaker theTreeMake;//创建剧本树的控制单元
-	private List<thePlotItem> roots;//局本树丛的小树根
-	private thePlotItem  theItemNow = null;//当前控制的剧本帧引用 
+	public  List<thePlotItem> roots;//局本树丛的小树根
+
 	private textController theTextController;//文本显示控制单元
 	private choiceController theChoiceController;//分支选择控制单元
 	private UIController theUIController;//非文本显示的UI控制单元
 
 	//不使用invoke因为这个需要非常频繁地开关
-	public float watiForSkipTimer = 77887;
+	public float watiForSkipTimer = 1000;
 
+	private thePlotItem  theItemNow = null;//当前控制的剧本帧引用 
+	public thePlotItem TheItemNow
+	{
+		get
+		{
+			return theItemNow;
+		}
+	}
 //-------------------------------三阶段的初始化------------------------------------------------------//
 	//本脚本的初始化，这个是最先初始化的内容
 	//初始化第一阶段
@@ -64,6 +72,13 @@ public class thePlot : MonoBehaviour {
 		theChoiceController = this .GetComponent <choiceController>();//分支选择控制单元
 		theUIController = this.GetComponent <UIController>();//非文本显示的UI控制单元
 	}
+
+	public  void  makeAllStart()
+	{
+		makeStart ();
+		InitTheTree(thePlotNow);
+		makeValueStart ();
+	}
 //---------------------------------------------------------------------------------------------------//
 
 //-------------------------------剧本树的相关操作------------------------------------------------------//
@@ -94,7 +109,7 @@ public class thePlot : MonoBehaviour {
 
 //操作剧本树单元的方法，这个程序真正用来玩的方法
 //事实上，这个方法只会对单个分支节点生效
-  public	void playTheItem(thePlotItem theItem = null)
+  public  void playTheItem(thePlotItem theItem = null)
 	{
 		//简单的防护措施
 		if (theItem == null) 
@@ -224,9 +239,7 @@ public class thePlot : MonoBehaviour {
 
 	void Start () 
 	{
-		makeStart ();
-		InitTheTree(thePlots [0]);
-		makeValueStart ();
+		makeAllStart ();
 		//首先要为所有的控制单元初始化一个被控制的剧本元素
 		playTheItem(theItemNow);
 	}
