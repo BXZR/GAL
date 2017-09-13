@@ -25,7 +25,7 @@ public class saveLoadController : MonoBehaviour {
 	    
 	}
 
-	public void loadItem(int saveID)//0,1,2号码的存档
+	public void loadItem(int saveID = 0)//0,1,2号码的存档
 	{
 		if (saveID > 2 || saveID < 0)
 			return;
@@ -50,10 +50,10 @@ public class saveLoadController : MonoBehaviour {
 //		//根据ID查找对应的item
 		thePlotItem [] allItemNow = controller.GetComponentsInChildren<thePlotItem>();
 		thePlotItem nowUse = null;
-		print ("loadAll = " + allItemNow.Length);
+		//print ("loadAll = " + allItemNow.Length);
 		for (int i = 0; i < allItemNow.Length; i++) 
 		{
-			print ("----" + allItemNow [i].ThePlotItemID + "------" + theItemID);
+			//print ("----" + allItemNow [i].ThePlotItemID + "------" + theItemID);
 			if (allItemNow [i].ThePlotItemID == theItemID) 
 			{
 				nowUse = allItemNow [i];
@@ -72,11 +72,16 @@ public class saveLoadController : MonoBehaviour {
 		//打算用streamingAsset来做存档，文件的路径不同需要做一下区分
 		if (Application.platform == RuntimePlatform.Android)
 		{
-			thePath = "jar:file//" + Application.dataPath + "!=assets/" + "save" + saveID +".txt";
+			//thePath = "jar:file:///data/app/com.Suck.gal_huiyi.apk/!/assets/" + "save" + saveID +".txt";
+			thePath = Application .persistentDataPath+"/save" + saveID +".txt";
 		} 
 		else
 		{
-			thePath = Application.dataPath + "/StreamingAssets/save" + saveID + ".txt";
+			//StreamingAssets 确实很犀利但是安卓只有只读的权限，所以受限制了
+			//当然PC端两种方法都可以了
+			//但是为了保持统一，也方便测试，暂时只使用datapath
+			//thePath = Application.dataPath + "/StreamingAssets/save" + saveID + ".txt";
+			thePath = Application .persistentDataPath+"/save" + saveID +".txt";
 		}
 		return thePath;
 	}

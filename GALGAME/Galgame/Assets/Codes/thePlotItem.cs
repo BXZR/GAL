@@ -33,8 +33,8 @@ public class thePlotItem : MonoBehaviour {
 	public string theTalkInformation = "";
 	public string theTitleName = "";//额外的缩略标记，用于选项，实际上只有选项分支节点才会显示
 	public string [] thePartyplayers = {"" , "" , ""}; //在屏幕显示的一共可以有三个
-
-
+	public string musicName = "";//背景音乐名字
+	public string soundName = "";//音效名字
 
 	//果然还是更喜欢使用局本树的方法处理
 	private  List<thePlotItem>  theChildItems ;//子控制单元 
@@ -55,7 +55,7 @@ public class thePlotItem : MonoBehaviour {
 		waitTimeForAutoSkip = theTalkInformation.Length * 0.75f;
 
 	}
-	public void makeCreate2(string player1, string player2 , string player3)
+	public void makeCreate2(string player1, string player2 , string player3, string musicNameIn ,string soundNameIn )
 	{
 		if(string .IsNullOrEmpty (player1))
 			thePartyplayers [0] = "noOne";
@@ -69,6 +69,9 @@ public class thePlotItem : MonoBehaviour {
 			thePartyplayers [2] = "noOne";
 		else
 			thePartyplayers [2] = player3;
+
+		musicName = musicNameIn;
+		soundName = soundNameIn;
 	}
 
 	//这个方法在创建树的时候进行

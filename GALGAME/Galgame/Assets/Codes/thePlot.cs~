@@ -20,6 +20,8 @@ public class thePlot : MonoBehaviour {
 	private choiceController theChoiceController;//分支选择控制单元
 	private UIController theUIController;//非文本显示的UI控制单元
 
+	private MusicController theMusicController;//背景音乐控制单元
+
 	//不使用invoke因为这个需要非常频繁地开关
 	public float watiForSkipTimer = 1000;
 
@@ -71,6 +73,8 @@ public class thePlot : MonoBehaviour {
 		theTextController = this.GetComponent <textController> ();//文本控制单元
 		theChoiceController = this .GetComponent <choiceController>();//分支选择控制单元
 		theUIController = this.GetComponent <UIController>();//非文本显示的UI控制单元
+
+		theMusicController = this.GetComponentInChildren<MusicController> ();//音频比较特殊，需要父子关系，因为需要同时播放多个音效，音乐
 	}
 
 	public  void  makeAllStart()
@@ -122,6 +126,7 @@ public class thePlot : MonoBehaviour {
 		//各种控制单元对这个单元的操作
 		theTextController.setTheString (theItem);
 		theUIController.makeShow (theItem);	
+		theMusicController.playBackMusic (theItem);
 	}
 
 
