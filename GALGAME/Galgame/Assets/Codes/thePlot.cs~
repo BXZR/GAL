@@ -25,6 +25,7 @@ public class thePlot : MonoBehaviour {
 
 	//不使用invoke因为这个需要非常频繁地开关
 	public float watiForSkipTimer = 1000;
+	public bool isAutoWait = true;//默认自动开启自动跳转模式
 
 	private thePlotItem  theItemNow = null;//当前控制的剧本帧引用 
 	public thePlotItem TheItemNow
@@ -84,6 +85,8 @@ public class thePlot : MonoBehaviour {
 		makeStart ();
 		InitTheTree(thePlotNow);
 		makeValueStart ();
+
+	
 	}
 //---------------------------------------------------------------------------------------------------//
 
@@ -255,12 +258,21 @@ public class thePlot : MonoBehaviour {
 	{
 		makeAllStart ();
 		//首先要为所有的控制单元初始化一个被控制的剧本元素
-		playTheItem(theItemNow);
+		if (startButtons.loadMemory) 
+		{
+			//因为只有一个应用的存档，倒是简单了
+			//说起来这个是自动存档的原理
+			this.theDataController.loadItem ();
+		} 
+		else
+		{
+			playTheItem(theItemNow);
+		}
 	}
 
 	void Update () 
 	{
-
+ 
 		//为了迎合安卓和PC，仅仅使用这一种操作方法
 		//打算使用射线进行区分
 		if (Input.GetMouseButtonDown (0)) 
@@ -271,12 +283,15 @@ public class thePlot : MonoBehaviour {
 		//这是自动跳转的处理，用的是一个统一的时间
 		//如果这个时候玩家点击鼠标，调用了moveToNextItem ();
 		//时间就会刷新
-		if (watiForSkipTimer > 0 ) 
+		if (isAutoWait) 
 		{
-			watiForSkipTimer -= Time.deltaTime;
-			if (watiForSkipTimer < 0) 
+			if (watiForSkipTimer > 0)
 			{
-				moveToNextItem ();
+				watiForSkipTimer -= Time.deltaTime;
+				if (watiForSkipTimer < 0) 
+				{
+					moveToNextItem ();
+				}
 			}
 		}
 	}

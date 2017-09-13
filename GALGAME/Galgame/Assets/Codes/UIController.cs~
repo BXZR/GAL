@@ -119,7 +119,7 @@ public class UIController : MonoBehaviour {
 	//背景图
 	void makeBackPicture(thePlotItem theItem)
 	{
-		if ( string .IsNullOrEmpty(theBackName)) 
+		if ( string .IsNullOrEmpty(theItem.theBackPictureName)) 
 		{
 			//显示默认背景图，没有不行啊
 			//这也是显示出来的第一张的图了
@@ -139,7 +139,7 @@ public class UIController : MonoBehaviour {
 		}
 	}
 
-	Sprite makeLoadSprite(string textureName)
+	public Sprite makeLoadSprite(string textureName)
 	{
 		//textureName = "people/noOne";
 		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);

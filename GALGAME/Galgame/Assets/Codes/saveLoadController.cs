@@ -144,19 +144,21 @@ public class saveLoadController : MonoBehaviour {
 
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.A)) 
-		{
-			thePlotItem theItem = this.GetComponent <thePlot> ().TheItemNow;
-				saveItem (theItem , 0);
-		}
-		if (Input.GetKeyDown (KeyCode.S)) 
-		{
-			thePlotItem theItem = this.GetComponent <thePlot> ().TheItemNow;
-			saveItem (theItem , 2);
-		}
-		if (Input.GetKeyDown (KeyCode.D)) 
-		{
-			loadItem (2);
-		}
+
+//下面这些是保留下来的测试代码
+//		if (Input.GetKeyDown (KeyCode.A)) 
+//		{
+//			thePlotItem theItem = this.GetComponent <thePlot> ().TheItemNow;
+//				saveItem (theItem , 0);
+//		}
+//		if (Input.GetKeyDown (KeyCode.S)) 
+//		{
+//			thePlotItem theItem = this.GetComponent <thePlot> ().TheItemNow;
+//			saveItem (theItem , 2);
+//		}
+//		if (Input.GetKeyDown (KeyCode.D)) 
+//		{
+//			loadItem (2);
+//		}
 	}
 }

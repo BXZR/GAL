@@ -49,6 +49,7 @@
      <Compile Include="Assets\Codes\MusicController.cs" />
      <Compile Include="Assets\Codes\UIController.cs" />
      <Compile Include="Assets\Codes\buttons\dataSystmButtons.cs" />
+     <Compile Include="Assets\Codes\buttons\startButtons.cs" />
      <Compile Include="Assets\Codes\choice.cs" />
      <Compile Include="Assets\Codes\choiceController.cs" />
      <Compile Include="Assets\Codes\extra\informationPanel.cs" />

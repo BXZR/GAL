@@ -2,8 +2,9 @@
 100,002,alice_happy,alice_happy,,,,22222222222,,,,
 100,003,alice_happy,fione_happy,alice_happy,,street,33333333清晨的这儿总是飘散着茉莉花香。,,,,
 100,004,alice_happy,fione_happy,alice_happy,jik_happy,street,4444444你现在想去哪？,,jik,,
-110,001,jik_happy,jik_happy,,,street,555555走，我们去菜刀门砍人去！,菜刀门,jik,,
-120,001,fione_happy,,,,street,木叶忍村我来啦,木叶村,,,
+100,005,alice_happy,fione_happy,alice_happy,jik_happy,street,你想不想加入大吸？,,jik,,
+110,001,jik_happy,jik_happy,,,street,555555走，我们去菜刀门砍人去！,加入大吸,jik,,
+120,001,fione_happy,,,,street,木叶忍村我来啦,加入大吸,,,
 111,001,alice_happy,,,,home,飞雷神,,,,
 ///////
 111,112,,,,都是110的子分支REFGDHFGDASFDNCVFDHGSJFGDJGJDFJGJDFGJDFGJDFJGDFGJDFGJDFJGDFJGJDFGJDFGJDFJGDFJGJDJGDJF,,,,
