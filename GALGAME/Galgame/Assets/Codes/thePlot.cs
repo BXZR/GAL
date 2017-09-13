@@ -21,6 +21,7 @@ public class thePlot : MonoBehaviour {
 	private UIController theUIController;//非文本显示的UI控制单元
 
 	private MusicController theMusicController;//背景音乐控制单元
+	private saveLoadController theDataController;//存档控制单元，用于强制跳转
 
 	//不使用invoke因为这个需要非常频繁地开关
 	public float watiForSkipTimer = 1000;
@@ -74,7 +75,8 @@ public class thePlot : MonoBehaviour {
 		theChoiceController = this .GetComponent <choiceController>();//分支选择控制单元
 		theUIController = this.GetComponent <UIController>();//非文本显示的UI控制单元
 
-		theMusicController = this.GetComponentInChildren<MusicController> ();//音频比较特殊，需要父子关系，因为需要同时播放多个音效，音乐
+		theMusicController = this.transform .GetComponentInChildren<MusicController> ();//音频比较特殊，需要父子关系，因为需要同时播放多个音效，音乐
+		theDataController = this.GetComponent <saveLoadController>();
 	}
 
 	public  void  makeAllStart()
@@ -92,6 +94,13 @@ public class thePlot : MonoBehaviour {
 		//剧本帧为空就不做操作了
 		if (theItemNow == null)
 			return;
+
+		//直接跳转的权限高于一切，虽然大多数情况下此项为空
+		if (theItemNow.aimPlotItemID > 0) 
+		{
+			theDataController.loadItemForSkip(theItemNow.aimPlotItemID);
+			return;
+		}
 
 		//如果是一个分支节点
 		if (theItemNow.isASpitRoot ()) 

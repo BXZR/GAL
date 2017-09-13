@@ -20,15 +20,18 @@ public class MusicController : MonoBehaviour {
 		if (string.IsNullOrEmpty (nameIn) || nameIn.Equals (theBackMusicNameNow))
 			return;
 		//没有输入或者没有不安化就不加载
-		print("loadMusic -- " + nameIn);
+		//print("loadMusic -- " + nameIn);
 		theClipNow  = Resources .Load("music/"+ nameIn) as AudioClip;
 		if (theClipNow  == null) 
 		{
-			print ("没有加载成功");
+			//print ("没有加载成功");
 			return;
 		}
+		if(theBackMusicController == null)
+			theBackMusicController = this.GetComponent <AudioSource> ();
 		theBackMusicController.clip = theClipNow ;
 		theBackMusicController.Play ();
+		theBackMusicNameNow = nameIn;
 	}
 
 	// Use this for initialization

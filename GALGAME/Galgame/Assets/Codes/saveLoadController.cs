@@ -64,6 +64,37 @@ public class saveLoadController : MonoBehaviour {
 			controller.playTheItem (nowUse);
 	}
 
+	//这个用于强制跳转
+	public void loadItemForSkip(int aimID)//0,1,2号码的存档
+	{
+		int theItemID = aimID;
+		int thePlotID = theItemID / 100000;
+
+		//销毁并且重新建立一棵树
+		thePlot controller = this.GetComponent <thePlot> ();
+
+		for (int i = 0; i < controller.roots.Count; i++)
+			DestroyImmediate (controller .roots [i].gameObject);
+		controller.roots = new List<thePlotItem> ();
+
+		controller.thePlotNow = Resources.Load <TextAsset>("thePlots/thePlot"+thePlotID);
+		controller.makeAllStart ();
+		//		//根据ID查找对应的item
+		thePlotItem [] allItemNow = controller.GetComponentsInChildren<thePlotItem>();
+		thePlotItem nowUse = null;
+		//print ("loadAll = " + allItemNow.Length);
+		for (int i = 0; i < allItemNow.Length; i++) 
+		{
+			//print ("----" + allItemNow [i].ThePlotItemID + "------" + theItemID);
+			if (allItemNow [i].ThePlotItemID == theItemID) 
+			{
+				nowUse = allItemNow [i];
+				break;
+			}
+		}
+		if (nowUse != null)
+			controller.playTheItem (nowUse);
+	}
 
 	private string getPath(int saveID)
 	{

@@ -78,11 +78,24 @@ public class plotTreeMaker : MonoBehaviour {
 				string soundName = theInformationIn [10].Trim();//音效模名称
 				//print("music :" + musicName +"   sound :"+ soundName);
 
+				string aimIDIN = theInformationIn [11].Trim();
+				int aimID  = -1;
+				if (string .IsNullOrEmpty( theInformationIn [11].Trim()) == false)
+				{
+					try
+					{
+					aimID  = Convert .ToInt32(theInformationIn [11].Trim());//跳转目标
+					}
+					catch
+					{
+						aimID = -2;
+					}
+				}
 				GameObject theNewItem = GameObject.Instantiate <GameObject> (theProfabForItem);
 				thePlotItem theItem = theNewItem.GetComponent <thePlotItem> ();
 				theItem.makeCreate1 (thePlotBranchID , theBranchTalkID , theSpeekerName ,theBackPictureName,theTalkInformation ,title);
 				//print("====="+player1 +"======"+player2 +"======"+player3);
-				theItem .makeCreate2(player1 , player2 , player3,musicName ,soundName);
+				theItem .makeCreate2(player1 , player2 , player3,musicName ,soundName,aimID);
 				theStartItems.Add (theItem);//直接按照分支进行整理，但是顺序和父子关系在这一步还没有确定
 			}
 			catch

@@ -36,6 +36,8 @@ public class thePlotItem : MonoBehaviour {
 	public string musicName = "";//背景音乐名字
 	public string soundName = "";//音效名字
 
+	public int aimPlotItemID = 0;//支持随意跳转，这一项标记目标plotItem的ID
+
 	//果然还是更喜欢使用局本树的方法处理
 	private  List<thePlotItem>  theChildItems ;//子控制单元 
 
@@ -55,7 +57,7 @@ public class thePlotItem : MonoBehaviour {
 		waitTimeForAutoSkip = theTalkInformation.Length * 0.75f;
 
 	}
-	public void makeCreate2(string player1, string player2 , string player3, string musicNameIn ,string soundNameIn )
+	public void makeCreate2(string player1, string player2 , string player3, string musicNameIn ,string soundNameIn,int  aimID )
 	{
 		if(string .IsNullOrEmpty (player1))
 			thePartyplayers [0] = "noOne";
@@ -72,6 +74,7 @@ public class thePlotItem : MonoBehaviour {
 
 		musicName = musicNameIn;
 		soundName = soundNameIn;
+		aimPlotItemID = aimID;
 	}
 
 	//这个方法在创建树的时候进行

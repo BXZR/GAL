@@ -2,19 +2,19 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\thePlots\thePlot1.txt">
     <Files>
-      <File FileName="Assets\Codes\thePlot.cs" Line="129" Column="32" />
-      <File FileName="Assets\Codes\saveLoadController.cs" Line="53" Column="5" />
-      <File FileName="Assets\Codes\plotTreeMaker.cs" Line="79" Column="7" />
+      <File FileName="Assets\Codes\thePlot.cs" Line="102" Column="11" />
+      <File FileName="Assets\Codes\saveLoadController.cs" Line="96" Column="21" />
+      <File FileName="Assets\Codes\plotTreeMaker.cs" Line="91" Column="18" />
       <File FileName="Assets\Codes\textController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\UIController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\thePlotItem.cs" Line="21" Column="54" />
+      <File FileName="Assets\Codes\thePlotItem.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\choiceController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\systemInformations.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\choice.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\buttons\dataSystmButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\extra\informationPanel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\MusicController.cs" Line="24" Column="49" />
-      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="14" Column="84" />
+      <File FileName="Assets\Codes\MusicController.cs" Line="34" Column="32" />
+      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="5" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
