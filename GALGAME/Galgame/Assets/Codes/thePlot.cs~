@@ -28,6 +28,11 @@ public class thePlot : MonoBehaviour {
 	public bool isAutoWait = true;//默认自动开启自动跳转模式
 
 	private thePlotItem  theItemNow = null;//当前控制的剧本帧引用 
+
+	//其实就是跳转用，一开始的时候可以跳转到不同的地方
+	//事实上这个是给开发者用的接口
+	public int startID = -99;//默认初始ID
+
 	public thePlotItem TheItemNow
 	{
 		get
@@ -258,12 +263,17 @@ public class thePlot : MonoBehaviour {
 	{
 		makeAllStart ();
 		//首先要为所有的控制单元初始化一个被控制的剧本元素
-		if (startButtons.loadMemory) 
-		{
+		if (startButtons.loadMemory) {
 			//因为只有一个应用的存档，倒是简单了
 			//说起来这个是自动存档的原理
 			this.theDataController.loadItem ();
+
 		} 
+		else if (startID > 0)
+		{
+			theDataController.loadItemForSkip(startID);
+			startID = -99;
+		}
 		else
 		{
 			playTheItem(theItemNow);

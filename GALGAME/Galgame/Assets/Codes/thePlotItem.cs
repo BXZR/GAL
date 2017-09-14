@@ -54,7 +54,7 @@ public class thePlotItem : MonoBehaviour {
 		theTitleName = titleIn;
 		thePlotItemID = thePlotBranchID * 1000 + theBranchTalkID;
 		this.gameObject.name = thePlotBranchID + "_" + theBranchTalkID;
-		waitTimeForAutoSkip = theTalkInformation.Length * 0.75f;
+		waitTimeForAutoSkip = theTalkInformation.Length * 0.5f;
 
 	}
 	public void makeCreate2(string player1, string player2 , string player3, string musicNameIn ,string soundNameIn,int  aimID )

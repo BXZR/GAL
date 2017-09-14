@@ -21,7 +21,15 @@ public class textController : MonoBehaviour {
 	//此外这个方法仅仅会被调用一次
 	public void setTheString(thePlotItem theItem)
 	{
-		showName = "【" + systemInformations.getShowNameWithProName (theItem.theSpeekerName.Split ('_')[0]) + "】";
+		string getName = systemInformations.getShowNameWithProName (theItem.theSpeekerName.Split ('_')[0]);
+			if(string .IsNullOrEmpty (getName) == false)
+			{
+			showName = "【" + getName+ "】";
+			}
+			else
+			{
+			showName = "";
+			}
 		//下面是具体的工作细节，上面是标记量
 		this.theInformation =  theItem .theTalkInformation;
 		indexNow = 0;//这个可以更稳妥地关掉显示文本的显示器
@@ -39,7 +47,7 @@ public class textController : MonoBehaviour {
 
 	public void showAll()//直接显示所有的内容
 	{
-		theShowInformationText.text =showName+"\n"+ theInformation;
+		theShowInformationText.text =showName+"\n  "+ theInformation;
 		indexNow = 999999;
 	}
 
@@ -70,7 +78,7 @@ public class textController : MonoBehaviour {
 		{
 			theShowString += theInformation [indexNow];
 			//更新显示的文本就可以了
-			theShowInformationText .text = showName+"\n"+theShowString;//显示文本，必有改动吧，纯文本可能会有各种小问题吧
+			theShowInformationText .text = showName+"\n  "+theShowString;//显示文本，必有改动吧，纯文本可能会有各种小问题吧
 			indexNow ++;
 		}
 	}

@@ -47,9 +47,9 @@ public class plotTreeMaker : MonoBehaviour {
 		string[] theInformation = thePlot.text.Split ('\n');
 		for (int j = 0; j < theInformation.Length; j++) 
 		{
-			if (theInformation[j].StartsWith ("///////"))
+			if (theInformation[j].StartsWith ("//") || string .IsNullOrEmpty (theInformation[j]))
 				continue;
-			//"///////"是一个文本编辑用的分隔符号，顺带用于注释
+			//"//"是一个文本编辑用的分隔符号，顺带用于注释
 			try
 			{
 				//在这里需要追加更加细致的设定和分割

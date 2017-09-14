@@ -16,19 +16,21 @@ public class UIController : MonoBehaviour {
 	 * 
 	*/
 
+	public GameObject theShowText;//用于显示说话内容的下面的文本框组
+
 	public SpriteRenderer theBackPicture;//背景大图
 	public SpriteRenderer [] bigPeoplePictures;//说话的时候的人物大图
 
 	//public Image theShowPictureInSceen;//用于显示在场景里的大人物图
 	public Image theShowPictureInText;//在文本框显示的图
-	public Text theName;//文本框显示的名字
+	//public Text theName;//文本框显示的名字
 
 	private string theBackName = "";//保留的背景图的引用，因为背景图不用每一次都更新
 	private string thePeopleSmallPictureName = "people/noOne";//说话的时候人物小图的标记
 
 	void Start () 
 	{
-
+		Screen.SetResolution(1024, 600, true, 60);
 	}
 
 
@@ -37,7 +39,18 @@ public class UIController : MonoBehaviour {
 		makeBigPicture(theItem);
 		makeSmallPicture (theItem);
 		makeBackPicture (theItem);
+		maketalkBox (theItem);
 	 
+	}
+
+	//没人说话就关闭掉文本框
+	void maketalkBox(thePlotItem  theItem)
+	{
+		//有一些用来占时间的过长没必要显示说话文本框
+		//print("check");
+		bool show = theItem.theTalkInformation.StartsWith ("---");
+		theShowText.gameObject.SetActive (!show);
+			
 	}
 
 	//说话的时候的人物大图
@@ -68,7 +81,7 @@ public class UIController : MonoBehaviour {
 				for (int i = 0; i < bigPeoplePictures.Length; i++) {
 					bigPeoplePictures [i].sprite = makeLoadSprite ("people/noOne");
 				}
-				bigPeoplePictures [1].sprite = makeLoadSprite ("people/big/" +picNames [0]) ;
+				bigPeoplePictures [1].sprite = makeLoadSprite ("people/big/" +picNames [0]+"_B") ;
 			}
 			break;
 			//第二种情况，说话的有两个人所以是两边的图被显示
@@ -77,15 +90,15 @@ public class UIController : MonoBehaviour {
 				for (int i = 0; i < bigPeoplePictures.Length; i++) {
 					bigPeoplePictures [i].sprite = makeLoadSprite ("people/noOne");
 				}
-				bigPeoplePictures [0].sprite = makeLoadSprite ( "people/big/" +picNames [0]);
-				bigPeoplePictures [2].sprite = makeLoadSprite ("people/big/" +picNames [1]);
+				bigPeoplePictures [0].sprite = makeLoadSprite ( "people/big/" +picNames [0]+"_B");
+				bigPeoplePictures [2].sprite = makeLoadSprite ("people/big/" +picNames [1]+"_B");
 			}
 			break;
 			//第三种情况，说话的有三个人,，所以三张图都显示
 		case 3:
 			{
 				for (int i = 0; i < bigPeoplePictures.Length; i++) {
-					bigPeoplePictures [i].sprite = makeLoadSprite ("people/big/" + picNames [i]);
+					bigPeoplePictures [i].sprite = makeLoadSprite ("people/big/" + picNames [i]+"_B");
 				}
 			}
 			break;
@@ -100,7 +113,7 @@ public class UIController : MonoBehaviour {
 	//说话的时候的小图
 	void makeSmallPicture(thePlotItem theItem)
 	{
-		if (string.IsNullOrEmpty (theItem.theSpeekerName))
+		if (string.IsNullOrEmpty (theItem.theSpeekerName) || theItem.theSpeekerName .Equals("Caim"))
 		{
 			//不显示
 			theShowPictureInText.sprite = makeLoadSprite ("people/noOne");
@@ -112,6 +125,7 @@ public class UIController : MonoBehaviour {
 			{
 				string textureName = "people/small/" + theItem.theSpeekerName;
 				theShowPictureInText.sprite = makeLoadSprite (textureName);
+				thePeopleSmallPictureName = theItem.theSpeekerName;
 			}
 		}
 	}

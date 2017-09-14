@@ -46,6 +46,11 @@ public class dataSystmButtons : MonoBehaviour {
 		thePanelForDataSystem.gameObject.SetActive (isThePanelShows);
 	}
 
+	public void gameOver()
+	{
+		Application.Quit ();
+	}
+
 	//是否开启自动模式
 	//所谓自动模式就是一个人说完话之后一段时间之后自动跳转到下一句对话
 	public void autoSwitcher()

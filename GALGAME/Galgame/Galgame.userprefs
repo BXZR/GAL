@@ -1,21 +1,22 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\UIController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\thePlots\thePlot1.txt">
     <Files>
-      <File FileName="Assets\Codes\thePlot.cs" Line="275" Column="2" />
+      <File FileName="Assets\Codes\thePlot.cs" Line="275" Column="18" />
       <File FileName="Assets\Codes\saveLoadController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\plotTreeMaker.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\textController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\UIController.cs" Line="122" Column="56" />
+      <File FileName="Assets\Codes\UIController.cs" Line="33" Column="3" />
       <File FileName="Assets\Codes\thePlotItem.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\choiceController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\systemInformations.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\choice.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\buttons\dataSystmButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\buttons\dataSystmButtons.cs" Line="49" Column="20" />
       <File FileName="Assets\Codes\extra\informationPanel.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\MusicController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="1" Column="13" />
-      <File FileName="Assets\Codes\buttons\startButtons.cs" Line="27" Column="23" />
+      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="53" Column="61" />
+      <File FileName="Assets\Codes\buttons\startButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\extra\REController.cs" Line="10" Column="56" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

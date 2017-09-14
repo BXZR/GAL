@@ -1,8 +1,61 @@
-﻿100,001,,,,,street,11111111111,,smile,,
-100,002,alice_happy,alice_happy,,,,22222222222,,,,
-100,003,alice_happy,fione_happy,alice_happy,,street,33333333清晨的这儿总是飘散着茉莉花香。,,,,
-100,004,alice_happy,fione_happy,alice_happy,jik_happy,street,4444444你现在想去哪？,,jik,,
-100,005,alice_happy,fione_happy,alice_happy,jik_happy,street,你想不想加入大吸？,,jik,,
+﻿//剧本每一项用,分割
+//例如 100,001,alice_happy,fione_happy,alice_happy,jik_happy,street,你想不想加入大吸？,加入大吸,jik,jik_kill,100003
+//100 第一号剧本的总分支， 百位是剧本文件编号
+//002 某一个分支的中的顺序
+//alice_happy 文本框显示的头像任务名称和心情
+//后面的 fione_happy,alice_happy,jik_happy 显示在场景中的发图的人物名称和心情
+//street 背景图名称，也就是场景名称
+//你想不想加入大吸？ 说话的具体内容
+//加入大吸 分支项目用的分支标记
+//jik 背景音乐名称
+//jik_kill 尹晓明称
+//结束之后直接跳转到的剧本元素ID
+
+//noOne表示凯伊姆的内心活动
+//剧本内部的空行和//被无视
+//下面是正式的剧本内容
+
+//凯伊姆起床后的自言自语
+100,001,noOne,,,,home,啊啊，天亮了。, ,smile,,
+100,002,noOne,,,,home,头好痛......, ,smile,,
+100,003,noOne,,,,home,昨天到底喝了多少酒啊..., ,smile,,
+100,004,noOne,,,,home,吉克这家伙，是那种平时不喝酒，一喝停不下的类型么？, ,smile,,
+100,005,noOne,,,,home, 今天好像也没什么事，继续睡吧..., ,smile,,
+100,006,noOne,,,,home, 像我这样的家伙，最近还真是到了无所事事的时候。, ,smile,,
+100,007,noOne,,,,home, 但是，十几年来却没说有什么时候比现在更让我愉悦吧。, ,smile,,
+100,008,noOne,,,,home, 这都多亏了提娅。, ,smile,,
+100,009,noOne,,,,home, ......, ,smile,,
+100,010,Caim,,,,home, 提娅...... , ,smile,,
+100,011,Caim,,,,home, 你的愿望，我一定会好好实现的，安心吧。 , ,smile,,
+
+//艾丽斯来找凯伊姆
+100,012,Caim,,,,home, ？  有人？ , ,smile,,
+100,013,alice_happy,alice_happy,,,home,日上三竿还不起床的也就是你了吧？,,smile,,
+100,014,Caim,alice_happy,,,home,艾丽斯么？,,smile,,
+100,015,alice_shock,alice_shock,,,home,啊啦，你居然还能认出来我？,,smile,,
+100,016,Caim,alice_shock,,,home,我还没到人事不省的程度......,,smile,,
+100,017,alice_dark ,alice_dark,,,home,那你还记得你昨天晚上对我说了什么吗？,,smile,,
+100,018,noOne,alice_dark,,,home,......想不起来。,,smile,,
+100,019,noOne,alice_dark,,,home,我说了...什么吗？,,smile,,
+100,020,noOne,alice_dark,,,home,看她一脸坏笑的样子，突然有点担心。,,smile,,
+100,021,noOne,alice_dark,,,home,希望不要被她抓住什么把柄啊......,,smile,,
+100,022,Caim,alice_dark,,,home,你还是告诉我吧，我到底说什么了？,,smile,,
+100,023,alice_shock,alice_shock,,,home,...,,smile,,
+100,024,alice_halfdark ,alice_halfdark ,,,home,....,,smile,,
+100,025,alice_BackhalfDark ,alice_BackhalfDark  ,,,home,......,,smile,,
+100,026,noOne  ,alice_BackhalfDark  ,,,home,.....什么都没说啊...,,smile,,
+100,027,noOne  ,alice_question ,,,home,嘛，艾丽斯毕竟帮了我很多......,,smile,,
+100,028,noOne  ,alice_question ,,,home,而且...,,smile,,
+100,029,Caim,alice_question,,,home,	啊啊，我想起来了，我说我要请你去尝尝【不蚀金锁】的新店料理。,,smile,,
+100,030,alice_shock,alice_shock,,,home,...,,smile,,
+100,031,alice_laugh,alice_laugh,,,home,想不到你还记得啊......,,smile,,
+100,032,alice_halfdark ,alice_halfdark ,,,home,那我们现在就去吧！,,smile,,
+100,033,noOne  ,alice_BackhalfDark ,,,home,......本来还想再睡一会的..,,smile,,
+100,034,noOne  , ,,,home,说起来，艾丽斯究竟是来干什么的？,,smile,,
+100,035,noOne  , ,,,home,不会是看准机会故意让我请她吧？,,smile,,
+100,036,noOne  , ,,,home,还真有她的作风。,,smile,,
+
+
 110,001,jik_happy,jik_happy,,,street,555555走，我们去菜刀门砍人去！,加入大吸,jik,,
 120,001,fione_happy,,,,street,木叶忍村我来啦,加入大吸,,,
 111,001,alice_happy,,,,home,飞雷神,,,,
