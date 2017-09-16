@@ -16,6 +16,7 @@
 //下面是正式的剧本内容
 
 //凯伊姆起床后的自言自语
+100,000,noOne,,,,changeBack ,........., ,,,
 100,001,noOne,,,,home,啊啊，天亮了。, ,smile,,
 100,002,noOne,,,,home,头好痛......, ,smile,,
 100,003,noOne,,,,home,昨天到底喝了多少酒啊..., ,smile,,
@@ -55,7 +56,41 @@
 100,035,noOne  , ,,,home,不会是看准机会故意让我请她吧？,,smile,,
 100,036,noOne  , ,,,home,还真有她的作风。,,smile,,
 
+//两个人在街道上
+100,037, alice_happy,alice_happy ,,,street , 坠落的事件不长，这里就变了样子呢 ,,happy1,,
+100,038, noOne , ,,,street , 是啊...变化真大。 ,,happy1,,
+100,039, noOne , ,,,street , 坠落之后，莉西亚把【牢狱】交给了吉克管理。 ,,happy1,,
+100,040, noOne , ,,,street , 啊啊，因为没有了坠落的危险，叫【牢狱】已经不适合了。 ,,happy1,,
+100,041, noOne , ,,,street , 吉克一如既往地展现着他惊人的管理才能。 ,,happy1,,
+100,042, noOne , ,,,street , 几乎是一瞬间就把破落这这里变得跟上层一样。 ,,happy1,,
+100,043, Caim , ,,,street , 真是了不起啊，那家伙。 ,,happy1,,
+100,044, alice_happy,alice_happy ,,,street , 嘛，吉克指使你做了不少好事。 ,,happy1,,
+100,045, Caim , ,,,street , ？....就当是夸我好了....,  ,,happy1,,
 
+//酒店门口遇到吉克
+100,046, noOne, ,,,street , 前面那个是.....,,happy1,,
+100,047, jik_happy ,jik_happy ,,,street ,  呦，这不是凯伊姆！,,jik,,
+100,048, jik_happy ,jik_happy,,,street ,  昨天晚上你也没怎么喝就倒了....真菜。,,jik,,
+100,049, noOne ,jik_happy,,,street , 昨晚喝了这么多还生龙活虎的，吉克，你是我见过的第一个。 ,,jik,,
+100,050, Caim ,jik_happy,,,street , 你这家伙..... ,,jik,,
+100,051, alice_happy ,jik_happy,alice_happy ,,street , 吉克大人大清早在这干什么呢？ ,,jik,,
+100,052, alice_happy ,jik_happy,alice_happy ,,street , 我猜猜..... ,,jik,,
+100,053, alice_happy ,jik_happy,alice_happy ,,street , 你昨天是没回去吧。 ,,jik,,
+100,054, jik_low ,jik_low,alice_happy ,,street , 我看你是真懂了。 ,,jik,,
+100,055, jik_low ,jik_low,alice_happy ,,street , 还有，能不能不要叫我【大人】，真的是很难受。 ,,jik,,
+100,056, alice_dark ,jik_low, alice_dark ,,street , 啊啦，昨天是谁让我帮忙去追梅尔特的来着.... ,,jik,,
+100,057, alice_BackhalfDark ,jik_low,alice_BackhalfDark ,,street , 我现在就..... ,,jik,,
+100,058, jik_shout ,jik_shout,alice_BackhalfDark  ,,street , 我错了......！！！ ,,jik,,
+100,059,  noOne,jik_low, alice_dark, ,street ,  看来这一顿我不用花钱了。 ,,jik,,
+100,060,  alice_dark ,jik_low, alice_dark  ,,street , 嗯？那吉克大人是不是应该做点什么来堵住我的悠悠之口呢? ,,jik,,
+100,061,  jik_low  ,jik_low, alice_dark  ,,street , 好好，真是怕了你了。 ,,jik,,
+100,062,  noOne,jik_happy , alice_happy ,,street ,  昨晚是梅尔特康复之后的庆祝宴会。 ,,jik,,
+100,063,  noOne,jik_happy , alice_happy ,,street , 吉克是喝的最开心的。 ,,jik,,
+100,064,  noOne,jik_happy , alice_happy ,,street , 如果能把他和梅尔特撮合在一起，倒也真是不错。 ,,jik,,
+100,065,  noOne,jik_happy , alice_happy ,,street , 糟糕，有一点体会到艾丽斯的邪恶想法了......近朱者赤啊... ,,jik,,
+
+
+//
 110,001,jik_happy,jik_happy,,,street,555555走，我们去菜刀门砍人去！,加入大吸,jik,,
 120,001,fione_happy,,,,street,木叶忍村我来啦,加入大吸,,,
 111,001,alice_happy,,,,home,飞雷神,,,,

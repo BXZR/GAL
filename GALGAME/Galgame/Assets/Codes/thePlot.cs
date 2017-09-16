@@ -33,6 +33,11 @@ public class thePlot : MonoBehaviour {
 	//事实上这个是给开发者用的接口
 	public int startID = -99;//默认初始ID
 
+
+	//控制时间速度
+	private float speedModeTimeScale= 17.0f;
+	private float normalModeTimeScale = 1.0f;
+
 	public thePlotItem TheItemNow
 	{
 		get
@@ -83,6 +88,8 @@ public class thePlot : MonoBehaviour {
 
 		theMusicController = this.transform .GetComponentInChildren<MusicController> ();//音频比较特殊，需要父子关系，因为需要同时播放多个音效，音乐
 		theDataController = this.GetComponent <saveLoadController>();
+
+		Time.timeScale = normalModeTimeScale ;//强制规定时间速度，用于加速
 	}
 
 	public  void  makeAllStart()
@@ -302,6 +309,18 @@ public class thePlot : MonoBehaviour {
 				{
 					moveToNextItem ();
 				}
+			}
+		}
+
+		if (Application.platform != RuntimePlatform.Android) 
+		{
+			if (Input.GetKey (KeyCode.LeftControl))
+			{
+				Time.timeScale = speedModeTimeScale;
+			}
+			if (Input.GetKeyUp (KeyCode.LeftControl)) 
+			{
+				Time.timeScale = normalModeTimeScale ;
 			}
 		}
 	}
