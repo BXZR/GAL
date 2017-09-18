@@ -1,23 +1,23 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\extra\startController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\thePlots\thePlot1.txt">
     <Files>
-      <File FileName="Assets\Codes\thePlot.cs" Line="319" Column="40" />
+      <File FileName="Assets\Codes\thePlot.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\saveLoadController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\plotTreeMaker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\textController.cs" Line="17" Column="16" />
-      <File FileName="Assets\Codes\UIController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\thePlotItem.cs" Line="53" Column="35" />
+      <File FileName="Assets\Codes\textController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\UIController.cs" Line="160" Column="1" />
+      <File FileName="Assets\Codes\thePlotItem.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\choiceController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\systemInformations.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\systemInformations.cs" Line="9" Column="76" />
       <File FileName="Assets\Codes\choice.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\buttons\dataSystmButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\extra\informationPanel.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\MusicController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="1" Column="1" />
+      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="118" Column="73" />
       <File FileName="Assets\Codes\buttons\startButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\extra\REController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\extra\movieController.cs" Line="2" Column="10" />
+      <File FileName="Assets\Codes\extra\movieController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\extra\startController.cs" Line="18" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>

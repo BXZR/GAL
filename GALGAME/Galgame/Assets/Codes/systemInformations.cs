@@ -5,8 +5,8 @@ using UnityEngine;
 public class systemInformations : MonoBehaviour {
 
 	//think 是旁白，不显示人名的时候用
-	private static string [] proName = {"alice","fione","jik","Caim" , "noOne"} ;
-	private static string [] showName = {"艾丽斯","菲奥奈","吉克" , "凯伊姆" , ""};
+	private static string [] proName = {"alice","fione","jik","Caim" ,"mert","fione", "noOne"} ;
+	private static string [] showName = {"艾丽斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "菲奥奈",""};
 
 	public static string getShowNameWithProName(string pro)
 	{
