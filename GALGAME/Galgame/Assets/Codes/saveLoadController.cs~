@@ -27,6 +27,7 @@ public class saveLoadController : MonoBehaviour {
 
 	public void loadItem(int saveID = 0)//0,1,2号码的存档
 	{
+		
 		if (saveID > 2 || saveID < 0)
 			return;
 		string informationGet =  loadInformation(getPath(saveID));
@@ -35,6 +36,7 @@ public class saveLoadController : MonoBehaviour {
 			//读取的信息不能用
 			return;
 		}
+
 		int theItemID = Convert.ToInt32 (informationGet);
 		int thePlotID = theItemID / 100000;
 
@@ -60,8 +62,12 @@ public class saveLoadController : MonoBehaviour {
 				break;
 			}
 		}
+
 		if (nowUse != null)
+		{
+			controller.GetComponent <choiceController> ().shutSelect ();
 			controller.playTheItem (nowUse);
+		}
 	}
 
 	//这个用于强制跳转

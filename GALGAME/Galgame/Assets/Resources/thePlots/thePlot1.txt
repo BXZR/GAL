@@ -8,7 +8,7 @@
 //你想不想加入大吸？ 说话的具体内容
 //加入大吸 分支项目用的分支标记
 //jik 背景音乐名称
-//jik_kill 尹晓明称
+//jik_kill 音效明称
 //结束之后直接跳转到的剧本元素ID
 
 //noOne表示凯伊姆的内心活动
@@ -119,6 +119,33 @@
 100,089,  fione_shork2 , fione_shork2 , mert_dark ,   , bar,  多谢款待，公务在在身，钱放在这里了。 ,, smile ,,
 100,090,  noOne  , , ,   , bar,  菲奥奈就这样逃也似地走了。 ,, smile ,,
 100,091,  noOne  , , ,   , bar,  留下了堆成小山的空盘。 ,, smile ,,
+
+//愉悦的早餐
+100,092,alice_happy,alice_happy,,,bar, 刚才是菲奥奈吧，怎么看上去有点惊慌失措？,,smile,,
+100,093,mert_normal,alice_happy,mert_normal,,bar, 我想...这跟吉克刚才一样哦。,,smile,,
+100,094,alice_dark,alice_dark,mert_normal,,bar, 哦.......?,,smile,,
+100,095,Caim ,alice_dark,mert_dark  ,,bar, 好了，还是快上菜吧。,,smile,,
+100,096,jik_low ,alice_happy,mert_normal ,jik_low,bar, 是啊，我昨天冻了一晚上.....,,smile,,
+100,097,jik_low ,alice_happy,mert_normal ,jik_low,bar, 真的需要吃东西暖身子。,,smile,,
+100,098,mert_normal ,alice_happy,mert_normal ,jik_low,bar, 那也是你活该！,,smile,,
+100,099,mert_normal ,alice_happy,mert_normal ,jik_low,bar, 等下，这就上菜了。,,smile,,
+100,100,noOne,,,,changeBack ,........., ,,,
+100,101,noOne,,,,bar ,完美，我从未吃过这么好吃的食物！, ,,,
+100,102,noOne,,,,bar ,梅尔特的厨艺已经不可超越了。, ,,,
+100,103,alice_happy,alice_happy,,,bar, 做的真好，梅尔特有空教我一下吧。,,smile,,
+100,104,alice_happy,alice_happy,,,bar, 有人需要吃我做的饭。,,smile,,
+100,105,alice_dark,alice_dark,,,bar, 否则....,,smile,,
+100,106,noOne,alice_happy,,,bar , 我清晰地看到她邪恶地看了我一眼。, ,,,
+100,107,noOne,alice_happy,,,bar , 一股恶寒油然而生，直达脊髓深处。, ,,,
+100,108,mert_dark,alice_happy,mert_dark,,bar, 当然可以。,,smile,,
+100,109,noOne,alice_happy,mert_dark,,bar , 你怎么也邪恶地看我..., ,,,
+100,110,jik_happy,alice_shock,mert_shork ,jik_happy,bar , 梅尔特，你太棒了！, ,,,
+100,111,jik_shout,alice_shock,mert_shork ,jik_shout,bar , 梅尔特，我爱你！, ,,,
+100,112,jik_shout,alice_shock,mert_shork ,jik_shout,bar , 啊啊啊啊！嫁给我吧！！！！！, ,,,
+100,113,mert_normal,alice_shock,mert_normal, ,bar ,呵呵......, ,,,
+100,114,noOne,alice_shock,mert_shork ,,bar ,接下来我看到了吉克飞出去的身体。, ,,,
+100,115,noOne,alice_shock,mert_shork ,,bar ,他以一个非常优美的弧线撞到了对面的墙上。, ,,,
+
 
 //////
 110,001,jik_happy,jik_happy,,,street,555555走，我们去菜刀门砍人去！,加入大吸,jik,,
