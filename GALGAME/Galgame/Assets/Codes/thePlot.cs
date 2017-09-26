@@ -9,6 +9,7 @@ using UnityEngine;
 //原计划是每一个剧情长度片一个场景
 //用一个总控的文本控制单元来获得和跳转进度
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class thePlot : MonoBehaviour {
 
@@ -143,6 +144,7 @@ public class thePlot : MonoBehaviour {
 		if (theItem == null) 
 		{
 			print ("没有可控制的剧本元素");
+			SceneManager.LoadScene ("start");
 			return;
 		}
 		theItemNow = theItem;

@@ -171,6 +171,7 @@ public class plotTreeMaker : MonoBehaviour {
 	//单个分支之间的父子关系
 	void setParentsForBranchPrivate()
 	{
+		 
 		//字典的每一个分支内部排序
 		for (int i = 0; i < theIDS.Count; i++)
 		{
@@ -191,7 +192,7 @@ public class plotTreeMaker : MonoBehaviour {
 	//第二层1-9
 	//第三层1-9
 	void setBranchParent()
-	{
+	{		 
 		//第一步，寻找root那个100项是根，不可撼动
 		List<thePlotItem> theRoot  = new List<thePlotItem> ();
 		List<  List<thePlotItem> > theSecondLayer = new List<List<thePlotItem>> ();
@@ -205,12 +206,12 @@ public class plotTreeMaker : MonoBehaviour {
 			int B = theIDS [i] % 100 - theIDS [i] % 10;
 			int c = theIDS [i] % 10;
 			//这个剧本文件的总root
-			if (A == 1 && B == 0 && c == 0) 
+			if (A >= 1 && B == 0 && c == 0) 
 			{
 				theRoot = theStartItemSaver [theIDS [i]];
 			}
 			//这个剧本文件的第二层root
-			else if (A == 1 && B != 0 && c ==0) 
+			else if (A >= 1 && B != 0 && c ==0) 
 			{
 				theSecondLayer.Add( theStartItemSaver [theIDS [i]]);
 				theSecondLayerID.Add (B);//保留十位数字
@@ -222,6 +223,7 @@ public class plotTreeMaker : MonoBehaviour {
 				theThirdLayerID.Add (B);
 			}
 		}
+
 		//第二层的所有的头结点都是root的末尾的子节点
 		thePlotItem theEndOfRoot = theRoot [theRoot .Count -1];
 		theRootTranform = theRoot [0].transform;//保留树根引用

@@ -10,13 +10,13 @@
 //jik 背景音乐名称
 //jik_kill 音效明称
 //结束之后直接跳转到的剧本元素ID
-
+//以---开头的是占位用的
 //noOne表示凯伊姆的内心活动
 //剧本内部的空行和//被无视
 //下面是正式的剧本内容
 
 //凯伊姆起床后的自言自语
-100,000,noOne,,,,changeBack ,........., ,,,
+100,000,noOne,,,,changeBack ,---.., ,,,
 100,001,noOne,,,,home,啊啊，天亮了。, ,smile,,
 100,002,noOne,,,,home,头好痛......, ,smile,,
 100,003,noOne,,,,home,昨天到底喝了多少酒啊..., ,smile,,
@@ -129,7 +129,7 @@
 100,097,jik_low ,alice_happy,mert_normal ,jik_low,bar, 真的需要吃东西暖身子。,,smile,,
 100,098,mert_normal ,alice_happy,mert_normal ,jik_low,bar, 那也是你活该！,,smile,,
 100,099,mert_normal ,alice_happy,mert_normal ,jik_low,bar, 等下，这就上菜了。,,smile,,
-100,100,noOne,,,,changeBack ,........., ,,,
+100,100,noOne,,,,changeBack ,-----, ,,,
 100,101,noOne,,,,bar ,完美，我从未吃过这么好吃的食物！, ,,,
 100,102,noOne,,,,bar ,梅尔特的厨艺已经不可超越了。, ,,,
 100,103,alice_happy,alice_happy,,,bar, 做的真好，梅尔特有空教我一下吧。,,smile,,
@@ -168,7 +168,7 @@
 100,134 ,alice_heavy ,jik_heavy ,alice_heavy ,,bar , 我也一起去。, ,heavy,,
 
 //检查阿三的尸体
-100,135,noOne,,,,changeBack ,........., ,heavy,,
+100,135,noOne,,,,changeBack ,------, ,heavy,,
 100,136,noOne,,,,killScene ,...., ,heavy,, 
 100,137,noOne,,,,killScene ,尸体横躺在小巷的深处，现场没有被破坏。, ,heavy,, 
 100,138,noOne,,,,killScene ,血腥的味道仍然残留在空气中。, ,heavy,, 
@@ -176,7 +176,7 @@
 100,140,noOne,,,,killScene ,似曾相识......, ,heavy,, 
 100,141,noOne,,,,killScene ,不....这的确就是黑羽的攻击。, ,heavy,, 
 100,142 ,alice_heavy , ,  ,,killScene, 我来看一看。, ,heavy,,
-100,143,noOne,,,,changeBack ,..., ,heavy,,
+100,143,noOne,,,,changeBack ,----, ,heavy,,
 100,144 ,alice_heavy ,alice_heavy ,  ,,killScene, 一击毙命。, ,heavy,,
 100,145 ,alice_heavy , alice_heavy,  ,,killScene, 他应该...死得没有痛苦。, ,heavy,,
 100,146 ,alice_heavy , alice_heavy,  ,,killScene, 很像是之前黑羽的攻击。, ,heavy,,
@@ -187,15 +187,73 @@
 100,151 ,noOne,,,,killScene ,羽化病已经不再发生，更何况黑羽？, ,heavy,, 
 100,152 ,noOne,,,,killScene ,到底是怎么回事？, ,heavy,, 
 
+//当晚在路上
+100,153,noOne,,,,changeBack ,-----, ,night,,
+100,154,noOne,,,,street_Dark ,一番调查之后，时间已经很晚了。, ,night,,
+100,155,noOne,,,,street_Dark , 在送艾丽斯回去的路上，我仍然感到担忧。, ,night,,
+100,156,noOne,,,,street_Dark , 阿三的伤口我也检查过......, ,night,,
+100,157,noOne,,,,street_Dark , 这一次的对手比【黑羽】还要可怕。, ,night,,
+100,158,noOne,,,,street_Dark , 说实话我没有战胜的把握。, ,night,,
+100,159,alice_heavy ,alice_heavy ,  ,,street_Dark, 担心吗？ ,,night,,
+100,160,Caim  ,alice_heavy ,  ,,street_Dark, 嗯。 ,,night,,
+100,161,alice_heavy ,alice_heavy ,  ,,street_Dark, 有一些东西不确定，但是应该告诉你。 ,,night,,
+100,162,noOne ,alice_heavy ,  ,,street_Dark,艾丽斯很少见地如此严肃。 ,,night,,
+100,163,alice_heavy ,alice_heavy ,  ,,street_Dark, 其实我觉得并不是黑羽。,,night,,
+100,164,alice_heavy ,alice_heavy ,  ,,street_Dark, 而是类似黑羽的别的东西。,,night,,
+100,165,alice_heavy ,alice_heavy ,  ,,street_Dark,造成的伤口虽然致命，但是更致命的却不是伤口。,,night,,
+100,166,Caim  ,alice_heavy ,  ,,street_Dark, 什么意思？ ,,night,,
+100,167,alice_heavy ,alice_heavy ,  ,,street_Dark,我也不知道....,,night,,
+100,168,alice_heavy ,alice_heavy ,  ,,street_Dark,总之你小心就是了...,,night,,
 
-//////
-110,001,jik_happy,jik_happy,,,street,555555走，我们去菜刀门砍人去！,加入大吸,jik,,
-120,001,fione_happy,,,,street,木叶忍村我来啦,加入大吸,,,
-111,001,alice_happy,,,,home,飞雷神,,,,
-///////
-111,112,,,,都是110的子分支REFGDHFGDASFDNCVFDHGSJFGDJGJDFJGJDFGJDFGJDFJGDFGJDFGJDFJGDFJGJDFGJDFGJDFJGDFJGJDJGDJF,,,,
-112,1212,,alice_happy,,,,,都是110的子分支REFGDHFGDASFDNCVFDHGSJFGDJGJDFJGJDFGJDFGJDFJGDFGJDFGJDFJGDFJGJDFGJDFGJDFJGDFJGJDJGDJF,,,,
-121,001,,,,,,120号分支第001句2话REFGDHFGDASFDNCVFDHGSJFGDJGJDFJGJDFGJDFGJDFJGDFGJDFGJDFJGDFJGJDFGJDFGJDFJGDFJGJDJGDJF,,,,
-121,002,alice_happy,,,,,120号分支第001句2话REFGDHFGDASFDNCVFDHGSJFGDJGJDFJGJDFGJDFGJDFJGDFGJDFGJDFJGDFJGJDFGJDFGJDFJGDFJGJDJGDJF,,,,
-122,001,alice_happy,,,,,120号分支第001句2话REFGDHFGDASFDNCVFDHGSJFGDJGJDFJGJDFGJDFGJDFJGDFGJDFGJDFJGDFJGJDFGJDFGJDFJGDFJGJDJGDJF,,,,
-122,002,alice_happy,,,,,120号分支第001句2话REFGDHFGDASFDNCVFDHGSJFGDJGJDFJGJDFGJDFGJDFJGDFGJDFGJDFJGDFJGJDFGJDFGJDFJGDFJGJDJGDJF,,,,
+//送完艾丽斯，回家路上遇到黑羽
+100,169,noOne,,,,street_Dark ,送艾丽斯回家后，我也向着反方向的家走去。, ,night,,
+100,170,noOne,,,,street_Dark ,夜晚的街道总是非常安静和谐。, ,night,,
+100,171,noOne,,,,street_Dark ,但是总觉得有一点不对劲。, ,night,,
+100,172,noOne,,,,street_Dark ,杀手的本能在叫嚣着危险。, ,night,,
+100,173,noOne,,,,street_Dark ,毫无原因地...冷汗留下...., ,night,,
+100,174,noOne,,,,street_Dark ,突然，有危险的感觉。, ,fight,,
+100,175,noOne,,,,street_Dark ,猛然低头，躲过了致命的一爪。, ,fight,,
+100,176,noOne,,,,street_Dark ,回头，有一个人正面对着我。, ,fight,,
+100,177,noOne,,,,street_Dark ,果然，是黑羽！, ,fight,,
+100,178,darkPlume_normal,,darkPlume_normal,,street_Dark ,吼吼吼....., ,fight,,
+100,179,noOne,,darkPlume_normal,,street_Dark ,杀意......, ,fight,,
+100,180,noOne,,darkPlume_normal,,street_Dark ,但是似乎有什么不一样..., ,fight,,
+100,181,darkPlume_normal,,darkPlume_normal,,street_Dark ,啊啊，杀，杀，杀，死，死，死！！！, ,fight,,
+100,182,noOne,,darkPlume_normal,,street_Dark ,瞬间来到我面前，张开利爪。, ,fight,,
+100,183,noOne,, ,,darkAttack1 ,------, ,fight,,
+100,184,noOne,, ,,darkAttack1 ,侧身闪过一招，趁机拔出匕首。, ,fight,,
+100,185,noOne,, ,,darkAttack1 ,向左低跃，回身一击。, ,fight,,
+100,186,noOne,, ,,caimAttack1 ,------, ,fight,,
+100,187,noOne,, ,,blood1 ,有效....., ,fight,,
+100,188,noOne,, ,,blood1 ,再来一击！, ,fight,,
+100,189,darkPlume_normal,,darkPlume_normal,,blood1 ,吼！！！！！！！！！！, ,fight,,
+100,190,noOne,, darkPlume_normal ,,street_Dark,不好！, ,fight,,
+100,191,noOne,, darkPlume_normal ,,street_Dark ,准备好架势，格挡这一击，然后反杀。, ,fight,,
+100,192,darkPlume_normal,, ,,darkAttack1  ,吼！！！！！, ,fight,,
+100,193,noOne,, darkPlume_normal ,,darkAttack1  ,好，抵挡住了..., ,fight,,
+100,194,darkPlume_normal, ,,darkAttack2  ,吼！！！！！, ,fight,,
+100,195,noOne,,   ,,darkAttack2 ,可恶，居然是二连击！, ,fight,,
+100,196,darkPlume_normal,,darkPlume_normal,,darkAttack2  ,吼！！！！！, ,fight,,
+100,197,noOne,,   ,,darkAttack2  , 这一招，怎么解决？, ,fight,,
+//分支110
+110,001,noOne,,   ,,darkAttack2  , 立刻，向左闪避。,闪避 ,fight,,
+110,002,noOne,,   ,,darkAttack2  , 避开了这一击，再一次回身斩。,  ,fight,,
+110,003,noOne,,   ,,blood1 , 很好，击中腰身。,  ,fight,,
+110,004,darkPlume_normal,,darkPlume_normal,,street_Dark ,啊啊啊！！！, ,fight,,
+110,005,noOne,,   ,,street_Dark, 黑羽迅速飞起离去。,  ,fight,,
+110,006,Caim ,,   ,,street_Dark, 呼....,  ,fight,,
+110,007,noOne,,   ,,street_Dark, 招式不行，力量真大。,  ,fight,,
+110,008,noOne,,   ,,street_Dark, 实际上我接不下他的下一次攻击。,  ,fight,,
+110,009,noOne,,   ,,street_Dark, 右手，已经难以挥动了。,  ,fight,,
+110,010,noOne,,   ,,street_Dark, 还好这位【黑羽】没有战斗的技巧....,  ,fight,,
+110,011,noOne,,   ,,street_Dark, 算是捡回一条性命。,  ,fight,,200000
+//转下一个剧本
+
+
+120,001,noOne,,   ,,darkAttack2  , 举起匕首招架。, 招架 ,fight,, 
+120,002,Caim,,   ,,blood2 , 啊！ ..... ,   ,fight,, 
+120,003,noOne,,   ,,blood2  , 我的右手被黑羽斩断。,  ,fight,, 
+120,004,noOne,,   ,,blood2  , 迅速反击的左手被也被折断....,  ,fight,, 
+120,005,noOne,,   ,,blood2  , ....接下来我看到了我没有头的身体....,  ,fight,, 
+120,006,noOne,,,,changeBack ,---------, ,fight,,
+120,006,noOne,,,,badEnd,---------, ,badEnd,,
