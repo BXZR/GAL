@@ -26,4 +26,10 @@ public class startButtons : MonoBehaviour {
 	{
 		Application.Quit ();
 	}
+
+	//回到初始界面
+	public void  backStartScene()
+	{
+		SceneManager.LoadScene ("start");
+	}
 }

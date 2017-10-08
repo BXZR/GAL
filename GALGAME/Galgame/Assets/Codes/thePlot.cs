@@ -22,6 +22,7 @@ public class thePlot : MonoBehaviour {
 	private UIController theUIController;//非文本显示的UI控制单元
 
 	private MusicController theMusicController;//背景音乐控制单元
+	private soundController theSoundController;//音效控制单元
 	private saveLoadController theDataController;//存档控制单元，用于强制跳转
 
 	//不使用invoke因为这个需要非常频繁地开关
@@ -88,6 +89,7 @@ public class thePlot : MonoBehaviour {
 		theUIController = this.GetComponent <UIController>();//非文本显示的UI控制单元
 
 		theMusicController = this.transform .GetComponentInChildren<MusicController> ();//音频比较特殊，需要父子关系，因为需要同时播放多个音效，音乐
+		theSoundController =  this.transform .GetComponentInChildren<soundController>();
 		theDataController = this.GetComponent <saveLoadController>();
 
 		Time.timeScale = normalModeTimeScale ;//强制规定时间速度，用于加速
@@ -153,6 +155,7 @@ public class thePlot : MonoBehaviour {
 		theTextController.setTheString (theItem);
 		theUIController.makeShow (theItem);	
 		theMusicController.playBackMusic (theItem);
+		theSoundController.playSound (theItem);
 	}
 
 

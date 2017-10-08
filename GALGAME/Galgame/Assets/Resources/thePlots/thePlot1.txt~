@@ -30,7 +30,7 @@
 100,011,Caim,,,,home, 你的愿望，我一定会好好实现的，安心吧。 , ,smile,,
 
 //艾丽斯来找凯伊姆
-100,012,Caim,,,,home, ？  有人？ , ,smile,,
+100,012,Caim,,,,home, ？  有人？ , ,smile,openDoor,
 100,013,alice_happy,alice_happy,,,home,日上三竿还不起床的也就是你了吧？,,smile,,
 100,014,Caim,alice_happy,,,home,艾丽斯么？,,smile,,
 100,015,alice_shock,alice_shock,,,home,啊啦，你居然还能认出来我？,,smile,,
@@ -103,7 +103,7 @@
 100,076,  noOne  ,jik_low ,mert_dark , alice_dark,street , 一物降一物...吗？ ,,jik,,
 
 //在酒店里面遇到菲奥奈
-100,077,  noOne  , , ,   , bar, 店里的装潢..... ,, smile ,,
+100,077,  noOne  , , ,   , bar, 店里的装潢..... ,, smile , resturant ,
 100,078,  noOne  , , ,   , bar, 简直就是跟坠落之前一模一样。 ,, smile ,,
 100,079,  noOne  , , ,   , bar, 让人莫名地心安。 ,, smile ,,
 100,079,  noOne  , , ,   , bar, 啊啊，就像梅尔特本人。 ,, smile ,,
@@ -223,21 +223,21 @@
 100,183,noOne,, ,,darkAttack1 ,------, ,fight,,
 100,184,noOne,, ,,darkAttack1 ,侧身闪过一招，趁机拔出匕首。, ,fight,,
 100,185,noOne,, ,,darkAttack1 ,向左低跃，回身一击。, ,fight,,
-100,186,noOne,, ,,caimAttack1 ,------, ,fight,,
+100,186,noOne,, ,,caimAttack1 ,------, ,fight,knife1,
 100,187,noOne,, ,,blood1 ,有效....., ,fight,,
 100,188,noOne,, ,,blood1 ,再来一击！, ,fight,,
 100,189,darkPlume_normal,,darkPlume_normal,,blood1 ,吼！！！！！！！！！！, ,fight,,
 100,190,noOne,, darkPlume_normal ,,street_Dark,不好！, ,fight,,
 100,191,noOne,, darkPlume_normal ,,street_Dark ,准备好架势，格挡这一击，然后反杀。, ,fight,,
 100,192,darkPlume_normal,, ,,darkAttack1  ,吼！！！！！, ,fight,,
-100,193,noOne,, darkPlume_normal ,,darkAttack1  ,好，抵挡住了..., ,fight,,
+100,193,noOne,, darkPlume_normal ,,darkAttack1  ,好，抵挡住了..., ,fight,knife3,
 100,194,darkPlume_normal, ,,darkAttack2  ,吼！！！！！, ,fight,,
 100,195,noOne,,   ,,darkAttack2 ,可恶，居然是二连击！, ,fight,,
 100,196,darkPlume_normal,,darkPlume_normal,,darkAttack2  ,吼！！！！！, ,fight,,
 100,197,noOne,,   ,,darkAttack2  , 这一招，怎么解决？, ,fight,,
 //分支110
 110,001,noOne,,   ,,darkAttack2  , 立刻，向左闪避。,闪避 ,fight,,
-110,002,noOne,,   ,,darkAttack2  , 避开了这一击，再一次回身斩。,  ,fight,,
+110,002,noOne,,   ,,darkAttack2  , 避开了这一击，再一次回身斩。,  ,fight,knife2,
 110,003,noOne,,   ,,blood1 , 很好，击中腰身。,  ,fight,,
 110,004,darkPlume_normal,,darkPlume_normal,,street_Dark ,啊啊啊！！！, ,fight,,
 110,005,noOne,,   ,,street_Dark, 黑羽迅速飞起离去。,  ,fight,,
@@ -249,11 +249,12 @@
 110,011,noOne,,   ,,street_Dark, 算是捡回一条性命。,  ,fight,,200000
 //转下一个剧本
 
-
-120,001,noOne,,   ,,darkAttack2  , 举起匕首招架。, 招架 ,fight,, 
+//这是一个非常简短的死亡bad end
+120,001,noOne,,   ,,darkAttack2  , 举起匕首招架。, 招架 ,fight,knife4, 
 120,002,Caim,,   ,,blood2 , 啊！ ..... ,   ,fight,, 
 120,003,noOne,,   ,,blood2  , 我的右手被黑羽斩断。,  ,fight,, 
 120,004,noOne,,   ,,blood2  , 迅速反击的左手被也被折断....,  ,fight,, 
-120,005,noOne,,   ,,blood2  , ....接下来我看到了我没有头的身体....,  ,fight,, 
-120,006,noOne,,,,changeBack ,---------, ,fight,,
-120,006,noOne,,,,badEnd,---------, ,badEnd,,
+120,005,noOne,,   ,,blood2  , ....接下来我看到了我没有头的身体....,  ,fight,,
+120,006,noOne,,   ,,blood2  ,  啊啊....我居然....就这么死了......,  ,fight,,  
+120,007,noOne,,,,changeBack ,---------, ,fight,,
+120,008,noOne,,,,badEnd,---------, ,badEnd,,

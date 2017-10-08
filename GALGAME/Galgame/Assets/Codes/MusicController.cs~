@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//这个类抓木门用于控制背景音乐和音效
+//这个类抓木门用于控制背景音乐 
 public class MusicController : MonoBehaviour {
 
 	private AudioSource theBackMusicController;
