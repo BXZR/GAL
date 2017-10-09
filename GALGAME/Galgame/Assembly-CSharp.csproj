@@ -53,6 +53,7 @@
      <Compile Include="Assets\Codes\choice.cs" />
      <Compile Include="Assets\Codes\choiceController.cs" />
      <Compile Include="Assets\Codes\extra\REController.cs" />
+     <Compile Include="Assets\Codes\extra\effectSlowIn.cs" />
      <Compile Include="Assets\Codes\extra\informationPanel.cs" />
      <Compile Include="Assets\Codes\extra\movieController.cs" />
      <Compile Include="Assets\Codes\extra\startController.cs" />

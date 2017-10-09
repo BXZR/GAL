@@ -87,7 +87,7 @@
 100,062,  noOne,jik_happy , alice_happy ,,street ,  昨晚是梅尔特康复之后的庆祝宴会。 ,,jik,,
 100,063,  noOne,jik_happy , alice_happy ,,street , 吉克是喝的最开心的。 ,,jik,,
 100,064,  noOne,jik_happy , alice_happy ,,street , 如果能把他和梅尔特撮合在一起，倒也真是不错。 ,,jik,,
-100,065,  noOne,jik_happy , alice_happy ,,street , 糟糕，有一点体会到艾丽斯的邪恶想法了......近朱者赤啊... ,,jik,,
+100,065,  noOne,jik_happy , alice_happy ,,street , 糟糕，有一点体会到艾丽斯的邪恶想法了...近朱者赤啊... ,,jik,,
 
 //梅尔特登场
 100,066,  mert_normal ,jik_happy , alice_happy ,mert_normal ,street , 你们昨天疯了一晚上。 ,,jik,,
@@ -168,7 +168,7 @@
 100,134 ,alice_heavy ,jik_heavy ,alice_heavy ,,bar , 我也一起去。, ,heavy,,
 
 //检查阿三的尸体
-100,135,noOne,,,,changeBack ,------, ,heavy,,
+100,135,noOne,,,,changeBack ,-----, ,heavy,,
 100,136,noOne,,,,killScene ,...., ,heavy,, 
 100,137,noOne,,,,killScene ,尸体横躺在小巷的深处，现场没有被破坏。, ,heavy,, 
 100,138,noOne,,,,killScene ,血腥的味道仍然残留在空气中。, ,heavy,, 
@@ -176,7 +176,7 @@
 100,140,noOne,,,,killScene ,似曾相识......, ,heavy,, 
 100,141,noOne,,,,killScene ,不....这的确就是黑羽的攻击。, ,heavy,, 
 100,142 ,alice_heavy , ,  ,,killScene, 我来看一看。, ,heavy,,
-100,143,noOne,,,,changeBack ,----, ,heavy,,
+100,143,noOne,,,,changeBack ,---, ,heavy,,
 100,144 ,alice_heavy ,alice_heavy ,  ,,killScene, 一击毙命。, ,heavy,,
 100,145 ,alice_heavy , alice_heavy,  ,,killScene, 他应该...死得没有痛苦。, ,heavy,,
 100,146 ,alice_heavy , alice_heavy,  ,,killScene, 很像是之前黑羽的攻击。, ,heavy,,

@@ -19,6 +19,7 @@ public class UIController : MonoBehaviour {
 	public GameObject theShowText;//用于显示说话内容的下面的文本框组
 
 	public SpriteRenderer theBackPicture;//背景大图
+	public effectSlowIn theForwardPicture;//前置的大图（用来做渐入效果）
 	public SpriteRenderer [] bigPeoplePictures;//说话的时候的人物大图
 
 	//public Image theShowPictureInSceen;//用于显示在场景里的大人物图
@@ -147,10 +148,25 @@ public class UIController : MonoBehaviour {
 			{
 				//print ("back picture change");
 				theBackName = theItem.theBackPictureName;
-				theBackPicture.sprite = makeLoadSprite ("backPicture/"+ theBackName);
+				if (theBackName != "changeBack")
+				{
+					theBackPicture.sprite = makeLoadSprite ("backPicture/" + theBackName);
+				} 
+				else 
+				{
+					//这个转换是一个非常细节的转换，需要保证转换的时间要比下一个剧本帧的转换时间短，要不然会出现图片转换会出现问题
+					Invoke ("waitChangeInvoke", theItem.waitTimeForAutoSkip * 0.5f / Time.timeScale);
+					theForwardPicture.makeChange (theItem.waitTimeForAutoSkip*1.6f);
+				}
 			}
 
 		}
+	}
+
+	//延时转换2（在这里不太推荐协程，似乎对事件的控制有一点不妙）
+	private void waitChangeInvoke()
+	{
+		theBackPicture.sprite = makeLoadSprite ("backPicture/changeBack");
 	}
 
 	public Sprite makeLoadSprite(string textureName)

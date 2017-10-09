@@ -230,6 +230,8 @@ public class thePlot : MonoBehaviour {
 		//所以用这种方法区分点击在不同位置的功能
 		//点击到UI上就立即完成本剧本元素的显示，并且触发UI的事件
 		//点击到不是UI的地方，第一次可以完成本剧本元素的显示，下一次点击可以跳到下一个剧本元素
+		if (!systemInformations.canControll)
+			return;//有些时候是不能控制的，例如转场
 		switch (type)
 		{
 		  case 0: //不是UI操作
@@ -319,14 +321,13 @@ public class thePlot : MonoBehaviour {
 
 		if (Application.platform != RuntimePlatform.Android) 
 		{
-			if (Input.GetKey (KeyCode.LeftControl))
-			{
-				Time.timeScale = speedModeTimeScale;
-			}
-			if (Input.GetKeyUp (KeyCode.LeftControl)) 
-			{
-				Time.timeScale = normalModeTimeScale ;
-			}
+				if (Input.GetKey (KeyCode.LeftControl)) {
+					Time.timeScale = speedModeTimeScale;
+				}
+				if (Input.GetKeyUp (KeyCode.LeftControl)) {
+					Time.timeScale = normalModeTimeScale;
+				}
+
 		}
 	}
 }
