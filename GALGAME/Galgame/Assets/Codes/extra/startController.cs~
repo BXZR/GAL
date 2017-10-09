@@ -26,12 +26,15 @@ public class startController : MonoBehaviour {
 			{
 				//因为安卓版本的视频播放实际上是使用了另一个程序，所以在播放的过程中就可以将主界面打开了
 				UIUseRoot.gameObject.SetActive (true);
-				DarkStarter.gameObject.SetActive (false);
+				Invoke ("shutDarkStarter" , 1f);//效果就是为了黑屏一秒（但是说实话这个其实也有一点画蛇添足，在update里面已经做了）
 			}
 		}
 	}
 
-
+	void shutDarkStarter()
+	{
+		DarkStarter.gameObject.SetActive (false);
+	}
 	void makeStart()
 	{
 		DarkStarter.gameObject.SetActive (false);
@@ -45,11 +48,18 @@ public class startController : MonoBehaviour {
 
 
 
+	float timer = 0f;//需要等待一段时间否则不可以有效果
+	float timerMax = 1f;//一个简单的阀值
 	// Update is called once per frame
-	void Update () {
-		if (Input.anyKey || Input .GetMouseButtonDown(0))
+	void Update () 
+	{
+		timer += Time.deltaTime;
+		if (timer > timerMax)
 		{
-			makeStart ();
+			if (Input.anyKey || Input.GetMouseButtonDown (0)) 
+			{
+				makeStart ();
+			}
 		}
 	}
 }

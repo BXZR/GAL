@@ -150,6 +150,7 @@ public class UIController : MonoBehaviour {
 				theBackName = theItem.theBackPictureName;
 				if (theBackName != "changeBack")
 				{
+					//print ("change the back");
 					theBackPicture.sprite = makeLoadSprite ("backPicture/" + theBackName);
 				} 
 				else 
@@ -167,6 +168,7 @@ public class UIController : MonoBehaviour {
 	private void waitChangeInvoke()
 	{
 		theBackPicture.sprite = makeLoadSprite ("backPicture/changeBack");
+
 	}
 
 	public Sprite makeLoadSprite(string textureName)
