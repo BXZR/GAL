@@ -11,7 +11,7 @@ public class startButtons : MonoBehaviour {
 	public void makeStart()
 	{
 		loadMemory = false;
-		SceneManager.LoadScene ("gal_1");
+		SceneManager.LoadScene ("forFront");
 	}
 
 	//带存档的开始

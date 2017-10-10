@@ -17,6 +17,7 @@ public class soundController : MonoBehaviour {
  
 	public void playSound(thePlotItem InP)
 	{
+		theSource.Stop ();
 		string nameIn = InP.soundName;
          if (string.IsNullOrEmpty (nameIn))
 				return;

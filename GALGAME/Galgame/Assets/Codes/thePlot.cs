@@ -275,6 +275,7 @@ public class thePlot : MonoBehaviour {
 
 	void Start () 
 	{
+		
 		makeAllStart ();
 		//首先要为所有的控制单元初始化一个被控制的剧本元素
 		if (startButtons.loadMemory) {
