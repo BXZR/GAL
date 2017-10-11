@@ -22,6 +22,7 @@ public class movieController : MonoBehaviour {
 		{
 		//绘制电影纹理
 			#if PC
+			Screen.fullScreen = false;
 			GUI.DrawTexture (new Rect (0,0, Screen.width, Screen.height),movTexture,ScaleMode.StretchToFill);  
 			//播放/继续播放视频
 			if(!movTexture.isPlaying)
@@ -60,21 +61,29 @@ public class movieController : MonoBehaviour {
 	{
 		string thePath;
 		//打算用streamingAsset来做存档，文件的路径不同需要做一下区分
+		#if PC
+		Invoke("changeToStart" , 0.1f);//做一个延迟来消除分辨率错误
+		#else
 		if (Application.platform == RuntimePlatform.Android)
 		{
 			Handheld.PlayFullScreenMovie ("OP2.mp4",Color .black,FullScreenMovieControlMode.Hidden);
 		} 
-		else
-		{
-			startOnPC = true;
-		}
+		#endif
 
 
 	}
 
+	void changeToStart()
+	{
+		startOnPC = true;
+	}
+
 	void endMovio()
 	{
+		#if PC
+		#else
 		Handheld.StopActivityIndicator ();
+		#endif
 	}
 		
 	void Update () {
