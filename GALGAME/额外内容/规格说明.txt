@@ -1,0 +1,4 @@
+backpicture-- pivots bottom left maxsize 1024
+music-- ÖÁÉÙÑ¹ËõÂÊ75%
+big-- max size 1024
+small-- max size 512
