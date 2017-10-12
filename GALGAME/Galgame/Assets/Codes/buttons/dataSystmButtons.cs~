@@ -76,7 +76,7 @@ public class dataSystmButtons : MonoBehaviour {
 
 	public void  UseChildSysPanelOpen()
 	{
-		print ("isChildPanelShows = " + isChildPanelShows);
+		//print ("isChildPanelShows = " + isChildPanelShows);
 		isChildPanelShows = !isChildPanelShows;
 		theChildPanel.gameObject.SetActive (isChildPanelShows);
 

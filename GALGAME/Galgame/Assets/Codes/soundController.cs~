@@ -27,13 +27,13 @@ public class soundController : MonoBehaviour {
 		AudioClip 	theClip = Resources .Load("Sounds/"+ nameIn) as AudioClip;
 		if (theClip == null  ) 
 		{
-			print ("没有加载成功");
+			//print ("没有加载成功");
 			return;
 		}
 		else 
 		{
 			theSource.PlayOneShot (theClip);
-			print ("play sound");
+			//print ("play sound");
 		}
  
 	}
