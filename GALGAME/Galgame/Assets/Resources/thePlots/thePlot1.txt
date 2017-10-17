@@ -246,7 +246,7 @@
 110,008,noOne,,   ,,street_Dark, 实际上我接不下他的下一次攻击。,  ,fight,,
 110,009,noOne,,   ,,street_Dark, 右手，已经难以挥动了。,  ,fight,,
 110,010,noOne,,   ,,street_Dark, 还好这位【黑羽】没有战斗的技巧....,  ,fight,,
-110,011,noOne,,   ,,street_Dark, 算是捡回一条性命。,  ,fight,,200000
+110,011,noOne,,   ,,street_Dark, 要不然我也不能全身而退。,  ,fight,,200000
 //转下一个剧本
 
 //这是一个非常简短的死亡bad end
