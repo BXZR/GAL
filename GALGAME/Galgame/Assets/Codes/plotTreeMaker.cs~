@@ -28,6 +28,9 @@ public class plotTreeMaker : MonoBehaviour {
 
 	private Transform theRootTranform;//保留一个树根的引用，用于返回和控制器连接在一起
 
+	//这是一个用于缓冲的List
+	List<thePlotItem> theBranch ;
+
 	public  Transform  makeATree(TextAsset thePlot)
 	{
 		theStartItems = new List<thePlotItem> ();
@@ -97,6 +100,7 @@ public class plotTreeMaker : MonoBehaviour {
 				//print("====="+player1 +"======"+player2 +"======"+player3);
 				theItem .makeCreate2(player1 , player2 , player3,musicName ,soundName,aimID);
 				theStartItems.Add (theItem);//直接按照分支进行整理，但是顺序和父子关系在这一步还没有确定
+
 			}
 			catch
 			{
@@ -122,8 +126,7 @@ public class plotTreeMaker : MonoBehaviour {
 		}
 		theStartItemSaver = new Dictionary<int, List<thePlotItem>> ();
 
-		//这是一个用于缓冲的List
-		List<thePlotItem> theBranch ;
+
 		for(int i = 0; i < theIDS.Count ; i++)
 		{
 			theBranch = new List<thePlotItem> ();
@@ -133,16 +136,30 @@ public class plotTreeMaker : MonoBehaviour {
 				if (theStartItems [j].thePlotBranchID == theIDS [i])
 				{
 					theBranch.Add (theStartItems [j]);
+				
 				}
 			}
 			theStartItemSaver.Add (theIDS [i], theBranch);
 		}
 
+		//测试用的输出方法
+		//		for(int i= 0;i< theStartItemSaver[theIDS [0]] .Count ; i++)
+		//		{
+		//			print (theStartItemSaver[theIDS [0]][i].theBranchTalkID +" ------ ");
+		//		}
+
 		//字典的每一个分支内部排序
 		for (int i = 0; i < theIDS.Count; i++)
 		{
 			theBranch = theStartItemSaver[theIDS[i]];//获得这个分支的所有item用来排序
-			sort(theBranch);
+			//sort(theBranch);
+			quickSort(theBranch, 0,theBranch.Count - 1);
+
+			//测试用的输出方法
+			//string show = "";
+			//for (int j = 0; j < theBranch.Count; j++)
+			//	show  += theBranch[j].theBranchTalkID+"  ";
+			//print (show);
 		}
 	}
 
@@ -152,9 +169,9 @@ public class plotTreeMaker : MonoBehaviour {
 	{
 		for (int i = 0; i < theP.Count; i++) 
 		{
-			for(int j = 0;j< theP .Count ; j++)
+			for(int j = i;j< theP .Count ; j++)
 			{
-				if(theP[i].theBranchTalkID < theP [j].theBranchTalkID)
+				if(theP[i].theBranchTalkID > theP [j].theBranchTalkID)
 				{
 					thePlotItem temp = theP[j];
 					theP [j] = theP [i];
@@ -163,9 +180,32 @@ public class plotTreeMaker : MonoBehaviour {
 
 			}
 		}
+		//输出检查排序是否完成
+		//for (int i = 0; i < theP.Count; i++)
+		//	print (theP[i] +"  ");
 	}
 
-
+	void quickSort(List <thePlotItem> theP ,int low,int high)
+	{
+		if(low>= high)
+			return;
+		
+		int first = low;
+		int last = high;
+		thePlotItem keyValue = theP[low];
+		while(low<high)
+		{
+			while(low<high && theP [high].theBranchTalkID >=  keyValue.theBranchTalkID)
+				high--;
+			theP [low] = theP [high];
+			while(low<high && theP [low].theBranchTalkID <= keyValue.theBranchTalkID)
+				low++;
+			theP [high] = theP [low];
+		}
+		theP [low] = keyValue;
+		quickSort(theP , first, low - 1);
+		quickSort(theP , low + 1, last); 
+	}
 
 	//建立游戏物体的父子关系
 	//单个分支之间的父子关系
