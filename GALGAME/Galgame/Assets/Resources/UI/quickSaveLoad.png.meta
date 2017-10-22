@@ -1,16 +1,11 @@
 fileFormatVersion: 2
-guid: 20a7f54fcc7bfe44c88b2d4f0c72e84e
-timeCreated: 1505324255
+guid: 2fd722e0ad2415a449b0bad18d7a9b97
+timeCreated: 1508638510
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: dataSystem_0
-    21300002: dataSystem_1
-    21300004: dataSystem_2
-    21300006: dataSystem_3
-    21300008: dataSystem_4
-    21300010: dataSystem_5
-    21300012: dataSystem_6
+    21300000: quickSaveLoad_0
+    21300002: quickSaveLoad_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -93,91 +88,26 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dataSystem_0
+      name: quickSaveLoad_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 297
-        width: 98
-        height: 68
+        x: 5
+        y: 85
+        width: 96
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dataSystem_1
+      name: quickSaveLoad_1
       rect:
         serializedVersion: 2
-        x: 163
-        y: 296
-        width: 98
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: dataSystem_2
-      rect:
-        serializedVersion: 2
-        x: 307
-        y: 120
-        width: 155
-        height: 259
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: dataSystem_3
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 217
-        width: 98
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: dataSystem_4
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 163
-        width: 127
-        height: 113
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: dataSystem_5
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 138
-        width: 98
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: dataSystem_6
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 58
-        width: 98
-        height: 68
+        x: 5
+        y: 5
+        width: 96
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

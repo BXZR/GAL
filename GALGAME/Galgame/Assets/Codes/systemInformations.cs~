@@ -18,5 +18,10 @@ public class systemInformations : MonoBehaviour {
 		}
 		return "???";
 	}
+
+	//----------------------system panel的相关记录逻辑---------------------------//
+	public static  bool isAutoWait = true;//剧本到时间自动跳转
+	public static bool isThePanelShows = false;//存档面板是不是显示了
+	public static bool isChildPanelShows = false;//有一个字panel用来存储一些不是很常用的按钮
 		
 }

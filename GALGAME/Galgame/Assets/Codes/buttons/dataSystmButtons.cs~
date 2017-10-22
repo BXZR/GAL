@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//这个类专门用于保留屏幕右侧的三个按钮
+//这个类专门用于保留屏幕右侧的按钮
 //文件存储系统的按钮事件方法
 using UnityEngine.UI;
 
@@ -15,13 +15,6 @@ public class dataSystmButtons : MonoBehaviour {
 	private saveLoadController theDataController;//文件存储系统的控制器
 	private thePlot thePlotController;//剧本控制器
 
-	public Sprite theAutoPicture;//自动运行的图
-	public Sprite theNotAutoPicture;//不自动运行的图
-
-	private static bool isThePanelShows = false;//存档面板是不是显示了
-	private static bool isChildPanelShows = false;//有一个字panel用来存储一些不是很常用的按钮
-
-	// Use this for initialization
 	void Start () {
 		theDataController = theAllController.GetComponent <saveLoadController> ();
 		thePlotController = theAllController.GetComponent <thePlot> ();
@@ -46,13 +39,13 @@ public class dataSystmButtons : MonoBehaviour {
 	{
 
 		//核心是下面这两句
-		isThePanelShows = !isThePanelShows;
-		thePanelForDataSystem.gameObject.SetActive (isThePanelShows);
-		if (isThePanelShows == false) 
+		systemInformations . isThePanelShows = !systemInformations . isThePanelShows;
+		thePanelForDataSystem.gameObject.SetActive (systemInformations . isThePanelShows);
+		if (systemInformations . isThePanelShows == false) 
 		{
 			if (theChildPanel) 
 			{
-				isChildPanelShows = false;
+				systemInformations . isChildPanelShows = false;
 				theChildPanel.gameObject.SetActive (false);
 			} 
 			else 
@@ -77,26 +70,9 @@ public class dataSystmButtons : MonoBehaviour {
 	public void  UseChildSysPanelOpen()
 	{
 		//print ("isChildPanelShows = " + isChildPanelShows);
-		isChildPanelShows = !isChildPanelShows;
-		theChildPanel.gameObject.SetActive (isChildPanelShows);
-
-
+		systemInformations . isChildPanelShows = !systemInformations . isChildPanelShows;
+		theChildPanel.gameObject.SetActive (systemInformations . isChildPanelShows);
 	}
 
-	//是否开启自动模式
-	//所谓自动模式就是一个人说完话之后一段时间之后自动跳转到下一句对话
-	public void autoSwitcher()
-	{
-		thePlotController.isAutoWait = !thePlotController.isAutoWait;
-		if (thePlotController.isAutoWait) 
-		{
-			this.GetComponent <Image> ().sprite = theAutoPicture;
-			informationPanel.showInformation ("开启自动播放模式");
-		} 
-		else 
-		{
-			this.GetComponent <Image> ().sprite = theNotAutoPicture;
-			informationPanel.showInformation ("关闭自动播放模式");
-		}
-	}
+
 }

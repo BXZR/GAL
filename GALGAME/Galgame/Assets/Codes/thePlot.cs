@@ -27,8 +27,6 @@ public class thePlot : MonoBehaviour {
 
 	//不使用invoke因为这个需要非常频繁地开关
 	public float watiForSkipTimer = 1000;
-	public bool isAutoWait = true;//默认自动开启自动跳转模式
-
 	private thePlotItem  theItemNow = null;//当前控制的剧本帧引用 
 
 	//其实就是跳转用，一开始的时候可以跳转到不同的地方
@@ -308,7 +306,7 @@ public class thePlot : MonoBehaviour {
 		//这是自动跳转的处理，用的是一个统一的时间
 		//如果这个时候玩家点击鼠标，调用了moveToNextItem ();
 		//时间就会刷新
-		if (isAutoWait) 
+		if (systemInformations. isAutoWait) 
 		{
 			if (watiForSkipTimer > 0)
 			{

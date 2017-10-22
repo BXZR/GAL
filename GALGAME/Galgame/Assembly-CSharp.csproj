@@ -62,6 +62,7 @@
      <Compile Include="Assets\Codes\saveLoadController.cs" />
      <Compile Include="Assets\Codes\soundController.cs" />
      <Compile Include="Assets\Codes\systemInformations.cs" />
+     <Compile Include="Assets\Codes\systemUI\systemButtons.cs" />
      <Compile Include="Assets\Codes\textController.cs" />
      <Compile Include="Assets\Codes\thePlot.cs" />
      <Compile Include="Assets\Codes\thePlotItem.cs" />
