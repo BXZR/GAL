@@ -38,8 +38,6 @@ public class thePlotItem : MonoBehaviour {
 
 	public int aimPlotItemID = 0;//支持随意跳转，这一项标记目标plotItem的ID
 
-	public float timeWait = 0.35f;//每一次按照说话的长度判断是持续时间(这个数值要比textController的theFlashWaitTime要长才可以)
-
 	//果然还是更喜欢使用局本树的方法处理
 	private  List<thePlotItem>  theChildItems ;//子控制单元 
 
@@ -56,7 +54,7 @@ public class thePlotItem : MonoBehaviour {
 		theTitleName = titleIn;
 		thePlotItemID = thePlotBranchID * 1000 + theBranchTalkID;
 		this.gameObject.name = thePlotBranchID + "_" + theBranchTalkID;
-		waitTimeForAutoSkip = theTalkInformation.Length * timeWait;
+		waitTimeForAutoSkip = theTalkInformation.Length * systemInformations .plotTimeWait;
 
 	}
 	public void makeCreate2(string player1, string player2 , string player3, string musicNameIn ,string soundNameIn,int  aimID )

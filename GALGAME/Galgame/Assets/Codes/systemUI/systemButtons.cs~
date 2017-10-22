@@ -5,8 +5,6 @@ using UnityEngine;
 //这个类专门用于处理在system大面板中需要处理的按钮逻辑
 //而且仅限于逻辑控制按钮
 using UnityEngine.UI;
-
-
 public class systemButtons : MonoBehaviour {
 
 	//是否开启自动模式
@@ -23,6 +21,22 @@ public class systemButtons : MonoBehaviour {
 		{
 			informationPanel.showInformation ("关闭自动播放模式");
 			this.GetComponentInChildren<Text> ().text = "已关闭";
+		}
+	}
+
+	//存档还是读档
+	public void saveLoadSwitcher()
+	{
+		systemInformations. isSaving = !systemInformations. isSaving;
+		if (systemInformations. isSaving) 
+		{
+			informationPanel.showInformation ("切换为存档模式");
+			this.GetComponentInChildren<Text> ().text = "存档";
+		} 
+		else 
+		{
+			informationPanel.showInformation ("切换为读档模式");
+			this.GetComponentInChildren<Text> ().text = "读档";
 		}
 	}
 }

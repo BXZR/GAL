@@ -28,7 +28,7 @@ public class saveLoadController : MonoBehaviour {
 	public void loadItem(int saveID = 0)//0,1,2号码的存档
 	{
 		
-		if (saveID > 2 || saveID < 0)
+		if (saveID > 9 || saveID < 0)
 			return;
 		string informationGet =  loadInformation(getPath(saveID));
 		if (string.IsNullOrEmpty (informationGet)) 
@@ -73,7 +73,7 @@ public class saveLoadController : MonoBehaviour {
 	//这个用于强制跳转
 	public void loadItemForSkip(int aimID)//0,1,2号码的存档
 	{
-		print ("dddd");
+		//print ("dddd");
 		int theItemID = aimID;
 		int thePlotID = theItemID / 100000;
 
@@ -126,8 +126,10 @@ public class saveLoadController : MonoBehaviour {
 			//当然PC端两种方法都可以了
 			//但是为了保持统一，也方便测试，暂时只使用datapath
 			//thePath = Application.dataPath + "/StreamingAssets/save" + saveID + ".txt";
+			//C:\Users\Administrator\AppData\LocalLow\suck\Galgame
 			thePath = Application .persistentDataPath+"/save" + saveID +".txt";
 		}
+		//print (thePath);
 		return thePath;
 	}
 

@@ -85,9 +85,19 @@ public class textController : MonoBehaviour {
 
 	void Start () 
 	{
-		InvokeRepeating ("makeShowUpdate",0,theFlashWaitTime);
+
 	}
 
+
+	void Update ()
+	{
+		theFlashWaitTime -= Time.deltaTime;
+		if (theFlashWaitTime < 0) 
+		{
+			theFlashWaitTime = systemInformations.textShowTime;
+			makeShowUpdate ();
+		}
+	}
 	void OnDestroy()//非常必要
 	{
 		CancelInvoke ();//取消Invoke调用

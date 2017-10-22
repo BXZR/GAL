@@ -23,5 +23,17 @@ public class systemInformations : MonoBehaviour {
 	public static  bool isAutoWait = true;//剧本到时间自动跳转
 	public static bool isThePanelShows = false;//存档面板是不是显示了
 	public static bool isChildPanelShows = false;//有一个字panel用来存储一些不是很常用的按钮
-		
+	public static bool isSaving = true;//true表示存档，false表示读档
+	//每一次按照说话的长度判断是持续时间(这个数值要比textController的theFlashWaitTime要长才可以)
+	public static float plotTimeWait = 0.35f;//剧本中每一个字的时间长度
+	//将全局变量赋值成初始值
+	public static float textShowTime = 0.2f;//文本显示的时候每一个字的弹出速度
+	public static  void  makeFlush()
+	{
+		isAutoWait = true;//剧本到时间自动跳转
+		isThePanelShows = false;//存档面板是不是显示了
+		isChildPanelShows = false;//有一个字panel用来存储一些不是很常用的按钮
+		isSaving = true;//true表示存档，false表示读档
+	}
+
 }

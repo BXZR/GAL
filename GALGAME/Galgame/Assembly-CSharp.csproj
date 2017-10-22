@@ -56,22 +56,23 @@
      <Compile Include="Assets\Codes\extra\effectSlowIn.cs" />
      <Compile Include="Assets\Codes\extra\informationPanel.cs" />
      <Compile Include="Assets\Codes\extra\movieController.cs" />
+     <Compile Include="Assets\Codes\extra\saveLoadPicture.cs" />
      <Compile Include="Assets\Codes\extra\startController.cs" />
      <Compile Include="Assets\Codes\loadSceneController.cs" />
      <Compile Include="Assets\Codes\plotTreeMaker.cs" />
      <Compile Include="Assets\Codes\saveLoadController.cs" />
      <Compile Include="Assets\Codes\soundController.cs" />
      <Compile Include="Assets\Codes\systemInformations.cs" />
+     <Compile Include="Assets\Codes\systemUI\saveButtons.cs" />
+     <Compile Include="Assets\Codes\systemUI\soundSliders.cs" />
      <Compile Include="Assets\Codes\systemUI\systemButtons.cs" />
+     <Compile Include="Assets\Codes\systemUI\textSpeedSlider.cs" />
      <Compile Include="Assets\Codes\textController.cs" />
      <Compile Include="Assets\Codes\thePlot.cs" />
      <Compile Include="Assets\Codes\thePlotItem.cs" />
-     <None Include="Assets\StreamingAssets\save1.txt" />
-     <None Include="Assets\StreamingAssets\save0.txt" />
      <None Include="Assets\Resources\thePlots\thePlot2.txt" />
      <None Include="Assets\Resources\thePlots\thePlot1.txt" />
      <None Include="Assets\save0.txt" />
-     <None Include="Assets\StreamingAssets\save2.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity3D 5.6.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

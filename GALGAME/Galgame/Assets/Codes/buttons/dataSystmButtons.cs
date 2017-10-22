@@ -25,13 +25,13 @@ public class dataSystmButtons : MonoBehaviour {
 		//事实上为了简化操作仅仅使用了一个存档，当然可以扩展，但是手机端没什么必要
 		//所以为了统一处理就暂时仅仅设置呢一个存档
 		theDataController.saveItem (thePlotController .TheItemNow,0);
-		informationPanel.showInformation ("存档成功");
+		informationPanel.showInformation ("快速存档成功");
 	}
 
 	public void loadDate()
 	{
 		theDataController.loadItem (0);
-		informationPanel.showInformation ("读档成功");
+		informationPanel.showInformation ("快速读档成功");
 	}
 
 	
