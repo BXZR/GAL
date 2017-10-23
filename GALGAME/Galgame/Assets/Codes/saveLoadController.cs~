@@ -30,7 +30,14 @@ public class saveLoadController : MonoBehaviour {
 		
 		if (saveID > 9 || saveID < 0)
 			return;
-		string informationGet =  loadInformation(getPath(saveID));
+
+		string thePath = getPath (saveID);
+		if (!File.Exists (thePath)) 
+		{
+			print ("The path is not right : " + thePath);
+			return;
+		}
+		string informationGet =  loadInformation(thePath);
 		if (string.IsNullOrEmpty (informationGet)) 
 		{
 			//读取的信息不能用

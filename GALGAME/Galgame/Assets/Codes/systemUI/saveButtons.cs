@@ -29,6 +29,15 @@ public class saveButtons : MonoBehaviour {
 		makeFlash ();
 	}
 
+
+
+	public void  quickSave()
+	{
+		theDataController.saveItem (thePlotController .TheItemNow,saveIndex);
+		savePicture ();
+		StartCoroutine (loadPicture());
+		informationPanel.showInformation ("存档");
+	}
 	public void  makeSaveOrLoad()
 	{
 		if (systemInformations.isSaving) 
@@ -36,12 +45,12 @@ public class saveButtons : MonoBehaviour {
 			theDataController.saveItem (thePlotController .TheItemNow,saveIndex);
 			savePicture ();
 			StartCoroutine (loadPicture());
-			informationPanel.showInformation ("存档成功");
+			informationPanel.showInformation ("存档");
 		} 
 		else
 		{
 			theDataController.loadItem (saveIndex);
-			informationPanel.showInformation ("读档成功");
+			informationPanel.showInformation ("读档");
 		}
 			
 	}

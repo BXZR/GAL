@@ -50,6 +50,7 @@
      <Compile Include="Assets\Codes\UIController.cs" />
      <Compile Include="Assets\Codes\buttons\dataSystmButtons.cs" />
      <Compile Include="Assets\Codes\buttons\startButtons.cs" />
+     <Compile Include="Assets\Codes\buttons\startOpenShutButton.cs" />
      <Compile Include="Assets\Codes\choice.cs" />
      <Compile Include="Assets\Codes\choiceController.cs" />
      <Compile Include="Assets\Codes\extra\REController.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Codes\saveLoadController.cs" />
      <Compile Include="Assets\Codes\soundController.cs" />
      <Compile Include="Assets\Codes\systemInformations.cs" />
+     <Compile Include="Assets\Codes\systemUI\fontButton.cs" />
      <Compile Include="Assets\Codes\systemUI\saveButtons.cs" />
      <Compile Include="Assets\Codes\systemUI\soundSliders.cs" />
      <Compile Include="Assets\Codes\systemUI\systemButtons.cs" />

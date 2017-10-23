@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -105,8 +105,8 @@ MonoBehaviour:
     y: 30
     width: 1680
     height: 918
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
   controlID: 10
 --- !u!114 &6
@@ -129,8 +129,8 @@ MonoBehaviour:
     y: 0
     width: 1680
     height: 918
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
   controlID: 11
 --- !u!114 &7
@@ -277,8 +277,8 @@ MonoBehaviour:
     y: 0
     width: 345
     height: 918
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 19}
@@ -394,7 +394,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 14eafbffcceafbff90ebfbff94ebfbff9eebfbffcc0dfcff860efcff4a0ffcff4e0ffcff580ffcffe0fbffff000000001c2800004a2800008a28000098280000d8280000fa290000042a0000be0b0100
+    m_ExpandedIDs: 5098fbff0a99fbffce99fbffac9afbffb09afbff38affbfff4affbffb8b0fbff96b1fbff9ab1fbff8ab4fbff68b7fbff10b8fbffd4b8fbffd8b8fbffe4b8fbff3e2dfcff76d2fcff2a06fdff2605feff6809feffe0fbffff000000002e28000074280000c42800002e2900007a2a0000842a0000a22a0000e43700000c38000098770000de770000fe7700002e7800003e780000a8790000e6790000f07900000e7a000048a40000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -413,7 +413,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
   m_ExpandedScenes:
-  - gal_1
+  - start
   m_CurrenRootInstanceID: 0
   m_Locked: 1
   m_CurrentSortingName: TransformSorting
@@ -449,9 +449,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 627.7443, y: 266.7215, z: 0}
+    m_Target: {x: 460.50357, y: 311.03323, z: 0}
     speed: 2
-    m_Value: {x: 627.7443, y: 266.7215, z: 0}
+    m_Value: {x: 460.50357, y: 311.03323, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -478,9 +478,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 728.2733
+    m_Target: 860.2031
     speed: 2
-    m_Value: 728.2733
+    m_Value: 860.2031
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -575,19 +575,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Codes/systemUI
+    - Assets/scenes
   m_ViewMode: 1
   m_StartGridSize: 85
   m_LastFolders:
-  - Assets/Codes/systemUI
+  - Assets/scenes
   m_LastFoldersGridSize: 85
   m_LastProjectPath: D:\gitWorks\Gal\GALGAME\Galgame
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4e270000
-    m_LastClickedID: 10062
-    m_ExpandedIDs: 00000000cc2400005c25000012260000cc260000de260000c82a000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 156}
+    m_SelectedIDs: 1a270000
+    m_LastClickedID: 10010
+    m_ExpandedIDs: 00000000d6240000642500001a2600009e260000d2260000e42600004e2b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -615,7 +615,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000cc2400005c25000012260000cc260000de260000c82a0000
+    m_ExpandedIDs: 00000000d6240000642500001a260000d2260000e42600004e2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

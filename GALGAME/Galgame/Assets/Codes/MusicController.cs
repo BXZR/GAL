@@ -30,6 +30,7 @@ public class MusicController : MonoBehaviour {
 		if(theBackMusicController == null)
 			theBackMusicController = this.GetComponent <AudioSource> ();
 		theBackMusicController.clip = theClipNow ;
+		 
 		theBackMusicController.Play ();
 		theBackMusicNameNow = nameIn;
 	}

@@ -7,8 +7,8 @@ using System.IO;
 public class saveLoadPicture : MonoBehaviour {
 
 	private  string path = "";//保存图片的位置
-	private  int width = 100;
-	private  int height = 80;
+	private  int width = 200;
+	private  int height = 160;
 
 	//缩放的过程
 	private Texture2D ScaleTexture(Texture2D source, int targetWidth, int targetHeight)

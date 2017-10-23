@@ -1,17 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\systemUI\textSpeedSlider.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\extra\saveLoadPicture.cs">
     <Files>
-      <File FileName="Assets\Codes\extra\saveLoadPicture.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\systemUI\saveButtons.cs" Line="22" Column="17" />
-      <File FileName="Assets\Codes\saveLoadController.cs" Line="160" Column="1" />
-      <File FileName="Assets\Codes\systemUI\soundSliders.cs" Line="9" Column="1" />
-      <File FileName="Assets\Codes\systemUI\textSpeedSlider.cs" Line="24" Column="44" />
-      <File FileName="Assets\Codes\systemInformations.cs" Line="20" Column="3" />
-      <File FileName="Assets\Codes\textController.cs" Line="93" Column="3" />
-      <File FileName="Assets\Codes\thePlot.cs" Line="78" Column="34" />
-      <File FileName="Assets\Codes\thePlotItem.cs" Line="57" Column="85" />
-      <File FileName="Assets\Codes\UIController.cs" Line="159" Column="42" />
+      <File FileName="Assets\Codes\buttons\startButtons.cs" Line="37" Column="15" />
+      <File FileName="Assets\Codes\thePlot.cs" Line="285" Column="69" />
+      <File FileName="Assets\Codes\systemUI\saveButtons.cs" Line="39" Column="43" />
+      <File FileName="Assets\Codes\buttons\startOpenShutButton.cs" Line="18" Column="1" />
+      <File FileName="Assets\Codes\saveLoadController.cs" Line="30" Column="3" />
+      <File FileName="Assets\Codes\systemUI\systemButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\buttons\dataSystmButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\soundController.cs" Line="35" Column="13" />
+      <File FileName="Assets\Codes\MusicController.cs" Line="40" Column="60" />
+      <File FileName="Assets\Codes\extra\saveLoadPicture.cs" Line="11" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class systemInformations : MonoBehaviour {
 
+	public  static bool loadMemory = false;//是否加载存档
+	public static int indexForLoad = -99;//存档的编号
 	public static bool canControll = true;//在渐入转场的时候鼠标是不可以有效果的
 	//think 是旁白，不显示人名的时候用
 	private static string [] proName = {"alice","fione","jik","Caim" ,"mert","fione", "aozi","noOne"} ;

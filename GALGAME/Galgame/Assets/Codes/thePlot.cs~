@@ -276,11 +276,18 @@ public class thePlot : MonoBehaviour {
 		
 		makeAllStart ();
 		//首先要为所有的控制单元初始化一个被控制的剧本元素
-		if (startButtons.loadMemory) {
+		if (systemInformations .loadMemory)
+		{
 			//因为只有一个应用的存档，倒是简单了
 			//说起来这个是自动存档的原理
-			this.theDataController.loadItem ();
-
+			if (systemInformations.indexForLoad >= 0 && systemInformations.indexForLoad <= 9) 
+			{//正确的存档编号
+				this.theDataController.loadItem (systemInformations.indexForLoad);
+			} 
+			else 
+			{
+				playTheItem(theItemNow);
+			}
 		} 
 		else if (startID > 0)
 		{
