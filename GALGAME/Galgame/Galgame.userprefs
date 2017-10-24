@@ -1,17 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\extra\saveLoadPicture.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\thePlots\thePlot2.txt">
     <Files>
-      <File FileName="Assets\Codes\buttons\startButtons.cs" Line="37" Column="15" />
-      <File FileName="Assets\Codes\thePlot.cs" Line="285" Column="69" />
-      <File FileName="Assets\Codes\systemUI\saveButtons.cs" Line="39" Column="43" />
-      <File FileName="Assets\Codes\buttons\startOpenShutButton.cs" Line="18" Column="1" />
-      <File FileName="Assets\Codes\saveLoadController.cs" Line="30" Column="3" />
+      <File FileName="Assets\Codes\buttons\startButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\thePlot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\systemUI\saveButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\buttons\startOpenShutButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\saveLoadController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\systemUI\systemButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\buttons\dataSystmButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\soundController.cs" Line="35" Column="13" />
       <File FileName="Assets\Codes\MusicController.cs" Line="40" Column="60" />
       <File FileName="Assets\Codes\extra\saveLoadPicture.cs" Line="11" Column="26" />
+      <File FileName="Assets\Resources\thePlots\thePlot2.txt" Line="134" Column="59" />
+      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="109" Column="56" />
+      <File FileName="Assets\Codes\UIController.cs" Line="178" Column="1" />
+      <File FileName="Assets\Codes\systemInformations.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
