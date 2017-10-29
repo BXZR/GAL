@@ -32,6 +32,11 @@ public class textController : MonoBehaviour {
 			}
 		//下面是具体的工作细节，上面是标记量
 		this.theInformation =  theItem .theTalkInformation;
+		//记录面板，作为已经读到的内容(分隔符不算)
+		if (theInformation.StartsWith ("---") == false) 
+		{
+			systemInformations.saveRead (showName + "\n" + theInformation);
+		}
 		indexNow = 0;//这个可以更稳妥地关掉显示文本的显示器
 		theShowString = "";
 	}

@@ -35,6 +35,7 @@ public class thePlotItem : MonoBehaviour {
 	public string [] thePartyplayers = {"" , "" , ""}; //在屏幕显示的一共可以有三个
 	public string musicName = "";//背景音乐名字
 	public string soundName = "";//音效名字
+	public string speakSoundName = "";//语音音效的名字
 
 	public int aimPlotItemID = 0;//支持随意跳转，这一项标记目标plotItem的ID
 
@@ -57,6 +58,7 @@ public class thePlotItem : MonoBehaviour {
 		waitTimeForAutoSkip = theTalkInformation.Length * systemInformations .plotTimeWait;
 
 	}
+	//扩展方法2
 	public void makeCreate2(string player1, string player2 , string player3, string musicNameIn ,string soundNameIn,int  aimID )
 	{
 		if(string .IsNullOrEmpty (player1))
@@ -75,6 +77,12 @@ public class thePlotItem : MonoBehaviour {
 		musicName = musicNameIn;
 		soundName = soundNameIn;
 		aimPlotItemID = aimID;
+	}
+
+	//扩展方法3
+	public void  makeCreate3(string theSpeakSoundNameIn)
+	{
+		speakSoundName = theSpeakSoundNameIn;
 	}
 
 	//这个方法在创建树的时候进行

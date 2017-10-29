@@ -23,6 +23,7 @@ public class thePlot : MonoBehaviour {
 
 	private MusicController theMusicController;//背景音乐控制单元
 	private soundController theSoundController;//音效控制单元
+	private soundController thePeopleSoundController;//语音音效控制单元
 	private saveLoadController theDataController;//存档控制单元，用于强制跳转
 
 	//不使用invoke因为这个需要非常频繁地开关
@@ -34,9 +35,7 @@ public class thePlot : MonoBehaviour {
 	public int startID = -99;//默认初始ID
 
 
-	//控制时间速度
-	private float speedModeTimeScale= 17.0f;
-	private float normalModeTimeScale = 1.0f;
+
 
 	public thePlotItem TheItemNow
 	{
@@ -87,10 +86,10 @@ public class thePlot : MonoBehaviour {
 		theUIController = this.GetComponent <UIController>();//非文本显示的UI控制单元
 
 		theMusicController = this.transform .GetComponentInChildren<MusicController> ();//音频比较特殊，需要父子关系，因为需要同时播放多个音效，音乐
-		theSoundController =  this.transform .GetComponentInChildren<soundController>();
+		theSoundController =  this.transform .GetComponentsInChildren<soundController>()[0];//两个sound，一个是真的音效，一个是语音音效
+		thePeopleSoundController = this.transform .GetComponentsInChildren<soundController>()[1];//两个sound，一个是真的音效，一个是语音音效
 		theDataController = this.GetComponent <saveLoadController>();
 
-		Time.timeScale = normalModeTimeScale ;//强制规定时间速度，用于加速
 	}
 
 	public  void  makeAllStart()
@@ -154,6 +153,7 @@ public class thePlot : MonoBehaviour {
 		theUIController.makeShow (theItem);	
 		theMusicController.playBackMusic (theItem);
 		theSoundController.playSound (theItem);
+		thePeopleSoundController.playSound (theItem , true);
 	}
 
 
@@ -327,13 +327,20 @@ public class thePlot : MonoBehaviour {
 
 		if (Application.platform != RuntimePlatform.Android) 
 		{
-				if (Input.GetKey (KeyCode.LeftControl)) {
-					Time.timeScale = speedModeTimeScale;
+			//没有界面操作才会生效
+			if (systemInformations.isChildPanelShows == false) 
+			{
+				if (Input.GetKeyDown (KeyCode.LeftControl)) {
+					systemInformations.skipControll ();
 				}
 				if (Input.GetKeyUp (KeyCode.LeftControl)) {
-					Time.timeScale = normalModeTimeScale;
+					systemInformations.skipControll ();
 				}
-
+			}
 		}
+
+		//下面是一些用于测试方法
+		//if (Input.GetKeyDown (KeyCode.Q))
+		//	systemInformations.saveRead ("hhhhhhh");
 	}
 }

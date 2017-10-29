@@ -64,6 +64,7 @@
      <Compile Include="Assets\Codes\saveLoadController.cs" />
      <Compile Include="Assets\Codes\soundController.cs" />
      <Compile Include="Assets\Codes\systemInformations.cs" />
+     <Compile Include="Assets\Codes\systemUI\ReadTextPanel.cs" />
      <Compile Include="Assets\Codes\systemUI\fontButton.cs" />
      <Compile Include="Assets\Codes\systemUI\saveButtons.cs" />
      <Compile Include="Assets\Codes\systemUI\soundSliders.cs" />

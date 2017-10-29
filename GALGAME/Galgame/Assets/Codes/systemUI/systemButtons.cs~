@@ -12,6 +12,7 @@ public class systemButtons : MonoBehaviour {
 	public void autoSwitcher()
 	{
 		systemInformations. isAutoWait = !systemInformations. isAutoWait;
+		systemInformations.isAutoNowSave = systemInformations.isAutoWait;
 		if (systemInformations. isAutoWait) 
 		{
 			informationPanel.showInformation ("开启自动播放模式");
