@@ -1,5 +1,5 @@
 ﻿//剧本每一项用,分割
-//例如 100,001,alice_happy,fione_happy,alice_happy,jik_happy,street,你想不想加入大吸？,加入大吸,jik,jik_kill,100003
+//例如 100,001,alice_happy,fione_happy,alice_happy,jik_happy,street,你想不想加入大吸？,加入大吸,jik,jik_kill,100003,
 //100 第一号剧本的总分支， 百位是剧本文件编号
 //002 某一个分支的中的顺序
 //alice_happy 文本框显示的头像任务名称和心情
@@ -10,6 +10,7 @@
 //jik 背景音乐名称
 //jik_kill 音效明称
 //结束之后直接跳转到的剧本元素ID
+//语音音效
 //以---开头的是占位用的
 //noOne表示凯伊姆的内心活动
 //剧本内部的空行和//被无视
@@ -26,28 +27,28 @@
 100,007,noOne,,,,home, 但是，十几年来却没说有什么时候比现在更让我愉悦吧。, ,smile,,,
 100,008,noOne,,,,home, 这都多亏了提娅。, ,smile,,,
 100,009,noOne,,,,home, ......, ,smile,,,
-100,010,Caim,,,,home, 提娅...... , ,smile,,,
-100,011,Caim,,,,home, 你的愿望，我一定会好好实现的，安心吧。 , ,smile,,,
+100,010,Caim,,,,home, 提娅...... , ,smile,,,Caim1
+100,011,Caim,,,,home, 你的愿望，我一定会好好实现的，安心吧。 , ,smile,,,Caim2
 
 //艾丽斯来找凯伊姆
-100,012,Caim,,,,home, ？  有人？ , ,smile,openDoor,,
+100,012,Caim,,,,home, ？  有人？ , ,smile,openDoor,,Caim3
 100,013,alice_happy,alice_happy,,,home,日上三竿还不起床的也就是你了吧？,,smile,,,
-100,014,Caim,alice_happy,,,home,艾丽斯么？,,smile,,,
+100,014,Caim,alice_happy,,,home,艾丽斯么？,,smile,,,Caim4
 100,015,alice_shock,alice_shock,,,home,啊啦，你居然还能认出来我？,,smile,,,
-100,016,Caim,alice_shock,,,home,我还没到人事不省的程度......,,smile,,,
+100,016,Caim,alice_shock,,,home,我还没到人事不省的程度......,,smile,,,Caim5
 100,017,alice_dark ,alice_dark,,,home,那你还记得你昨天晚上对我说了什么吗？,,smile,,,
 100,018,noOne,alice_dark,,,home,......想不起来。,,smile,,,
 100,019,noOne,alice_dark,,,home,我说了...什么吗？,,smile,,,
 100,020,noOne,alice_dark,,,home,看她一脸坏笑的样子，突然有点担心。,,smile,,,
 100,021,noOne,alice_dark,,,home,希望不要被她抓住什么把柄啊......,,smile,,,
-100,022,Caim,alice_dark,,,home,你还是告诉我吧，我到底说什么了？,,smile,,,
+100,022,Caim,alice_dark,,,home,你还是告诉我吧，我到底说什么了？,,smile,,,Caim6
 100,023,alice_shock,alice_shock,,,home,...,,smile,,,
 100,024,alice_halfdark ,alice_halfdark ,,,home,....,,smile,,,
 100,025,alice_BackhalfDark ,alice_BackhalfDark  ,,,home,......,,smile,,,
 100,026,noOne  ,alice_BackhalfDark  ,,,home,.....什么都没说啊...,,smile,,,
 100,027,noOne  ,alice_question ,,,home,嘛，艾丽斯毕竟帮了我很多......,,smile,,,
 100,028,noOne  ,alice_question ,,,home,而且...,,smile,,,
-100,029,Caim,alice_question,,,home,	啊啊，我说要请你去尝尝梅尔特的新店料理。,,smile,,,
+100,029,Caim,alice_question,,,home,	啊啊，我说要请你去尝尝梅尔特的新店料理。,,smile,,,Caim7
 100,030,alice_shock,alice_shock,,,home,...,,smile,,,
 100,031,alice_laugh,alice_laugh,,,home,想不到你还记得啊......,,smile,,,
 100,032,alice_halfdark ,alice_halfdark ,,,home,那我们现在就去吧！,,smile,,,
@@ -63,16 +64,16 @@
 100,040, noOne , ,,,street , 因为没有了坠落的危险，叫【牢狱】已经不适合了。 ,,happy1,,,
 100,041, noOne , ,,,street , 吉克一如既往地展现着他惊人的管理才能。 ,,happy1,,,
 100,042, noOne , ,,,street , 几乎是一瞬间就把破落的这里变得跟上层一样。 ,,happy1,,,
-100,043, Caim , ,,,street , 真是了不起啊，那家伙。 ,,happy1,,,
+100,043, Caim , ,,,street , 真是了不起啊，那家伙。 ,,happy1,,,Caim8
 100,044, alice_happy,alice_happy ,,,street , 嘛，吉克指使你做了不少好事。 ,,happy1,,,
-100,045, Caim , ,,,street , ？....就当是夸我好了....,  ,,happy1,,,
+100,045, Caim , ,,,street , ？....就当是夸我好了....,  ,,happy1,,,Caim9
 
 //酒店门口遇到吉克
 100,046, noOne, ,,,street , 前面那个是.....,,happy1,,,
 100,047, jik_happy ,jik_happy ,,,street ,  呦，这不是凯伊姆！,,jik,,,
 100,048, jik_happy ,jik_happy,,,street ,  昨天晚上你也没怎么喝就倒了....真菜。,,jik,,,
 100,049, noOne ,jik_happy,,,street , 那么能喝的，你是我见过的第一个。 ,,jik,,,
-100,050, Caim ,jik_happy,,,street , 你这家伙..... ,,jik,,,
+100,050, Caim ,jik_happy,,,street , 你这家伙..... ,,jik,,,Caim10
 100,051, alice_happy ,jik_happy,alice_happy ,,street , 吉克大人大清早在这干什么呢？ ,,jik,,,
 100,052, alice_happy ,jik_happy,alice_happy ,,street , 我猜猜..... ,,jik,,,
 100,053, alice_happy ,jik_happy,alice_happy ,,street , 你昨天是没回去吧。 ,,jik,,,
@@ -108,7 +109,7 @@
 100,079,  noOne  , , ,   , bar, 让人莫名地心安。 ,, smile ,,,
 100,079,  noOne  , , ,   , bar, 啊啊，就像梅尔特本人。 ,, smile ,,,
 100,080,  noOne  , , ,   , bar, 走到桌前，才发现那个埋头痛吃的身影。 ,, smile ,,,
-100,081,  Caim  , , ,   , bar,  菲奥奈，你怎么也在这？ ,, smile ,,,
+100,081,  Caim  , , ,   , bar,  菲奥奈，你怎么也在这？ ,, smile ,,,Caim11
 100,082,  fione_shork, fione_shork , ,   , bar,  啊，凯伊姆？ ,, smile ,,,
 100,083,  mert_normal , fione_shork  ,mert_normal ,   , bar,  她可是比你们都早来呢！ ,, smile ,,,
 100,084,   mert_dark  , fione_shork  ,mert_dark  ,   , bar,  然后点了各种各样的肉菜。 ,, smile ,,,
@@ -124,7 +125,7 @@
 100,092,alice_happy,alice_happy,,,bar, 刚才是菲奥奈吧，怎么看上去有点惊慌失措？,,smile,,,
 100,093,mert_normal,alice_happy,mert_normal,,bar, 我想...这跟吉克刚才一样哦。,,smile,,,
 100,094,alice_dark,alice_dark,mert_normal,,bar, 哦.......?,,smile,,,
-100,095,Caim ,alice_dark,mert_dark  ,,bar, 好了，还是快上菜吧。,,smile,,,
+100,095,Caim ,alice_dark,mert_dark  ,,bar, 好了，还是快上菜吧。,,smile,,,Caim12
 100,096,jik_low ,alice_happy,mert_normal ,jik_low,bar, 是啊，我昨天冻了一晚上.....,,smile,,,
 100,097,jik_low ,alice_happy,mert_normal ,jik_low,bar, 真的需要吃东西暖身子。,,smile,,,
 100,098,mert_normal ,alice_happy,mert_normal ,jik_low,bar, 那也是你活该！,,smile,,,
