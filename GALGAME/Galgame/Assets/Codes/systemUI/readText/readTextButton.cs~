@@ -12,7 +12,7 @@ public class readTextButton : MonoBehaviour {
 	public GameObject theButton;//用于控制原因的按钮
 	//外部初始化的方法
 	//因为有一些没有声音的按钮是没有必要做初始化的
-	public void makeStart(string speakSoundName)
+	public void makeStart(string speakSoundName , AudioSource theSoundSource)
 	{
 		//print ("Speaks/" + speakSoundName);
 
@@ -20,7 +20,7 @@ public class readTextButton : MonoBehaviour {
 			Destroy (theButton.gameObject);
 		else
 		{
-			this.theAudioSource = GameObject.Find ("/theGameController/speakSoundController").GetComponent<AudioSource> ();
+			this.theAudioSource = theSoundSource;
 
 			this.theClip = Resources.Load ("Speaks/" + speakSoundName) as AudioClip;
 			if (this.theAudioSource == null || this.theClip == null)//初始化失败了就直接自灭

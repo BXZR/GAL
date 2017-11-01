@@ -11,6 +11,7 @@ public class ReadTextPanel : MonoBehaviour {
 	 
 	public  GameObject theProfabText;//预设物也就是显示模板
 	//排版用Grid来托管
+	public AudioSource theAudioSouce;
 
 	void makeFlash()
 	{
@@ -31,7 +32,7 @@ public class ReadTextPanel : MonoBehaviour {
 		{
 			GameObject theTextShowUse = GameObject.Instantiate<GameObject> ( theProfabText);
 			theTextShowUse.GetComponentInChildren<Text> ().text = readText [i];
-			theTextShowUse.GetComponentInChildren<readTextButton> ().makeStart (readSpeakName[i]);
+			theTextShowUse.GetComponentInChildren<readTextButton> ().makeStart (readSpeakName[i] , theAudioSouce);
 			theTextShowUse.transform.SetParent (this.transform);
 		}
 	}

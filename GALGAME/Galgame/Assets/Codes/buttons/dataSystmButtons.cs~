@@ -70,7 +70,7 @@ public class dataSystmButtons : MonoBehaviour {
 				}
 				systemInformations.isChildPanelShows = false;
 				systemInformations .isAutoWait = systemInformations .isAutoNowSave;
-				print ("systemInformations .isAutoWait " +systemInformations .isAutoWait );
+				//print ("systemInformations .isAutoWait " +systemInformations .isAutoWait );
 				//Time.timeScale = systemInformations.timeScaleNow;//界面开启的时候需要暂停
 			}
 

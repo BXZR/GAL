@@ -40,9 +40,10 @@ public class MusicController : MonoBehaviour {
 		theBackMusicController = this.GetComponent <AudioSource> ();
 		theBackMusicController.loop = true;
 	}
-	
+
+	//注销，减少回调个数
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
 		
-	}
+	//}
 }

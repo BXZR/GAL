@@ -23,13 +23,15 @@ public class musicModeButton : MonoBehaviour {
 	private static Image theButtonImageSaved = null;
 	private static Text theTextSaved = null;
 
+	//记录下来已经加载的东西，减少重复的加载过程
+	private Sprite theSavedSprite = null;
 
-	public void makeStart(string nameIn ,string pictureNameIn)
+	public void makeStart(string nameIn ,string pictureNameIn, MusicController MusicControllerIn , Image ImageIn)
 	{
 		this.theMusicName = nameIn;
 		this.thePictureName = pictureNameIn;
-		theMusicPlayController = GameObject.Find ("/Main Camera").GetComponent <MusicController>();
-		theImageShow = GameObject.Find ("/Canvas/theMusicShowImage").GetComponent <Image>();
+		theMusicPlayController = MusicControllerIn ;
+		theImageShow = ImageIn;
 		thisText  = this.GetComponentInChildren<Text> ();
 		thisText.text = nameIn;
 		//print (nameIn +"--"+pictureNameIn);
@@ -47,11 +49,17 @@ public class musicModeButton : MonoBehaviour {
 		//print ("people/big/"+thePictureName);
 		if (string.IsNullOrEmpty (thePictureName) == false) 
 		{
-			theImageShow.sprite = makeLoadSprite ("people/big/" + thePictureName);
+			//判断与减少加载图像的次数
+			if(theSavedSprite == null)
+				theSavedSprite = makeLoadSprite ("people/big/" + thePictureName);
+			theImageShow.sprite = theSavedSprite;
 		} 
 		else
 		{
+			//判断与减少加载图像的次数
+			if(theSavedSprite == null)
 			theImageShow.sprite = makeLoadSprite ("people/big/noOne");
+			theImageShow.sprite = theSavedSprite;
 		}
 		if (thisImage != theButtonImageSaved )
 		{

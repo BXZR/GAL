@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MusicModeController : MonoBehaviour {
 
@@ -13,6 +14,10 @@ public class MusicModeController : MonoBehaviour {
 	//不同音乐有不同的图
 	public string[] pictureNames;
 	//用于挂在父物体的theContantPanel引用
+	//用引用赋值的方法来做可以节约大量的时间
+	public MusicController theMusicController;
+	public Image theShowImage;
+
 	public Transform theContantPanel;
 	//展示按钮预设物
 	public GameObject theButtonProfab;
@@ -27,7 +32,7 @@ public class MusicModeController : MonoBehaviour {
 		{
 			GameObject theButton = GameObject.Instantiate (theButtonProfab);
 			musicModeButton MB = theButton.GetComponent<musicModeButton> ();
-			MB .makeStart (musicNames[i] , pictureNames[i]);
+			MB .makeStart (musicNames[i] , pictureNames[i] , theMusicController,theShowImage);
 			theButton.gameObject.transform.SetParent (theContantPanel.transform);
 			if (theMusicFirst == null)
 				theMusicFirst = MB;

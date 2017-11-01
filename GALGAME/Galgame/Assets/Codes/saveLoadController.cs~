@@ -158,6 +158,7 @@ public class saveLoadController : MonoBehaviour {
 	{
 		using (StreamReader reader= File.OpenText (fileName))
 		{
+			//用这种方法其实是利用了每一个存档仅仅保存一个位数的特性
 			string s = 	reader .ReadToEnd();
 			reader .Close();
 			return s;

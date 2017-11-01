@@ -32,6 +32,7 @@ public class informationPanel : MonoBehaviour {
 		theBackImage = this.GetComponentInChildren<Image> ();
 		theBackColor = BackColor;
 		InvokeRepeating ("flush" , 0f,1f);
+		informationPanel.showInformation ("进入系统设置界面可恢复上次游戏设置");
 	}
 
 

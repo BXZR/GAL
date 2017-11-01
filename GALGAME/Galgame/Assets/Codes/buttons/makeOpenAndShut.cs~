@@ -1,0 +1,15 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class makeOpenAndShut : MonoBehaviour {
+	//让一个物体打开并且立刻关闭
+	//用来强制做一些初始化
+	//与Config相关
+
+	void Start () 
+	{
+		this.gameObject.SetActive (false);
+	}
+
+}

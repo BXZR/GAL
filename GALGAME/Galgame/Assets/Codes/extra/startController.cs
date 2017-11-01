@@ -46,6 +46,7 @@ public class startController : MonoBehaviour {
 		theAudioSource.loop = true;
 		Destroy (this.gameObject);
 	    isStarted = true;
+		configController.createConfigFileIfNull ();//如果没有配置文件就建立默认的配置文件
 	}
 
 

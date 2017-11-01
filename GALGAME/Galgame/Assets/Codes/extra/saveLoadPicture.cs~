@@ -44,6 +44,8 @@ public class saveLoadPicture : MonoBehaviour {
 			theCamera.gameObject.SetActive (false);
 		}
 	}
+
+	//目前真正使用的方法
 	public  IEnumerator OnScreenCapture2 (int index   )
 	{
 
