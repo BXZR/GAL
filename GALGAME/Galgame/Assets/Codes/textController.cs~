@@ -35,7 +35,7 @@ public class textController : MonoBehaviour {
 		//记录面板，作为已经读到的内容(分隔符不算)
 		if (theInformation.StartsWith ("---") == false) 
 		{
-			systemInformations.saveRead (showName + "\n" + theInformation);
+			systemInformations.saveRead (showName + "\n" + theInformation , theItem.speakSoundName);
 		}
 		indexNow = 0;//这个可以更稳妥地关掉显示文本的显示器
 		theShowString = "";

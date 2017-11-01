@@ -64,14 +64,16 @@ public class systemInformations : MonoBehaviour {
 
 	//----------------------已经阅读的内容记录---------------------------//
 	public  static Queue<string> theReadText = new Queue<string> ();
+	public  static Queue<string> theReadTextSpeak = new Queue<string> ();
 	private static  int theReadLength = 25;//最多记录25条最新的已读内容
 	//记录最新一条已经读到的内容
-	public static void saveRead (string information)
+	public static void saveRead (string information , string speakName = "")
 	{
 		//如果数据量不多，直接插入就好
 		if (theReadText.Count < theReadLength) 
 		{
 			theReadText.Enqueue(information );
+			theReadTextSpeak.Enqueue(speakName);
 			//print ("TheCountNow = " + theReadText.Count );
 		}
 		else
@@ -79,6 +81,9 @@ public class systemInformations : MonoBehaviour {
 			//print("Delete : " + theReadText.Dequeue());
 			theReadText.Dequeue ();
 			theReadText.Enqueue(information);
+
+			theReadTextSpeak.Dequeue ();
+			theReadTextSpeak.Enqueue(speakName);
 			//print ("TheCountNow = " + theReadText.Count );
 
 			//print ("---------------------");
@@ -87,13 +92,5 @@ public class systemInformations : MonoBehaviour {
 		}
 	}
 
-	public  static  string  getReadText()
-	{
-		string readTextInformation = "";
-		foreach (string theSaved in theReadText)
-		{
-			readTextInformation += theSaved +"\n\n";
-		}
-		return readTextInformation;
-	}
+
 }

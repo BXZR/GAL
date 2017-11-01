@@ -27,8 +27,9 @@ public class startController : MonoBehaviour {
 				//因为安卓版本的视频播放实际上是使用了另一个程序，所以在播放的过程中就可以将主界面打开了
 				UIUseRoot.gameObject.SetActive (true);
 				Invoke ("shutDarkStarter" , 1f);//效果就是为了黑屏一秒（但是说实话这个其实也有一点画蛇添足，在update里面已经做了）
+				Invoke ("makeStart", 1f);//如果在那之前没有被“开始”，就自动开始
 			}
-			Invoke ("makeStart", 1f);//如果在那之前没有被“开始”，就自动开始
+
 		}
 	}
 

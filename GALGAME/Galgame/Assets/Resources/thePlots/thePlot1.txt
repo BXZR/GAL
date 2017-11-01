@@ -65,8 +65,8 @@
 100,041, noOne , ,,,street , 吉克一如既往地展现着他惊人的管理才能。 ,,happy1,,,
 100,042, noOne , ,,,street , 几乎是一瞬间就把破落的这里变得跟上层一样。 ,,happy1,,,
 100,043, Caim , ,,,street , 真是了不起啊，那家伙。 ,,happy1,,,Caim8
-100,044, alice_happy,alice_happy ,,,street , 嘛，吉克指使你做了不少好事。 ,,happy1,,,
-100,045, Caim , ,,,street , ？....就当是夸我好了....,  ,,happy1,,,Caim9
+100,044, alice_happy,alice_happy ,, ,street , 嘛，吉克指使你做了不少好事。 ,,happy1,,,
+100,045, Caim , ,,  ,street , ？....就当是夸我好了....,,happy1,,,Caim9
 
 //酒店门口遇到吉克
 100,046, noOne, ,,,street , 前面那个是.....,,happy1,,,
