@@ -57,6 +57,7 @@
      <Compile Include="Assets\Codes\choice.cs" />
      <Compile Include="Assets\Codes\choiceController.cs" />
      <Compile Include="Assets\Codes\configController.cs" />
+     <Compile Include="Assets\Codes\extra\ConfigUser.cs" />
      <Compile Include="Assets\Codes\extra\REController.cs" />
      <Compile Include="Assets\Codes\extra\effectSlowIn.cs" />
      <Compile Include="Assets\Codes\extra\informationPanel.cs" />

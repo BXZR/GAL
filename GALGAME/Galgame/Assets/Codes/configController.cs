@@ -9,7 +9,7 @@ using System.IO;
 using System;
 
 public enum ConfigItems { Font,BGMVolume,SouneVolume,SpeakSoundVolume,AutoTextSpeed,TextSpeed}
-public class configController : MonoBehaviour {
+public class configController : MonoBehaviour  {
 
 	//系统设置的保存和重新配置管理单元
 
@@ -109,6 +109,8 @@ public class configController : MonoBehaviour {
 	}
 
 	//配置文件初始化 
+	//同时也是初始文件设定
+	//如果需要增加config就在这里增加条目
 	private static  void  makeConfig()
 	{
 		//配置文件的所有项目的值都是数字，方便整合
@@ -238,8 +240,9 @@ public class configController : MonoBehaviour {
 	}
 
 	private static  bool isFlashing = false;
-	public static  void flashConfig()
+	public static  void flashConfigPrivate()
 	{
+		//加入了gate所以其实即使被多次调用也仅仅是调用了一次而已
 		if (isFlashing == false) 
 		{
 			isFlashing = true;
@@ -251,17 +254,49 @@ public class configController : MonoBehaviour {
 			sw.Close ();
 			sw.Dispose ();
 			isFlashing = false;
-			print ("ERE");
+			//print ("ERE");
 		}
 	}
 
 //----------------------------------------------------------------------------------------------------------//
-
-	void Update ()
-	{
-		if (Input.GetKeyDown (KeyCode.Return))
-			createConfigFileIfNull ();
+	//下面是真正自身调用的方法
+	public GameObject Configontainer;//，包含所有被配置文件控制的UI等的容器SystemPanel_2
+	//初始化调用集合
+	void Awake ()
+	{  
+		loadConfig ();
 	}
+
+	//用来统一外部调用的方法（来自于接口抽象）
+	public void saveToConfigC ()
+	{
+		configUser[] theConfigUsers = Configontainer.GetComponentsInChildren<configUser> ();
+		foreach (configUser J in theConfigUsers)
+			J.saveToConfig ();
+		//从内存写入到文件中
+		flashConfigPrivate ();
+		informationPanel.showInformation ("系统设置保存成功");
+	}
+
+	public void  loadFromConfigC ()
+	{
+		configUser[] theConfigUsers = Configontainer.GetComponentsInChildren<configUser> ();
+		//print ("theConfigUsers = "+theConfigUsers.Length);
+		foreach (configUser J in theConfigUsers)
+			J.loadFromConfig ();
+		informationPanel.showInformation ("系统设置加载成功");
+	}
+
+ 
+
+	//注意，这里save是在内存中的保存，而flash是在文件中的保存
+	//flash调用的次数一定要少
+
+	//void Update ()
+	//{
+		//if (Input.GetKeyDown (KeyCode.Return))
+		//	createConfigFileIfNull ();
+	//}
 
 		
 }

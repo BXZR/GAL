@@ -23,7 +23,8 @@ public class UIController : MonoBehaviour {
 	public SpriteRenderer [] bigPeoplePictures;//说话的时候的人物大图
 
 	//public Image theShowPictureInSceen;//用于显示在场景里的大人物图
-	public Image theShowPictureInText;//在文本框显示的图
+	public Image theShowPictureInText1;//在文本框显示的图
+	public Image theShowPictureInText2;//在文本框显示的图
 	//public Text theName;//文本框显示的名字
 
 	private string theBackName = "";//保留的背景图的引用，因为背景图不用每一次都更新
@@ -111,13 +112,29 @@ public class UIController : MonoBehaviour {
 		
 	}
 
+	//用这个方法来决定说话的时候的小图用哪一个（左边还是右边）
+	Image getPart()
+	{
+		//这只是当前顶包的策略（随机），最好的方法就是用剧本控制
+		int seed= Random.Range(1,4);//(int包前不包后 所以会是0,1,2,3 )
+		if (seed >= 2) 
+		{
+			theShowPictureInText1.gameObject.SetActive (false);
+			theShowPictureInText2.gameObject.SetActive (true);
+			return theShowPictureInText2;
+		}
+		theShowPictureInText2.gameObject.SetActive (false);
+		theShowPictureInText1.gameObject.SetActive (true);
+		return theShowPictureInText1;
+	}
+
 	//说话的时候的小图
 	void makeSmallPicture(thePlotItem theItem)
 	{
 		if (string.IsNullOrEmpty (theItem.theSpeekerName) || theItem.theSpeekerName .Equals("Caim"))
 		{
 			//不显示
-			theShowPictureInText.sprite = makeLoadSprite ("people/noOne");
+			getPart().sprite = makeLoadSprite ("people/noOne");
 			thePeopleSmallPictureName = "noOne";
 		} 
 		else 
@@ -125,7 +142,7 @@ public class UIController : MonoBehaviour {
 			if (theItem.theSpeekerName.Equals (thePeopleSmallPictureName) == false)
 			{
 				string textureName = "people/small/" + theItem.theSpeekerName;
-				theShowPictureInText.sprite = makeLoadSprite (textureName);
+				getPart().sprite = makeLoadSprite (textureName);
 				thePeopleSmallPictureName = theItem.theSpeekerName;
 			}
 		}

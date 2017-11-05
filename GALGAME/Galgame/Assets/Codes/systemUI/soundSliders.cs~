@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class soundSliders : MonoBehaviour {
+public class soundSliders : MonoBehaviour , configUser {
 
 	public AudioSource theAudioSource;//这种slider是用来控制各种声音的大小
 	public ConfigItems theConfigType = ConfigItems.BGMVolume;
@@ -15,19 +15,24 @@ public class soundSliders : MonoBehaviour {
 	void Awake ()
 	{  
 		theSlider = this.GetComponent <Slider> ();
-		//初始化的时候尝试读取配置文件，没有文件默认返回1
-		theSlider.value = configController.getConfigItem (theConfigType);
 	}
 	public  void makeSoundValue()
 	{
 		theAudioSource.volume = theSlider.value;
+	}
+ 
+
+	//------------------------------------------------------------------------------------------------//
+	//用来统一外部调用的方法（来自于接口抽象）
+	public void saveToConfig ()
+	{
 		//每一次变化都会修改配置文件
 		configController.setConfigItem (theConfigType ,theSlider.value.ToString("f2") );
 	}
 
-	//关闭设置面板的时候才会进行一次IO
-	void OnDisable()
+	public void  loadFromConfig ()
 	{
-		configController.flashConfig ();
+		theSlider.value = configController.getConfigItem (theConfigType);
 	}
+ 
 }
