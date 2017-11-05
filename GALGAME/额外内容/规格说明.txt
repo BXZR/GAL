@@ -2,3 +2,4 @@ backpicture-- pivots bottom left maxsize 1024
 music-- 至少压缩率75%
 big-- max size 1024
 small-- max size 512
+backPictureButton PS 保存为web型，设定为200

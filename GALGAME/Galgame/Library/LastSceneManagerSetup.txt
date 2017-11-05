@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/gal_1.unity
+- path: Assets/scenes/CGMode.unity
   isLoaded: 1
   isActive: 1
