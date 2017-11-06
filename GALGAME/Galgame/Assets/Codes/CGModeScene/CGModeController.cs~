@@ -8,9 +8,9 @@ public class CGModeController : MonoBehaviour {
 
 	//CG 分为三组 艾丽斯 菲奥奈 其他
 	//每一组的CG最多12张
-	public string[] CGNameForGroup1;//艾丽斯
-	public string[] CGNameForGroup2;//菲奥奈
-	public string[] CGNameForGroup3;//其他
+	private  List<string> CGNameForGroup1;//艾丽斯
+	private  List<string> CGNameForGroup2;//菲奥奈
+	private  List<string> CGNameForGroup3;//其他
 
 	public int selectedGroup = 1;//当前选择的grop
 	public GameObject contant;//声称的button的挂载点也就是父物体
@@ -26,7 +26,7 @@ public class CGModeController : MonoBehaviour {
 		
 		makeClear ();
 		//选择分组
-		string[] theSelectOne =  selectGroup();
+		List<string> theSelectOne =  selectGroup();
 		makeButtons(theSelectOne);
 
 
@@ -36,25 +36,25 @@ public class CGModeController : MonoBehaviour {
 
 
 	//建立预设物与设置信息
-	void makeButtons(string[] theSelectOne)
+	void makeButtons(List< string>  theSelectOne)
 	{
-		for (int i = 0; i < theSelectOne.Length; i++) 
+		for (int i = 0; i < theSelectOne.Count; i++) 
 		{
 			GameObject theButton = GameObject.Instantiate <GameObject>( buttonProfabe);
 			theButton.transform.SetParent(contant.transform);
-			//按钮上面加载的都是小图
-			theButton.GetComponent <Button>().image.sprite = makeLoadSprite("backPictureForButton/"+theSelectOne[i]);
+
 			CGModeButton  theCGButton= theButton.gameObject.GetComponent <CGModeButton> ();
+
 			theCGButton.makeStart (theSelectOne[i], theBigPicture , this);
 		}
 
 	}
 
 	//选择分组简单工厂模式
-	string [] selectGroup()
+	List<string> selectGroup()
 	{
 
-		string[] selected = {};
+		List<string> selected = new List<string> ();
 		switch (selectedGroup) 
 		{
 		case 1:
@@ -80,19 +80,29 @@ public class CGModeController : MonoBehaviour {
 			Destroy (buttons[i].gameObject);
 		}
 	}
-	//加载图片
-	public  Sprite makeLoadSprite(string textureName)
-	{
-		//textureName = "people/noOne";
-		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
-		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
-	}
+
 
 
 
 	void Start () 
 	{
-		makeCGSelectButton (3);
+		//实际上是加载
+		CGModeFile.makeAllStart ();
+
+		CGNameForGroup1 = new List<string> ();
+		for (int i = 0; i < CGModeFile.theCG1.Count; i++)
+			CGNameForGroup1.Add ( CGModeFile.theCG1[i].CGFileName);
+		CGNameForGroup2 = new List<string> ();
+		for (int i = 0; i < CGModeFile.theCG2.Count; i++)
+			CGNameForGroup2.Add ( CGModeFile.theCG2[i].CGFileName);
+		CGNameForGroup3 = new List<string> ();
+		for (int i = 0; i < CGModeFile.theCG3.Count; i++)
+			CGNameForGroup3.Add ( CGModeFile.theCG3[i].CGFileName);
+
+
+
+  		makeCGSelectButton (3);
+
 	}
 	
 	// Update is called once per frame

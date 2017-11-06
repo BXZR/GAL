@@ -23,7 +23,7 @@
 200,004,Caim,,,,alice_Home_Dark,呃.., ,smooth,,,
 200,005,noOne,,,,alice_Home_Dark,竟然无言以对...., ,smooth,,,
 200,006,alice_happy,alice_happy,,,alice_Home_Dark,右手有点骨裂，养几天就行。,,smooth,,,
-200,007,alice_happy,alice_happy,,,alice_Home_Dark,不过，也就是你，要是其他的恐怕死定了.,,smooth,,,
+200,007,alice_happy,,,,AliceCG1,不过，也就是你，要是其他的恐怕死定了.,,smooth,,,
 200,008,Caim,alice_happy,,,alice_Home_Dark,借你吉言...., ,smooth,,,
 200,009,noOne,alice_happy,,,alice_Home_Dark,艾丽斯也算是平静下来了。, ,smooth,,,
 200,010,noOne,alice_happy,,,alice_Home_Dark,刚开始的时候居然比我还急。, ,smooth,,,

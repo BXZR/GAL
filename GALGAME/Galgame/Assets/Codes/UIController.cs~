@@ -165,9 +165,11 @@ public class UIController : MonoBehaviour {
 			{
 				//print ("back picture change");
 				theBackName = theItem.theBackPictureName;
+
 				if (theBackName != "changeBack")
 				{
 					//print ("change the back");
+					CGModeFile.CGActive (theBackName+"_Button");//激活这个CG
 					theBackPicture.sprite = makeLoadSprite ("backPicture/" + theBackName);
 				} 
 				else 

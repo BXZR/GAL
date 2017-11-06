@@ -47,6 +47,7 @@ public class startController : MonoBehaviour {
 		Destroy (this.gameObject);
 	    isStarted = true;
 		configController.createConfigFileIfNull ();//如果没有配置文件就建立默认的配置文件
+		CGModeFile.makeAllStart();//生成CG文件
 	}
 
 

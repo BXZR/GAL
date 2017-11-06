@@ -11,13 +11,17 @@ public class CGModeButton : MonoBehaviour {
 
 	private string pictureName = "";
 	private Image theBigPicture;
-
+	private bool isGet = false;
 	//创建的时候调用，用于初始化
-	public  void  makeStart(string pictureNameIn , Image theImageBig  , CGModeController controllerIn)
+	public  void  makeStart(string pictureNameIn , Image theImageBig  , CGModeController controllerIn )
 	{
 		pictureName = pictureNameIn;
 		theBigPicture = theImageBig;
 		theController = controllerIn;
+		isGet = CGModeFile.checkIsLocked (this.pictureName);
+		//按钮上面加载的都是小图
+		if(isGet)
+			this.GetComponent <Button>().image.sprite = makeLoadSprite("backPictureForButton/"+pictureNameIn);
 	}
 
 
@@ -33,9 +37,19 @@ public class CGModeButton : MonoBehaviour {
 	//打开大图
 	public void openBigPicture()
 	{
+		if (isGet == false)
+			return;//CG未解锁，神都不
 		string pictureNameUse =pictureName.Remove(pictureName.LastIndexOf("_Button"));
-		theBigPicture.GetComponent <Image> ().sprite = theController.makeLoadSprite ("backPicture/"+pictureNameUse);
+		theBigPicture.GetComponent <Image> ().sprite = makeLoadSprite ("backPicture/"+pictureNameUse);
 		theBigPicture.gameObject.SetActive (true);
+	}
+
+	//加载图片
+	public  Sprite makeLoadSprite(string textureName)
+	{
+		//textureName = "people/noOne";
+		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
+		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
 	}
 
 }
