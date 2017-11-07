@@ -3,9 +3,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
     <ProjectGuid>{A9006789-A5BD-FCDA-975B-9A6FC9FD4614}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -34,79 +33,82 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>D:/Unity3D 5.6.1/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>D:\Unity3D 5.6.1\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:/Unity3D 5.6.1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>D:\Unity3D 5.6.1\Editor\Data\Managed\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Codes\CGModeScene\CGModeController.cs" />
-     <Compile Include="Assets\Codes\CGModeScene\CGModeFile.cs" />
-     <Compile Include="Assets\Codes\MusicController.cs" />
-     <Compile Include="Assets\Codes\MusicModeScene\MusicModeController.cs" />
-     <Compile Include="Assets\Codes\UIController.cs" />
-     <Compile Include="Assets\Codes\buttons\CGModeButton.cs" />
-     <Compile Include="Assets\Codes\buttons\dataSystmButtons.cs" />
-     <Compile Include="Assets\Codes\buttons\musicModeButton.cs" />
-     <Compile Include="Assets\Codes\buttons\sceneSkipButton.cs" />
-     <Compile Include="Assets\Codes\buttons\startButtons.cs" />
-     <Compile Include="Assets\Codes\buttons\startOpenShutButton.cs" />
-     <Compile Include="Assets\Codes\choice.cs" />
-     <Compile Include="Assets\Codes\choiceController.cs" />
-     <Compile Include="Assets\Codes\configController.cs" />
-     <Compile Include="Assets\Codes\extra\CGModeBigPicture.cs" />
-     <Compile Include="Assets\Codes\extra\ConfigUser.cs" />
-     <Compile Include="Assets\Codes\extra\REController.cs" />
-     <Compile Include="Assets\Codes\extra\effectSlowIn.cs" />
-     <Compile Include="Assets\Codes\extra\informationPanel.cs" />
-     <Compile Include="Assets\Codes\extra\movieController.cs" />
-     <Compile Include="Assets\Codes\extra\saveLoadPicture.cs" />
-     <Compile Include="Assets\Codes\extra\startController.cs" />
-     <Compile Include="Assets\Codes\loadSceneController.cs" />
-     <Compile Include="Assets\Codes\plotTreeMaker.cs" />
-     <Compile Include="Assets\Codes\saveLoadController.cs" />
-     <Compile Include="Assets\Codes\soundController.cs" />
-     <Compile Include="Assets\Codes\systemInformations.cs" />
-     <Compile Include="Assets\Codes\systemUI\fontButton.cs" />
-     <Compile Include="Assets\Codes\systemUI\readText\ReadTextPanel.cs" />
-     <Compile Include="Assets\Codes\systemUI\readText\readTextButton.cs" />
-     <Compile Include="Assets\Codes\systemUI\saveButtons.cs" />
-     <Compile Include="Assets\Codes\systemUI\soundSliders.cs" />
-     <Compile Include="Assets\Codes\systemUI\systemButtons.cs" />
-     <Compile Include="Assets\Codes\systemUI\textSpeedSlider.cs" />
-     <Compile Include="Assets\Codes\textController.cs" />
-     <Compile Include="Assets\Codes\thePlot.cs" />
-     <Compile Include="Assets\Codes\thePlotItem.cs" />
-     <None Include="Assets\Resources\thePlots\thePlot2.txt" />
-     <None Include="Assets\Resources\thePlots\thePlot1.txt" />
-     <None Include="Assets\save0.txt" />
- <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity3D 5.6.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Unity3D 5.6.1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/Unity3D 5.6.1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>D:/Unity3D 5.6.1/Editor/Data/UnityExtensions/Unity/TestRunner/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>D:/Unity3D 5.6.1/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>D:/Unity3D 5.6.1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.VR">
- <HintPath>D:/Unity3D 5.6.1/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\Codes\CGModeScene\CGModeController.cs" />
+    <Compile Include="Assets\Codes\CGModeScene\CGModeFile.cs" />
+    <Compile Include="Assets\Codes\MusicController.cs" />
+    <Compile Include="Assets\Codes\MusicModeScene\MusicModeController.cs" />
+    <Compile Include="Assets\Codes\UIController.cs" />
+    <Compile Include="Assets\Codes\buttons\CGModeButton.cs" />
+    <Compile Include="Assets\Codes\buttons\dataSystmButtons.cs" />
+    <Compile Include="Assets\Codes\buttons\musicModeButton.cs" />
+    <Compile Include="Assets\Codes\buttons\sceneModeButton.cs" />
+    <Compile Include="Assets\Codes\buttons\sceneSkipButton.cs" />
+    <Compile Include="Assets\Codes\buttons\startButtons.cs" />
+    <Compile Include="Assets\Codes\buttons\startOpenShutButton.cs" />
+    <Compile Include="Assets\Codes\choice.cs" />
+    <Compile Include="Assets\Codes\choiceController.cs" />
+    <Compile Include="Assets\Codes\configController.cs" />
+    <Compile Include="Assets\Codes\extra\CGModeBigPicture.cs" />
+    <Compile Include="Assets\Codes\extra\ConfigUser.cs" />
+    <Compile Include="Assets\Codes\extra\REController.cs" />
+    <Compile Include="Assets\Codes\extra\effectSlowIn.cs" />
+    <Compile Include="Assets\Codes\extra\informationPanel.cs" />
+    <Compile Include="Assets\Codes\extra\movieController.cs" />
+    <Compile Include="Assets\Codes\extra\saveLoadPicture.cs" />
+    <Compile Include="Assets\Codes\extra\startController.cs" />
+    <Compile Include="Assets\Codes\loadSceneController.cs" />
+    <Compile Include="Assets\Codes\plotTreeMaker.cs" />
+    <Compile Include="Assets\Codes\saveLoadController.cs" />
+    <Compile Include="Assets\Codes\sceneModeScene\SceneModeController.cs" />
+    <Compile Include="Assets\Codes\sceneModeScene\SceneModeFile.cs" />
+    <Compile Include="Assets\Codes\soundController.cs" />
+    <Compile Include="Assets\Codes\systemInformations.cs" />
+    <Compile Include="Assets\Codes\systemUI\fontButton.cs" />
+    <Compile Include="Assets\Codes\systemUI\readText\ReadTextPanel.cs" />
+    <Compile Include="Assets\Codes\systemUI\readText\readTextButton.cs" />
+    <Compile Include="Assets\Codes\systemUI\saveButtons.cs" />
+    <Compile Include="Assets\Codes\systemUI\soundSliders.cs" />
+    <Compile Include="Assets\Codes\systemUI\systemButtons.cs" />
+    <Compile Include="Assets\Codes\systemUI\textSpeedSlider.cs" />
+    <Compile Include="Assets\Codes\textController.cs" />
+    <Compile Include="Assets\Codes\thePlot.cs" />
+    <Compile Include="Assets\Codes\thePlotItem.cs" />
+    <None Include="Assets\Resources\thePlots\thePlot2.txt" />
+    <None Include="Assets\Resources\thePlots\thePlot1.txt" />
+    <None Include="Assets\save0.txt" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:\Unity3D 5.6.1\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>D:\Unity3D 5.6.1\Editor\Data\UnityExtensions\Unity\Networking\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>D:\Unity3D 5.6.1\Editor\Data\UnityExtensions\Unity\TestRunner\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>D:\Unity3D 5.6.1\Editor\Data\UnityExtensions\Unity\TestRunner\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>D:\Unity3D 5.6.1\Editor\Data\UnityExtensions\Unity\UnityAnalytics\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>D:\Unity3D 5.6.1\Editor\Data\UnityExtensions\Unity\UnityHoloLens\RuntimeEditor\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>D:\Unity3D 5.6.1\Editor\Data\UnityExtensions\Unity\UnityVR\RuntimeEditor\UnityEngine.VR.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -116,5 +118,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
+  <ItemGroup>
+    <Folder Include="Assets\Codes\buttons\" />
+  </ItemGroup>
 </Project>

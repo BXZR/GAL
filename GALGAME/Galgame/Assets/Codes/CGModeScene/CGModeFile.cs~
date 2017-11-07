@@ -189,6 +189,7 @@ public class CGModeFile : MonoBehaviour {
 		{
 			theCG3.Add (new CGSaves (CP [i], Convert.ToInt32 (CP [i + 1]), Convert.ToBoolean (CP [i + 2]), Convert.ToInt32 (CP [i + 3])));
 		}
+
  
 	}
 
