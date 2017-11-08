@@ -17,6 +17,46 @@ public class SceneModeFile : MonoBehaviour {
 	public static List<scenes> theSceneList3 ;//直接用list保存
 	//之所以用这样的套路是为了减少一点分配用的计算量
 
+	private static bool isStarted = false;
+
+
+	public static void activeScene(int endIndex)
+	{
+		//防止初始化出现问题
+		if (isStarted == false)
+			InitValues ();
+		bool isActiveOne = false;
+		//用尾巴标记进行激活
+		//有一些不用激活的在初始化的时候直接标记为true就可以了
+		for (int i = 0; i < theSceneList1.Count; i++) 
+		{
+			if (theSceneList1 [i].endIndex == endIndex) 
+			{
+				isActiveOne = true;
+				theSceneList1 [i].isOpened = true;
+			}
+		}
+		for (int i = 0; i < theSceneList2.Count; i++) 
+		{
+			if (theSceneList2 [i].endIndex == endIndex) 
+			{
+				isActiveOne = true;
+				theSceneList2 [i].isOpened = true;
+			}
+		}
+		for (int i = 0; i < theSceneList3.Count; i++) 
+		{
+			if (theSceneList3 [i].endIndex == endIndex) 
+			{
+				isActiveOne = true;
+				theSceneList3 [i].isOpened = true;
+			}
+		}
+		//如果有激活就保存到文件里面
+		if(isActiveOne)
+		saveSceneFile();
+	}
+
 	public static void InitValues()
 	{
 		string theSceneFilePath =  Application .persistentDataPath+"/Scene.txt";
@@ -31,14 +71,23 @@ public class SceneModeFile : MonoBehaviour {
 			loadFromFile ();
 			//否则就加载文件
 		}
+		isStarted = true;
 	}
 
 	//保存于创建
+	//加上了标记防止互斥事件
+	private static bool isSaving=false;
 	public static void saveSceneFile()
 	{
-		string path =  Application .persistentDataPath+"/Scene.txt";
-		string information = getSaveString ();
-		CreateFile (information , path);
+		if (isSaving == false) 
+		{
+			isSaving = true;
+			string path = Application.persistentDataPath + "/Scene.txt";
+			string information = getSaveString ();
+			print (" save   " + information);
+			CreateFile (information, path);
+			isSaving = false;
+		}
 	}
 
 
@@ -90,9 +139,14 @@ public class SceneModeFile : MonoBehaviour {
 		//100012,100036这种编号要与plot剧本文件相对应
 		//第一组
 		theSceneList1.Add (new scenes("日常邪恶" ,100012,100036 , 1,false));
+		theSceneList1.Add (new scenes("夜半医疗" ,200000,200026 , 1,false));
+		theSceneList1.Add (new scenes("独白" ,200027,200044 , 1,false));
 		//第二组
-		theSceneList2.Add (new scenes("能吃是福" ,100081,100091, 2,false));
+		theSceneList2.Add (new scenes("能吃是福" ,100077,100091, 2,false));
+		theSceneList2.Add (new scenes("新的任务" ,200045,200089, 2,false));
+
 		//第三组
+		theSceneList3.Add (new scenes("近朱者赤" ,100046, 100065 , 3,false));
 		theSceneList3.Add (new scenes("吉克与梅尔特" ,100110, 100118 , 3,false));
 
 	}
@@ -127,7 +181,7 @@ public class SceneModeFile : MonoBehaviour {
 	{
 		//没有配置文件就新建一个
 		string informationSave = information;
-		FileStream aFile = new FileStream(path , FileMode.OpenOrCreate);
+		FileStream aFile = new FileStream(path , FileMode.Create);
 		StreamWriter sw = new StreamWriter(aFile);
 		sw.Write(informationSave);
 		sw.Close();
@@ -136,7 +190,7 @@ public class SceneModeFile : MonoBehaviour {
 }
 
 
-//激励scene信息的类
+//记录scene信息的类
 public class scenes
 {
 	public int startIndex = 0;

@@ -21,7 +21,8 @@ public class MusicModeController : MonoBehaviour {
 	public Transform theContantPanel;
 	//展示按钮预设物
 	public GameObject theButtonProfab;
-
+    //显示音乐名字的Text
+	public Text theMusicNameText;
 	//保留一个引用作为初始值
 	private musicModeButton theMusicFirst = null;
 	//进行初始化
@@ -32,7 +33,7 @@ public class MusicModeController : MonoBehaviour {
 		{
 			GameObject theButton = GameObject.Instantiate (theButtonProfab);
 			musicModeButton MB = theButton.GetComponent<musicModeButton> ();
-			MB .makeStart (musicNames[i] , pictureNames[i] , theMusicController,theShowImage);
+			MB .makeStart (musicNames[i] , pictureNames[i] , theMusicController,theShowImage,theMusicNameText);
 			theButton.gameObject.transform.SetParent (theContantPanel.transform);
 			if (theMusicFirst == null)
 				theMusicFirst = MB;

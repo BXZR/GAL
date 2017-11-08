@@ -25,7 +25,8 @@ public class CGModeFile : MonoBehaviour {
 	public static List <CGSaves> theCG1;
 	public static List<CGSaves> theCG2;
 	public static List<CGSaves> theCG3;
-
+	//打个标记，有些时候不按照顺序来进行游戏可能会有初始化的问题
+	private static bool isStarted = false;
 
 	//如果没有配置文件就需要生成一个配置文件
 	//这就意味着所有的初始值都在这里被存储
@@ -112,6 +113,10 @@ public class CGModeFile : MonoBehaviour {
 
 	public static void CGActive(string CGName)
 	{
+		if(isStarted == false)
+		makeAllStart ();//防止出现没有初始化的问题
+
+
 		bool isfound = false;
 
 		for (int i = 0; i < theCG1.Count; i++) 
@@ -251,8 +256,8 @@ public class CGModeFile : MonoBehaviour {
 	private  static  void  CreateFile(string information , string path)
 	{
 			//没有配置文件就新建一个
-			string informationSave = information;
-		       FileStream aFile = new FileStream(path , FileMode.OpenOrCreate);
+		 	string informationSave = information;
+		    FileStream aFile = new FileStream(path , FileMode.Create);
 				StreamWriter sw = new StreamWriter(aFile);
 				sw.Write(informationSave);
 				sw.Close();

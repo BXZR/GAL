@@ -22,11 +22,12 @@ public class musicModeButton : MonoBehaviour {
 	//纪录已经选择的内容
 	private static Image theButtonImageSaved = null;
 	private static Text theTextSaved = null;
-
+	//显示正在播放的音乐
+	private Text theShowMusicNameText;
 	//记录下来已经加载的东西，减少重复的加载过程
 	private Sprite theSavedSprite = null;
 
-	public void makeStart(string nameIn ,string pictureNameIn, MusicController MusicControllerIn , Image ImageIn)
+	public void makeStart(string nameIn ,string pictureNameIn, MusicController MusicControllerIn , Image ImageIn , Text MusicNameText)
 	{
 		this.theMusicName = nameIn;
 		this.thePictureName = pictureNameIn;
@@ -38,6 +39,7 @@ public class musicModeButton : MonoBehaviour {
 		thisImage = this.GetComponent <Image> ();
 		theButtonImageSaved = thisImage;
 		theTextSaved = thisText;
+		theShowMusicNameText = MusicNameText;
 	}
 
 
@@ -57,9 +59,7 @@ public class musicModeButton : MonoBehaviour {
 		else
 		{
 			//判断与减少加载图像的次数
-			if(theSavedSprite == null)
-			theImageShow.sprite = makeLoadSprite ("people/big/noOne");
-			theImageShow.sprite = theSavedSprite;
+			theImageShow.sprite = makeLoadSprite ("people/MusicNullBack");
 		}
 		if (thisImage != theButtonImageSaved )
 		{
@@ -71,6 +71,7 @@ public class musicModeButton : MonoBehaviour {
 
 			theTextSaved.color = Color.yellow;
 			theButtonImageSaved.color = Color.yellow;
+			theShowMusicNameText.text = theTextSaved.text+"~";
 		}
 
 	}

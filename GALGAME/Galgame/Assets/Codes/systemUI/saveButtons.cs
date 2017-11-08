@@ -33,26 +33,39 @@ public class saveButtons : MonoBehaviour {
 
 	public void  quickSave()
 	{
-		theDataController.saveItem (thePlotController .TheItemNow,saveIndex);
-		savePicture ();
-		StartCoroutine (loadPicture());
-		informationPanel.showInformation ("存档");
-	}
-	public void  makeSaveOrLoad()
-	{
-		if (systemInformations.isSaving) 
+		if (systemInformations.isScene == false) 
 		{
-			theDataController.saveItem (thePlotController .TheItemNow,saveIndex);
+			theDataController.saveItem (thePlotController.TheItemNow, saveIndex);
 			savePicture ();
-			StartCoroutine (loadPicture());
+			StartCoroutine (loadPicture ());
 			informationPanel.showInformation ("存档");
 		} 
 		else
 		{
-			theDataController.loadItem (saveIndex);
-			informationPanel.showInformation ("读档");
+			informationPanel.showInformation ("回忆模式下不能快速存档");
 		}
-			
+	}
+	public void  makeSaveOrLoad()
+	{
+		if (systemInformations.isScene) 
+		{
+			informationPanel.showInformation ("回忆模式不能存档或者读档");
+		} 
+		else 
+		{
+			if (systemInformations.isSaving)
+			{
+				theDataController.saveItem (thePlotController.TheItemNow, saveIndex);
+				savePicture ();
+				StartCoroutine (loadPicture ());
+				informationPanel.showInformation ("存档");
+			}
+			else 
+			{
+				theDataController.loadItem (saveIndex);
+				informationPanel.showInformation ("读档");
+			}
+		}
 	}
 
 	//存档的时候的截图

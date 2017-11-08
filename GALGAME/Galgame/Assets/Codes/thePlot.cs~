@@ -130,7 +130,15 @@ public class thePlot : MonoBehaviour {
 		{
 			//theTextController.openTEXT ();
 			theItemNow = theItemNow.moveToNext (); 
-			playTheItem(theItemNow);
+			//如果是回忆就需要检查一下是不是完事了
+			if (systemInformations.isScene && theItemNow.ThePlotItemID > systemInformations.SceneEndIndex)
+			{
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("start");//直接返回到开始界面
+			} 
+			else 
+			{
+				playTheItem (theItemNow);
+			}
 		}
 	}
 
@@ -154,6 +162,9 @@ public class thePlot : MonoBehaviour {
 		theMusicController.playBackMusic (theItem);
 		theSoundController.playSound (theItem);
 		thePeopleSoundController.playSound (theItem , true);
+		//尝试激活Scene
+		//规则是当一个剧本帧的下标到达了某一个scene的最后一个下标，那么这个scerne就可以被解锁
+		SceneModeFile.activeScene(TheItemNow.ThePlotItemID);
 	}
 
 
@@ -276,7 +287,7 @@ public class thePlot : MonoBehaviour {
 		
 		makeAllStart ();
 		//首先要为所有的控制单元初始化一个被控制的剧本元素
-		if (systemInformations .loadMemory)
+		if (systemInformations.loadMemory) 
 		{
 			//因为只有一个应用的存档，倒是简单了
 			//说起来这个是自动存档的原理
@@ -286,13 +297,17 @@ public class thePlot : MonoBehaviour {
 			} 
 			else 
 			{
-				playTheItem(theItemNow);
+				playTheItem (theItemNow);
 			}
 		} 
-		else if (startID > 0)
-		{
-			theDataController.loadItemForSkip(startID);
+		else if (startID > 0) 
+		{//设置自动开始ID
+			theDataController.loadItemForSkip (startID);
 			startID = -99;
+		} 
+		else if (systemInformations.SceneStartIndex > 0 && systemInformations.isScene) 
+		{//场景回忆ID
+			theDataController.loadItemForSkip (systemInformations.SceneStartIndex);
 		}
 		else
 		{

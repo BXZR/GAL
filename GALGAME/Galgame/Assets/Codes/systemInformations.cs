@@ -93,4 +93,22 @@ public class systemInformations : MonoBehaviour {
 	}
 
 
+	//有关场景回放
+	public static int SceneStartIndex = -1;
+	public static int SceneEndIndex = -1;
+	public static  bool isScene = false;//是否正在回忆模式
+	//这个标记在每一次开始场景中会重置为false
+	public static void makeFlashForScene()
+	{
+		isScene = false;
+		SceneStartIndex = -1;
+		SceneEndIndex = -1;
+	}
+	public static void makeScene(int start , int end)
+	{
+		SceneStartIndex = start;
+		SceneEndIndex = end;
+		isScene = true;
+	}
+
 }

@@ -46,6 +46,7 @@ public class soundController : MonoBehaviour {
 		}
 		else 
 		{
+			makeStart ();
 			theSource.PlayOneShot (theClip);
 			//print ("play sound");
 		}

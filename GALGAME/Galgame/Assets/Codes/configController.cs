@@ -248,7 +248,7 @@ public class configController : MonoBehaviour  {
 			isFlashing = true;
 			string theIniPath = Application.persistentDataPath + "/GalConfig.txt";
 			string informationSave = configsToString ();
-			FileStream aFile = new FileStream (theIniPath, FileMode.OpenOrCreate);
+			FileStream aFile = new FileStream (theIniPath, FileMode.Create);
 			StreamWriter sw = new StreamWriter (aFile);
 			sw.Write (informationSave);
 			sw.Close ();

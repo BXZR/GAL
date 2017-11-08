@@ -147,7 +147,7 @@ public class saveLoadController : MonoBehaviour {
 	//单个信息写入适合这种方法
 	public void saveInformation( string fileName , string information )
 	{
-		FileStream aFile = new FileStream( fileName , FileMode.OpenOrCreate);
+		FileStream aFile = new FileStream( fileName , FileMode.Create);
 		StreamWriter sw = new StreamWriter(aFile);
 		sw.Write(information);
 		sw.Close();

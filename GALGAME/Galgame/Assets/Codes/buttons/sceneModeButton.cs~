@@ -10,18 +10,19 @@ public class sceneModeButton : MonoBehaviour {
 	//在回忆模式之下只需要给出从头到尾的剧本帧“坐标”就好
 	private int indexForStart = 0;
 	private int indexForEnd = 0;
-
-
-	public void makeStart(int indexStart , int indexEnd , string nameIn = "--" , bool isOpened = false)
+	private bool isOpened = false;
+	private string aimsceneName = "gal_1";//跳转到这个场景
+	public void makeStart(int indexStart , int indexEnd , string nameIn = "--" , bool isOpenedIn = false)
 	{
 		indexForStart = indexStart;
 		indexForEnd = indexEnd;
+		isOpened = isOpenedIn;
 		Text theText = this.GetComponentInChildren<Text> ();
 		if (isOpened)
 		{
 			theText.text =  "["+nameIn +"]";
 			//更改背景图片功能在这里写
-			this.GetComponent<Image>().sprite = makeLoadSprite("backPictureForButton/FioneCG3_Button");
+			this.GetComponent<Image>().sprite = makeLoadSprite("UI/sceneBook");
 		}
 		else
 		{
@@ -32,7 +33,13 @@ public class sceneModeButton : MonoBehaviour {
 	//按钮点击的事件
 	public void makeSceneSelected ()
 	{
-		print ("from "+indexForStart +"   to "+indexForEnd);
+		if (isOpened)
+		{
+            //只有在激活条件下才会有效
+			print ("from " + indexForStart + "   to " + indexForEnd);
+			systemInformations.makeScene (indexForStart,indexForEnd);
+			UnityEngine.SceneManagement.SceneManager.LoadScene (aimsceneName);
+		}
 	}
 
 	//加载图片
