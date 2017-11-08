@@ -59,6 +59,8 @@ public class SceneModeController : MonoBehaviour {
 	}
 	void Start () 
 	{
+		//最开始的界面做过这一步了，但是如果不是从start进入这个场景或者在这之前没有进入过start场景
+		//就需要做这一步
 		SceneModeFile.InitValues ();
 		makeStart ();
 		changeSceneButton (1);

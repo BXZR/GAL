@@ -11,9 +11,8 @@ public class startController : MonoBehaviour {
 	private movieController theMovioController;
 	// Use this for initialization
 
-
 	private  static bool isStarted = false;
-
+	private  bool isStartedThisTurn = false;//本次打开是不是已经开始
 	void Start () {
 		if (isStarted)
 			makeStart ();
@@ -42,18 +41,26 @@ public class startController : MonoBehaviour {
 	}
 	void makeStart()
 	{
+		isStarted = true;
+		isStartedThisTurn = true;
 		//DarkStarter.gameObject.SetActive (false);
 		//这里有一个渐变的效果，这个原先是是一个直接关闭
-		DarkStarter.GetComponent<effectSlowIn>().makeChangeOut(1.5f);
+		//花上两秒的时间渐入时间有一点长了
+		DarkStarter.GetComponent<effectSlowIn>().makeChangeOut(2f);
 	    UIUseRoot.gameObject.SetActive (true);
-		theAudioSource.gameObject.SetActive (true);
+		//没有必要做这一步，当然求稳健的话是可以的
+		//theAudioSource.gameObject.SetActive (true);
 		theAudioSource.Play ();
 		theAudioSource.loop = true;
-	    isStarted = true;
-		configController.createConfigFileIfNull ();//如果没有配置文件就建立默认的配置文件
-		SceneModeFile.InitValues();
-		CGModeFile.makeAllStart();//生成CG文件
-		Invoke("trueStart",1.75f);
+		if(!isStarted)
+		{
+		//以下功能关乎文件，但是很多东西都被保存在了静态变量中
+		//所以从文件进行初始化的功能只在最开始的时候做一次就可以了
+		  configController.createConfigFileIfNull ();//如果没有配置文件就建立默认的配置文件
+		  SceneModeFile.InitValues();
+		  CGModeFile.makeAllStart();//生成CG文件
+		}
+		Invoke("trueStart",2.15f);
 	}
 
 	//第二段的收尾工作
@@ -66,15 +73,21 @@ public class startController : MonoBehaviour {
 
 	float timer = 0f;//需要等待一段时间否则不可以有效果
 	float timerMax = 1f;//一个简单的阀值
-	// Update is called once per frame
+
+	//这个功能是为了给出一种操作的解决方案
 	void Update () 
 	{
-		timer += Time.deltaTime;
-		if (timer > timerMax)
+		//UIUseRoot.gameObject.activeInHierarchy是一个标记
+		//实际上这个可以用一个额外的标记但是用这个物体作为标记就可以了
+		if (! isStartedThisTurn )
 		{
-			if (Input.anyKey || Input.GetMouseButtonDown (0)) 
+			timer += Time.deltaTime;
+			if (timer > timerMax) 
 			{
-				makeStart ();
+				if (Input.anyKey || Input.GetMouseButtonDown (0)) 
+				{
+					makeStart ();
+				}
 			}
 		}
 	}

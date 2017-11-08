@@ -86,6 +86,8 @@ public class CGModeController : MonoBehaviour {
 
 	void Start () 
 	{
+		//最开始的界面做过这一步了，但是如果不是从start进入这个场景或者在这之前没有进入过start场景
+		//就需要做这一步
 		//实际上是加载
 		CGModeFile.makeAllStart ();
 
@@ -98,15 +100,8 @@ public class CGModeController : MonoBehaviour {
 		CGNameForGroup3 = new List<string> ();
 		for (int i = 0; i < CGModeFile.theCG3.Count; i++)
 			CGNameForGroup3.Add ( CGModeFile.theCG3[i].CGFileName);
-
-
-
-  		makeCGSelectButton (3);
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
 		
+  		makeCGSelectButton (3);
 	}
+
 }
