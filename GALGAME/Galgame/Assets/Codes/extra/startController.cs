@@ -62,6 +62,7 @@ public class startController : MonoBehaviour {
 		  SceneModeFile.InitValues();
 		  CGModeFile.makeAllStart();//生成CG文件
 		}
+		systemInformations.flashSkip ();//默认回到初始界面时间scale变回原状
 		Invoke("trueStart",2.15f);
 	}
 

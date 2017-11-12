@@ -36,7 +36,7 @@ public class thePlotItem : MonoBehaviour {
 	public string musicName = "";//背景音乐名字
 	public string soundName = "";//音效名字
 	public string speakSoundName = "";//语音音效的名字
-
+	public string extraAction = "";//额外动作脚本配置
 	public int aimPlotItemID = 0;//支持随意跳转，这一项标记目标plotItem的ID
 
 	//果然还是更喜欢使用局本树的方法处理
@@ -80,9 +80,10 @@ public class thePlotItem : MonoBehaviour {
 	}
 
 	//扩展方法3
-	public void  makeCreate3(string theSpeakSoundNameIn)
+	public void  makeCreate3(string theSpeakSoundNameIn,string extraActionIn)
 	{
 		speakSoundName = theSpeakSoundNameIn;
+		extraAction = extraActionIn;
 	}
 
 	//这个方法在创建树的时候进行

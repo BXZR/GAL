@@ -70,6 +70,7 @@
      <Compile Include="Assets\Codes\extra\movieController.cs" />
      <Compile Include="Assets\Codes\extra\saveLoadPicture.cs" />
      <Compile Include="Assets\Codes\extra\startController.cs" />
+     <Compile Include="Assets\Codes\extraActions\extraRotation.cs" />
      <Compile Include="Assets\Codes\loadSceneController.cs" />
      <Compile Include="Assets\Codes\plotTreeMaker.cs" />
      <Compile Include="Assets\Codes\saveLoadController.cs" />

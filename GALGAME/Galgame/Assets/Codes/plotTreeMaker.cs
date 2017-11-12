@@ -83,6 +83,7 @@ public class plotTreeMaker : MonoBehaviour {
 
 				string aimIDIN = theInformationIn [11].Trim();
 				string speakName = theInformationIn[12].Trim();
+				string extraAction = theInformationIn[13].Trim();
 				int aimID  = -1;
 				if (string .IsNullOrEmpty( theInformationIn [11].Trim()) == false)
 				{
@@ -100,7 +101,7 @@ public class plotTreeMaker : MonoBehaviour {
 				theItem.makeCreate1 (thePlotBranchID , theBranchTalkID , theSpeekerName ,theBackPictureName,theTalkInformation ,title);
 				//print("====="+player1 +"======"+player2 +"======"+player3);
 				theItem .makeCreate2(player1 , player2 , player3,musicName ,soundName,aimID);
-				theItem .makeCreate3(speakName);
+				theItem .makeCreate3(speakName,extraAction);
 				theStartItems.Add (theItem);//直接按照分支进行整理，但是顺序和父子关系在这一步还没有确定
 
 			}

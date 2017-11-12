@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class UIController : MonoBehaviour {
 
 	//这个类专门用来控制说话的时候现实的图和名字
@@ -105,7 +106,13 @@ public class UIController : MonoBehaviour {
 			}
 			break;
 		}
-       
+       //接下来还可能需要做一些额外的动作
+		string [] extra = theItem.extraAction.Split(':');
+		if (extra.Length >= 2) 
+		{
+			int index = System.Convert.ToInt16 (extra [1]);
+			bigPeoplePictures [index].gameObject.AddComponent (System.Type.GetType(extra[0]));
+		}
 
 
 

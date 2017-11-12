@@ -84,7 +84,7 @@ public class SceneModeFile : MonoBehaviour {
 			isSaving = true;
 			string path = Application.persistentDataPath + "/Scene.txt";
 			string information = getSaveString ();
-			print (" save   " + information);
+			//print (" save   " + information);
 			CreateFile (information, path);
 			isSaving = false;
 		}

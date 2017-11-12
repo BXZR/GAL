@@ -34,7 +34,13 @@ public class systemInformations : MonoBehaviour {
 	private static float normalModeTimeScale = 1.0f;
 
 	private static  bool isSkiping = false;//是否在进行快进
-	public static bool ISSkiping { get {return isSkiping;}}
+	public static bool ISSkiping { get {return isSkiping;} }
+
+	//重置快进标记
+	public static void flashSkip()
+	{
+		isSkiping = false;
+	}
 	//全局唯一的控制是否快进的方法
 	public  static void skipControll()
 	{

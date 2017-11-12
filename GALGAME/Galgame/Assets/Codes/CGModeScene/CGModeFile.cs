@@ -34,7 +34,7 @@ public class CGModeFile : MonoBehaviour {
 	public static  void makeAllStart()
 	{
 		string theCGFilePath =  Application .persistentDataPath+"/CG.txt";
-		print (theCGFilePath );
+		//print (theCGFilePath );
 		//没有文件就创建文件
 		if (!File.Exists (theCGFilePath))
 		{
@@ -146,7 +146,7 @@ public class CGModeFile : MonoBehaviour {
 				break;
 			}
 		}
-		print ("CGModeFile ---" + isfound);
+//		print ("CGModeFile ---" + isfound);
 		//重新保存CG文件
 		if (isfound)
 		{
