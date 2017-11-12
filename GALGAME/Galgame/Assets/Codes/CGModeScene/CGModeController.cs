@@ -11,7 +11,7 @@ public class CGModeController : MonoBehaviour {
 	private  List<string> CGNameForGroup1;//艾丽斯
 	private  List<string> CGNameForGroup2;//菲奥奈
 	private  List<string> CGNameForGroup3;//其他
-
+	public GameObject [] SelectButtons;//选择目录的按钮
 	public int selectedGroup = 1;//当前选择的grop
 	public GameObject contant;//声称的button的挂载点也就是父物体
 	public GameObject buttonProfabe;//按钮的预设物
@@ -28,12 +28,18 @@ public class CGModeController : MonoBehaviour {
 		//选择分组
 		List<string> theSelectOne =  selectGroup();
 		makeButtons(theSelectOne);
-
+		changeSelectButtonEffect(index);
 
 
 	}
 
 
+	private void changeSelectButtonEffect(int index = 0)
+	{
+		for (int i = 0; i < SelectButtons.Length; i++)
+			SelectButtons [i].GetComponent <effectBasic> ().shutEffect ();
+		SelectButtons [index - 1].GetComponent <effectBasic> ().openEffect ();
+	}
 
 	//建立预设物与设置信息
 	void makeButtons(List< string>  theSelectOne)

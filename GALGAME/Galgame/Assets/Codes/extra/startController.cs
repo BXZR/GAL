@@ -8,6 +8,7 @@ public class startController : MonoBehaviour {
 	public GameObject UIUseRoot;
 	public AudioSource theAudioSource;
 	public GameObject DarkStarter;//最开始的黑色屏幕
+	public GameObject theStartSceneEffect;//粒子效果
 	private movieController theMovioController;
 	// Use this for initialization
 
@@ -48,6 +49,7 @@ public class startController : MonoBehaviour {
 		//花上两秒的时间渐入时间有一点长了
 		DarkStarter.GetComponent<effectSlowIn>().makeChangeOut(2f);
 	    UIUseRoot.gameObject.SetActive (true);
+		theStartSceneEffect.SetActive (true);
 		//没有必要做这一步，当然求稳健的话是可以的
 		//theAudioSource.gameObject.SetActive (true);
 		theAudioSource.Play ();

@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Codes\CGModeScene\CGModeController.cs" />
      <Compile Include="Assets\Codes\CGModeScene\CGModeFile.cs" />
+     <Compile Include="Assets\Codes\Effects\effectBasic.cs" />
      <Compile Include="Assets\Codes\MusicController.cs" />
      <Compile Include="Assets\Codes\MusicModeScene\MusicModeController.cs" />
      <Compile Include="Assets\Codes\UIController.cs" />

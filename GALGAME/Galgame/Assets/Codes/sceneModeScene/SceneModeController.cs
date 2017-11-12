@@ -10,6 +10,8 @@ public class SceneModeController : MonoBehaviour {
 	public GameObject contant;//声称的button的挂载点也就是父物体
 	public GameObject buttonProfabe;//按钮的预设物
 
+	public GameObject [] SelectButtons;//选择目录的按钮
+
 	private  List< scenes> SceneNameForGroup1;//艾丽斯
 	private  List< scenes> SceneNameForGroup2;//菲奥奈
 	private  List< scenes> SceneNameForGroup3;//其他
@@ -30,7 +32,14 @@ public class SceneModeController : MonoBehaviour {
 			theButton.makeStart (theSelected [i].startIndex,theSelected [i].endIndex, theSelected [i].sceneName , theSelected[i].isOpened);
 			theSceneModeButton.transform.SetParent (contant.transform);//排版用grid自行解决（在这里进行设置的配置）
 		}
-		
+		changeSelectButtonEffect(index);
+	}
+
+	private void changeSelectButtonEffect(int index = 0)
+	{
+		for (int i = 0; i < SelectButtons.Length; i++)
+			SelectButtons [i].GetComponent <effectBasic> ().shutEffect ();
+		SelectButtons [index - 1].GetComponent <effectBasic> ().openEffect ();
 	}
 
 	private List< scenes> getSelectGroup()

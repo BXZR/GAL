@@ -1,0 +1,23 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class buttonEffects : MonoBehaviour {
+	//这个脚本用来控制一些需要特殊效果显示的按钮
+	//如显示已经被选择等的效果
+	//也支持高级效果
+	//同时这是一个基类，需要支持继承从而展现更多效果
+	public GameObject theEffectOBJ;//最基础的当然是开始/关闭效果的做法
+
+	//开启效果
+	public void openEffect()
+	{
+		theEffectOBJ.gameObject.SetActive (true);
+	}
+
+	//关闭效果
+	public void shutEffect()
+	{
+		theEffectOBJ.gameObject.SetActive (false);
+	}
+}
