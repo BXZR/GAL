@@ -59,7 +59,7 @@ public class musicModeButton : MonoBehaviour {
 		else
 		{
 			//判断与减少加载图像的次数
-			theImageShow.sprite = makeLoadSprite ("people/MusicNullBack");
+			theImageShow.sprite = makeLoadSprite ("Extra/MusicNullBack");
 		}
 		if (thisImage != theButtonImageSaved )
 		{

@@ -39,6 +39,7 @@ public class systemInformations : MonoBehaviour {
 	//重置快进标记
 	public static void flashSkip()
 	{
+		Time.timeScale = normalModeTimeScale;
 		isSkiping = false;
 	}
 	//全局唯一的控制是否快进的方法
