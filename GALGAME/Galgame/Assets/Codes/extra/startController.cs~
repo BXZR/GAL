@@ -6,7 +6,7 @@ public class startController : MonoBehaviour {
 
 	//一开始的时候UI是不生效的
 	public GameObject UIUseRoot;
-	public AudioSource theAudioSource;
+	private AudioSource theAudioSource;
 	public GameObject DarkStarter;//最开始的黑色屏幕
 	public GameObject theStartSceneEffect;//粒子效果
 	private movieController theMovioController;
@@ -15,6 +15,7 @@ public class startController : MonoBehaviour {
 	private  static bool isStarted = false;
 	private  bool isStartedThisTurn = false;//本次打开是不是已经开始
 	void Start () {
+		theAudioSource = this.GetComponent <AudioGetter> ().GetSource ();
 		if (isStarted)
 			makeStart ();
 		//片头曲只会播放一次
@@ -42,6 +43,7 @@ public class startController : MonoBehaviour {
 	}
 	void makeStart()
 	{
+		this.GetComponent <AudioGetter> ().playerSource ();
 		isStarted = true;
 		isStartedThisTurn = true;
 		//DarkStarter.gameObject.SetActive (false);

@@ -15,7 +15,7 @@ public class MusicModeController : MonoBehaviour {
 	public string[] pictureNames;
 	//用于挂在父物体的theContantPanel引用
 	//用引用赋值的方法来做可以节约大量的时间
-	public MusicController theMusicController;
+	private  MusicController theMusicController;
 	public Image theShowImage;
 
 	public Transform theContantPanel;
@@ -29,6 +29,7 @@ public class MusicModeController : MonoBehaviour {
 	//世界上这个脚本的功能最重要的就是初始化
 	public  void makeStart()
 	{
+		theMusicController =this.GetComponent <AudioGetter>().GetMusicController();
 		for (int i = 0; i < musicNames.Length; i++)
 		{
 			GameObject theButton = GameObject.Instantiate (theButtonProfab);

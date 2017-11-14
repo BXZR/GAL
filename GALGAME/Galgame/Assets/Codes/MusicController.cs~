@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //这个类抓木门用于控制背景音乐 
+[RequireComponent (typeof(AudioSource))]
 public class MusicController : MonoBehaviour {
 
 	private AudioSource theBackMusicController;
@@ -15,6 +16,31 @@ public class MusicController : MonoBehaviour {
 	}
 
 	public AudioClip theClipNow ;
+
+	//直接传入clip的模式
+	public void playWithClip(AudioClip theClip, bool smoothChange = true)
+	{
+		theClipNow  = theClip;
+		if (theClipNow  == null) 
+		{
+			//print ("没有加载成功");
+			return;
+		}
+		if(theBackMusicController == null)
+			theBackMusicController = this.GetComponent <AudioSource> ();
+		theBackMusicNameNow = theClip.name;
+
+		if (smoothChange == false)
+		{
+			//立即加载切换
+			theBackMusicController.clip = theClipNow;
+			theBackMusicController.Play ();
+		}
+		else {
+			//渐变式切换
+			StartCoroutine (smoothVolumeChange ());
+		}
+	}
 
 	//只有在与当前播放的音乐名字不同的时候才会调用
 	//因此在这里已经不需要判断
@@ -74,6 +100,7 @@ public class MusicController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		theBackMusicController = this.GetComponent <AudioSource> ();
+		if(theBackMusicController != null)
 		theBackMusicController.loop = true;
 	}
 

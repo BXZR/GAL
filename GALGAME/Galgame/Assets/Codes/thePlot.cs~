@@ -85,7 +85,8 @@ public class thePlot : MonoBehaviour {
 		theChoiceController = this .GetComponent <choiceController>();//分支选择控制单元
 		theUIController = this.GetComponent <UIController>();//非文本显示的UI控制单元
 
-		theMusicController = this.transform .GetComponentInChildren<MusicController> ();//音频比较特殊，需要父子关系，因为需要同时播放多个音效，音乐
+		//theMusicController =  this.transform .GetComponentInChildren<MusicController> ();//音频比较特殊，需要父子关系，因为需要同时播放多个音效，音乐
+		theMusicController = this.GetComponent <AudioGetter>().GetMusicController();
 		theSoundController =  this.transform .GetComponentsInChildren<soundController>()[0];//两个sound，一个是真的音效，一个是语音音效
 		thePeopleSoundController = this.transform .GetComponentsInChildren<soundController>()[1];//两个sound，一个是真的音效，一个是语音音效
 		theDataController = this.GetComponent <saveLoadController>();
