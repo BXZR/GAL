@@ -50,7 +50,7 @@ public class CGModeController : MonoBehaviour {
 			theButton.transform.SetParent(contant.transform);
 
 			CGModeButton  theCGButton= theButton.gameObject.GetComponent <CGModeButton> ();
-
+			theCGButton.transform.localScale = new Vector3 (1,1,1);
 			theCGButton.makeStart (theSelectOne[i], theBigPicture , this);
 		}
 

@@ -16,14 +16,16 @@
 //下面是正式的剧本内容
 
 //死亡剧本1
-1000,000,noOne,,,,changeBack ,---.., ,death,,,,
+1000,000,noOne,,,,changeBack ,-----, ,death,,,,
 1000,001,get_Normal ,get_Normal ,,,DeadChart, 不好意思，你挂了...., ,death,,,,
 1000,002,get_Normal ,get_Normal ,,,DeadChart, 嘛，凡事都有第一次，反正以后还会常来。, ,death,,,,
 1000,003,get_Normal ,get_Normal ,,,DeadChart, 让我们来看看这一次是怎么死的。, ,death,,,,
 1000,004,get_Normal ,get_Normal ,,,DeadChart, 右手被削掉....., ,death,,,,
 1000,005,get_Normal ,get_Normal ,,,DeadChart, 左手被折断....., ,death,,,,
 1000,006,get_Normal ,get_Normal ,,,DeadChart, 最后还断头....., ,death,,,,
-1000,007,get_Low ,get_Low ,,,DeadChart, 太惨了....., ,death,,,,
-1000,008,get_Low ,get_Low ,,,DeadChart, 继续加油吧，你还有很长的路要走。, ,death,,,,
-1000,009,get_Fight ,get_Fight ,,,DeadChart, 不要忘记，这个世界处处都是危险！, ,death,,,,
-1000,010,noOne,,,,changeBack ,---------, ,fight,,,,
+1000,007,get_Low ,get_Low ,,,DeadChart, 太惨了哎....., ,death,,,,
+1000,008,get_Normal,get_Normal,,,DeadChart, 不过你还有机会可以重新选择。, ,death,,,,
+1000,009,get_Low ,get_Low ,,,DeadChart, 继续加油吧，你还有很长的路要走。, ,death,,,,
+1000,010,get_Fight ,get_Fight ,,,DeadChart, 不要忘记，这个世界处处都是危险！, ,death,,,,
+1000,011,get_Fight ,get_Fight ,,,DeadChart, 一不小心就是小命不保！, ,death,,,,
+1000,012,noOne,,,,changeBack ,---------, ,death,,,,

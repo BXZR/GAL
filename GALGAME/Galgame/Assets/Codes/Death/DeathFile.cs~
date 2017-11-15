@@ -10,7 +10,7 @@ public class DeathFile : MonoBehaviour {
 	public static List<string> theDeadPlayIndex;//死亡剧本帧下标
 	public static List<bool> theDeadOpen;//是不是已经激活这个道场
 	public static List<string> theDeathName;//死亡名称
-	private static bool isStarted = false;//开启标记
+	public static bool isStarted = false;//开启标记
 
 	//初始化
 	public static  void makeAllStart()

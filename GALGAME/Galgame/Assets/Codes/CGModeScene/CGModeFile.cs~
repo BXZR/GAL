@@ -16,7 +16,7 @@ public class CGModeFile : MonoBehaviour {
 	private static string[] CGNameForGroup2 =
 	{"FioneCG1_Button" ,"FioneCG2_Button" ,"FioneCG3_Button" ,"FioneCG4_Button" ,"FioneCG5_Button" ,"FioneCG6_Button" ,"FioneCG7_Button"  };//菲奥奈
 	private static string[] CGNameForGroup3 = 
-	{"alice_Home_Dark_Button" , "bar_Button" , "home_Button"  , "jik_home_Button" , "killScene_Button"  , "street_Button" , "whole_Button"};//其他
+	{"alice_Home_Dark_Button" , "bar_Button" , "home_Button"  , "jik_home_Button" , "killScene_Button"  , "street_Button" , "whole_Button" , "DeadChart_Button"};//其他
 
 
 	//----------------------------------------只有上面内容是需要配置的-----------------------------------------------------------------------------//

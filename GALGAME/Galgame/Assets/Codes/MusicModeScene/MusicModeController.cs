@@ -33,9 +33,11 @@ public class MusicModeController : MonoBehaviour {
 		for (int i = 0; i < musicNames.Length; i++)
 		{
 			GameObject theButton = GameObject.Instantiate (theButtonProfab);
+		
 			musicModeButton MB = theButton.GetComponent<musicModeButton> ();
 			MB .makeStart (musicNames[i] , pictureNames[i] , theMusicController,theShowImage,theMusicNameText);
 			theButton.gameObject.transform.SetParent (theContantPanel.transform);
+			theButton.transform.localScale = new Vector3 (1, 1, 1);
 			if (theMusicFirst == null)
 				theMusicFirst = MB;
 		}

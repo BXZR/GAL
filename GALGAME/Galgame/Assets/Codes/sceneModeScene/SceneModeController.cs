@@ -31,6 +31,7 @@ public class SceneModeController : MonoBehaviour {
 			sceneModeButton theButton = 	theSceneModeButton.GetComponent <sceneModeButton> ();
 			theButton.makeStart (theSelected [i].startIndex,theSelected [i].endIndex, theSelected [i].sceneName , theSelected[i].isOpened);
 			theSceneModeButton.transform.SetParent (contant.transform);//排版用grid自行解决（在这里进行设置的配置）
+			theSceneModeButton.transform .localScale = new Vector3 (1,1,1);
 		}
 		changeSelectButtonEffect(index);
 	}

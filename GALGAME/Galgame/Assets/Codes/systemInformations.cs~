@@ -37,8 +37,12 @@ public class systemInformations : MonoBehaviour {
 	public static bool ISSkiping { get {return isSkiping;} }
 
 	//重置快进标记
-	public static void flashSkip()
+	public static void flash()
 	{
+		isThePanelShows = false;//存档面板是不是显示了
+		isChildPanelShows = false;//有一个字panel用来存储一些不是很常用的按钮
+		isSaving = true;//true表示存档，false表示读档（面板相同，用这个标记来区分功能）
+		canControll = true;
 		Time.timeScale = normalModeTimeScale;
 		isSkiping = false;
 	}

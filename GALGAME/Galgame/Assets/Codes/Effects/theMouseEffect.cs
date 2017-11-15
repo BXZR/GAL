@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class theMouseEffect : MonoBehaviour {
 
-	public ParticleSystem theEffectForMouse = null;
+	private ParticleSystem theEffectForMouse = null;
 
 	void Start () {
 		GameObject theEffect=  GameObject.Instantiate<GameObject>( Resources.Load<GameObject> ("Effects/mouseMove"));
@@ -22,7 +22,7 @@ public class theMouseEffect : MonoBehaviour {
 		{
 			if(theEffectForMouse.isPlaying == false)
 			theEffectForMouse.Play ();
-			theEffectForMouse.transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+			theEffectForMouse.transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 1.0f));
 		}
 		if (Input.GetMouseButtonUp (0))
 		  theEffectForMouse.Stop ();

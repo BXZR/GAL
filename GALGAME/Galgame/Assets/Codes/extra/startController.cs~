@@ -48,7 +48,7 @@ public class startController : MonoBehaviour {
 		//DarkStarter.gameObject.SetActive (false);
 		//这里有一个渐变的效果，这个原先是是一个直接关闭
 		//花上两秒的时间渐入时间有一点长了
-		DarkStarter.GetComponent<effectSlowIn>().makeChangeOut(2f);
+		DarkStarter.GetComponent<effectSlowIn>().makeChangeOut(1.25f);
 	    UIUseRoot.gameObject.SetActive (true);
 		theStartSceneEffect.SetActive (true);
 		//没有必要做这一步，当然求稳健的话是可以的
@@ -64,10 +64,10 @@ public class startController : MonoBehaviour {
 		  CGModeFile.makeAllStart();//生成CG文件
 		  DeathFile.makeAllStart();
 		}
-		systemInformations.flashSkip ();//默认回到初始界面时间scale变回原状
+		systemInformations.flash ();//默认回到初始界面时间scale变回原状
 		isStarted = true;
 		isStartedThisTurn = true;
-		Invoke("trueStart",2.15f);
+		Invoke("trueStart",1.5f);
 	}
 
 	//第二段的收尾工作

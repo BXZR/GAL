@@ -13,7 +13,8 @@ public class deathButtonController : MonoBehaviour {
 	//在Onenables调用(只调用一次)
 	public void makeButtons()
 	{
-		
+		if (DeathFile.isStarted == false)
+			DeathFile.makeAllStart ();
 		//清理一下，其实没有必要
 		deathButton[] theDs = theContent.GetComponentsInChildren<deathButton> ();
 		for (int i = 0; i < theDs.Length; i++)
