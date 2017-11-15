@@ -129,16 +129,24 @@ public class thePlot : MonoBehaviour {
 		} 
 		else 
 		{
-			//theTextController.openTEXT ();
-			theItemNow = theItemNow.moveToNext (); 
-			//如果是回忆就需要检查一下是不是完事了
-			if (systemInformations.isScene && theItemNow.ThePlotItemID > systemInformations.SceneEndIndex)
+			//如果是死亡场景，就直接进入道场
+			if (DeathFile.setDead (theItemNow.ThePlotItemID.ToString ())) 
 			{
-				UnityEngine.SceneManagement.SceneManager.LoadScene ("start");//直接返回到开始界面
+				UnityEngine.SceneManagement.SceneManager.LoadScene ("DeadScene");//进入到死亡道场
 			} 
 			else 
 			{
-				playTheItem (theItemNow);
+				//theTextController.openTEXT ();
+				theItemNow = theItemNow.moveToNext (); 
+				//如果是回忆就需要检查一下是不是完事了
+				if (systemInformations.isScene && theItemNow.ThePlotItemID > systemInformations.SceneEndIndex) 
+				{
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("start");//直接返回到开始界面
+				} 
+				else 
+				{
+					playTheItem (theItemNow);
+				}
 			}
 		}
 	}
@@ -146,12 +154,12 @@ public class thePlot : MonoBehaviour {
 
 //操作剧本树单元的方法，这个程序真正用来玩的方法
 //事实上，这个方法只会对单个分支节点生效
-  public  void playTheItem(thePlotItem theItem = null)
+	public  void playTheItem(thePlotItem theItem = null)
 	{
 		//简单的防护措施
-		if (theItem == null) 
+		if (theItem == null)
 		{
-			print ("没有可控制的剧本元素");
+			//print ("没有可控制的剧本元素");
 			SceneManager.LoadScene ("start");
 			return;
 		}
@@ -288,27 +296,25 @@ public class thePlot : MonoBehaviour {
 		
 		makeAllStart ();
 		//首先要为所有的控制单元初始化一个被控制的剧本元素
-		if (systemInformations.loadMemory) 
-		{
+		if (systemInformations.loadMemory) {
 			//因为只有一个应用的存档，倒是简单了
 			//说起来这个是自动存档的原理
-			if (systemInformations.indexForLoad >= 0 && systemInformations.indexForLoad <= 9) 
-			{//正确的存档编号
+			if (systemInformations.indexForLoad >= 0 && systemInformations.indexForLoad <= 9) {//正确的存档编号
 				this.theDataController.loadItem (systemInformations.indexForLoad);
-			} 
-			else 
-			{
+			} else {
 				playTheItem (theItemNow);
 			}
-		} 
-		else if (startID > 0) 
-		{//设置自动开始ID
+		} else if (startID > 0) {//设置自动开始ID
 			theDataController.loadItemForSkip (startID);
 			startID = -99;
-		} 
-		else if (systemInformations.SceneStartIndex > 0 && systemInformations.isScene) 
-		{//场景回忆ID
+		} else if (systemInformations.SceneStartIndex > 0 && systemInformations.isScene) {//场景回忆ID
 			theDataController.loadItemForSkip (systemInformations.SceneStartIndex);
+		}
+		//如果进入了死亡道场
+		else if (systemInformations.deadPlotIndex >0) 
+		{
+			theDataController.loadItemForSkip (systemInformations.deadPlotIndex);
+			systemInformations.deadPlotIndex = -99;
 		}
 		else
 		{

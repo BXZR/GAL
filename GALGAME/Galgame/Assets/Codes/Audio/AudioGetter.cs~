@@ -16,7 +16,11 @@ public class AudioGetter : MonoBehaviour {
 	private MusicController theController = null;
 	//theClip可以为空，表示并不切换
 	public AudioClip theClip;
-	public bool forceChange = false;//强制切换音乐
+	public int changeMode = 0;//切换音乐的模式
+	//目前有两种切换音乐的模式
+	//第一种：立刻切换 0
+	//第二种：等待当前音乐播放完之后切换 1
+	//第三种：根本就不切换 2
 	public bool startPlay = true;//开场就播放
 	public AudioSource GetSource()
 	{
@@ -75,14 +79,26 @@ public class AudioGetter : MonoBehaviour {
 		try
 		{
 			theSource = GameObject.Find ("/theAudioSourceForAll").GetComponent<AudioSource>();
-			if (theSource != null) 
+			if (theSource != null ) 
 			{
-				if (theClip != null)
+				//为了确保每一次的缓慢切换都是正确的并且没有冲突的
+				StopCoroutine(theWaitPlay());
+				//首先要确保一定有音乐播放
+				if(theSource .clip == null && theClip != null)
+				{
 					theSource.clip = theClip;
+				}
+
+				//正常的切换工作
+				if(changeMode == 0)
+					theSource.clip = theClip;
+				else if(changeMode == 1)//等待切换切换为这个音乐
+					StartCoroutine(theWaitPlay());
 				//一定要做的就是播放
 				//如果正在播放就不切换，保持平滑
-				if (theSource.isPlaying == false || forceChange)
+				if (theSource.isPlaying == false )
 					theSource.Play ();
+
 			} 
 		}
 		catch 
@@ -96,10 +112,23 @@ public class AudioGetter : MonoBehaviour {
 			}
 		}
 	}
+
+
+	//等待当前音乐播放完成再切换
+	IEnumerator theWaitPlay()
+	{
+		//print ("music change when end");
+		//print ("wait time: " +theSource.clip.length);
+		yield return new WaitForSeconds (theSource.clip.length);
+		theSource.clip = this.theClip;
+		theSource.Play ();
+	}
+
 	void Start ()
 	{
 		if(startPlay)
 		playerSource ();
+		
 		//theController = GetMusicController ();
 	}
 }

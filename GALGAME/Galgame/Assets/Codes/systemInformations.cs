@@ -8,8 +8,8 @@ public class systemInformations : MonoBehaviour {
 	public static int indexForLoad = -99;//存档的编号
 	public static bool canControll = true;//在渐入转场的时候鼠标是不可以有效果的
 	//think 是旁白，不显示人名的时候用
-	private static string [] proName = {"alice","fione","jik","Caim" ,"mert","fione", "aozi","noOne"} ;
-	private static string [] showName = {"艾丽斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "菲奥奈", "奥兹",""};
+	private static string [] proName = {"alice","fione","jik","Caim" ,"mert","fione", "aozi","noOne" , "get"} ;
+	private static string [] showName = {"艾丽斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "菲奥奈", "奥兹","" , "戈尔"};
 
 	public static string getShowNameWithProName(string pro)
 	{
@@ -117,5 +117,8 @@ public class systemInformations : MonoBehaviour {
 		SceneEndIndex = end;
 		isScene = true;
 	}
+	//当前进入到的死亡到场剧本剧情下标
+	//同时也是是否进入到了死亡道场的标记
+	public static int deadPlotIndex = -99; 
 
 }

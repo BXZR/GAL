@@ -50,6 +50,9 @@
      <Compile Include="Assets\Codes\Audio\tipForAudioController.cs" />
      <Compile Include="Assets\Codes\CGModeScene\CGModeController.cs" />
      <Compile Include="Assets\Codes\CGModeScene\CGModeFile.cs" />
+     <Compile Include="Assets\Codes\Death\DeathFile.cs" />
+     <Compile Include="Assets\Codes\Death\deathButton.cs" />
+     <Compile Include="Assets\Codes\Death\deathButtonController.cs" />
      <Compile Include="Assets\Codes\Effects\effectBasic.cs" />
      <Compile Include="Assets\Codes\Effects\theMouseEffect.cs" />
      <Compile Include="Assets\Codes\MusicController.cs" />
@@ -91,6 +94,7 @@
      <Compile Include="Assets\Codes\textController.cs" />
      <Compile Include="Assets\Codes\thePlot.cs" />
      <Compile Include="Assets\Codes\thePlotItem.cs" />
+     <None Include="Assets\Resources\thePlots\thePlot10.txt" />
      <None Include="Assets\Resources\thePlots\thePlot2.txt" />
      <None Include="Assets\Resources\thePlots\thePlot1.txt" />
      <None Include="Assets\save0.txt" />

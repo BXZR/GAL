@@ -11,11 +11,12 @@ public class startController : MonoBehaviour {
 	public GameObject theStartSceneEffect;//粒子效果
 	private movieController theMovioController;
 	// Use this for initialization
-
+	private  AudioGetter theAudioGetter;//真正控制唯一不销毁音乐控制单元的控制器
 	private  static bool isStarted = false;
 	private  bool isStartedThisTurn = false;//本次打开是不是已经开始
 	void Start () {
-		theAudioSource = this.GetComponent <AudioGetter> ().GetSource ();
+		theAudioGetter = this.GetComponent <AudioGetter> ();
+		theAudioSource = theAudioGetter.GetSource ();
 		if (isStarted)
 			makeStart ();
 		//片头曲只会播放一次
@@ -43,9 +44,7 @@ public class startController : MonoBehaviour {
 	}
 	void makeStart()
 	{
-		this.GetComponent <AudioGetter> ().playerSource ();
-		isStarted = true;
-		isStartedThisTurn = true;
+		theAudioGetter.playerSource ();
 		//DarkStarter.gameObject.SetActive (false);
 		//这里有一个渐变的效果，这个原先是是一个直接关闭
 		//花上两秒的时间渐入时间有一点长了
@@ -63,8 +62,11 @@ public class startController : MonoBehaviour {
 		  configController.createConfigFileIfNull ();//如果没有配置文件就建立默认的配置文件
 		  SceneModeFile.InitValues();
 		  CGModeFile.makeAllStart();//生成CG文件
+		  DeathFile.makeAllStart();
 		}
 		systemInformations.flashSkip ();//默认回到初始界面时间scale变回原状
+		isStarted = true;
+		isStartedThisTurn = true;
 		Invoke("trueStart",2.15f);
 	}
 
@@ -73,7 +75,8 @@ public class startController : MonoBehaviour {
 	{
 		//print ("darkStarterEnded");
 		DarkStarter.gameObject.SetActive (false);
-		Destroy (this.gameObject);
+		this.enabled = false;//因为在这个物体上面有协程调用，如果直接Destroy携程也会跟着关闭
+		//因此采用了比较折中的做法，用enable关闭减少update中的判断
 	}
 
 	float timer = 0f;//需要等待一段时间否则不可以有效果

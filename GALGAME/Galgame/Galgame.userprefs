@@ -1,23 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\Audio\AudioGetter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\thePlots\thePlot10.txt">
     <Files>
-      <File FileName="Assets\Codes\extra\startController.cs" Line="44" Column="3" />
-      <File FileName="Assets\Codes\systemInformations.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\extraActions\extraRotation.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="1" Column="1" />
-      <File FileName="Assets\Codes\CGModeScene\CGModeFile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\sceneModeScene\SceneModeFile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\MusicModeScene\MusicModeController.cs" Line="32" Column="78" />
-      <File FileName="Assets\Codes\buttons\sceneModeButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\buttons\musicModeButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\thePlots\thePlot2.txt" Line="1" Column="1" />
-      <File FileName="Assets\Codes\Effects\theMouseEffect.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\Audio\tipForAudioController.cs" Line="21" Column="28" />
-      <File FileName="Assets\Codes\Audio\AudioGetter.cs" Line="75" Column="41" />
-      <File FileName="Assets\Codes\MusicController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\thePlot.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\thePlotItem.cs" Line="94" Column="31" />
+      <File FileName="Assets\Codes\Death\deathButton.cs" Line="40" Column="4" />
+      <File FileName="Assets\Codes\Death\deathButtonController.cs" Line="22" Column="61" />
+      <File FileName="Assets\Codes\extra\startController.cs" Line="47" Column="34" />
+      <File FileName="Assets\Codes\Death\DeathFile.cs" Line="96" Column="25" />
+      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="260" Column="1" />
+      <File FileName="Assets\Resources\thePlots\thePlot10.txt" Line="29" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
