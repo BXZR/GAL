@@ -55,7 +55,7 @@ public class startButtons : MonoBehaviour {
 
 	IEnumerator loadPicture()
 	{
-		yield return  new WaitForSeconds (0.1f);
+		yield return  new WaitForSeconds (0.05f);
 		string  path   = @"file:///" + Application .persistentDataPath+"/save"  + this.index+ ".jpg";
 		string chaeckPath =  Application .persistentDataPath+"/save"  + this.index + ".jpg";
 		//print (path);
@@ -73,7 +73,7 @@ public class startButtons : MonoBehaviour {
 			{
 				print ("load fail!");
 			}
-		}
+		} 
 
 	}
 }

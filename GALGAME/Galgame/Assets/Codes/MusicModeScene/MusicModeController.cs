@@ -25,6 +25,7 @@ public class MusicModeController : MonoBehaviour {
 	public Text theMusicNameText;
 	//保留一个引用作为初始值
 	private musicModeButton theMusicFirst = null;
+	private musicModeButton theBaseOne = null;
 	//进行初始化
 	//世界上这个脚本的功能最重要的就是初始化
 	public  void makeStart()
@@ -38,11 +39,18 @@ public class MusicModeController : MonoBehaviour {
 			MB .makeStart (musicNames[i] , pictureNames[i] , theMusicController,theShowImage,theMusicNameText);
 			theButton.gameObject.transform.SetParent (theContantPanel.transform);
 			theButton.transform.localScale = new Vector3 (1, 1, 1);
-			if (theMusicFirst == null)
+			if (theMusicController.theClipNow != null && MB.theMusicName == theMusicController.theClipNow.name) 
+			{
 				theMusicFirst = MB;
+			}
+			if (theBaseOne == null)
+				theBaseOne = MB;
 		}
-		if (theMusicFirst != null)
-			theMusicFirst.playSound ();
+		if (theMusicFirst == null)
+			theMusicFirst = theBaseOne;
+		
+		if (theMusicFirst != null)//这个就意味着如果不是从startscene进入到这个场景，在按下任意一个音乐按钮之前是不会播放音乐的
+			theMusicFirst.playSound (false);
 	}
 
 

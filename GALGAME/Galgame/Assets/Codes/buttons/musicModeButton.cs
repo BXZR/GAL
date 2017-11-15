@@ -9,7 +9,7 @@ public class musicModeButton : MonoBehaviour {
 	//这样做的想法是实现自治
 
 	//这个按钮代表的资源名称
-	private  string theMusicName = "";
+	public string theMusicName = "";
 	private string thePictureName = "";
 	//音频播放单元
 	private MusicController theMusicPlayController = null;
@@ -43,11 +43,16 @@ public class musicModeButton : MonoBehaviour {
 	}
 
 
-
-	public void playSound ()
+	//按下按钮当然要强制改变音乐
+	//但是初始化的时候不用强制改变音乐
+	public void playSound (bool changeClip = true )
 	{
-		if(theMusicPlayController!= null)
-		theMusicPlayController.playBackMusic (this .theMusicName);
+		print ("playSound");
+		if (changeClip)
+		{
+			if (theMusicPlayController != null)
+				theMusicPlayController.playBackMusic (this.theMusicName);
+		}
 		//print ("people/big/"+thePictureName);
 		if (string.IsNullOrEmpty (thePictureName) == false) 
 		{
@@ -61,7 +66,7 @@ public class musicModeButton : MonoBehaviour {
 			//判断与减少加载图像的次数
 			theImageShow.sprite = makeLoadSprite ("Extra/MusicNullBack");
 		}
-		if (thisImage != theButtonImageSaved )
+		//if (thisImage != theButtonImageSaved )
 		{
 			theTextSaved.color = Color.white;
 			theButtonImageSaved.color = Color.white;
