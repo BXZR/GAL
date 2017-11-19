@@ -50,12 +50,23 @@ public class AudioGetter : MonoBehaviour {
 		}
 		catch 
 		{
-			this.gameObject.AddComponent<AudioSource> ();
-			theSource = this.gameObject.GetComponent<AudioSource> ();
-			if (theClip != null)
+			try
 			{
-				theSource.clip = this.theClip;
-				theSource.Play ();
+				theSource = this.transform .Find("musicController").gameObject.GetComponent<AudioSource> ();
+				if (theClip != null)
+				{
+					theSource.clip = this.theClip;
+					theSource.Play ();
+				}
+			}
+			catch 
+			{
+				this.gameObject.AddComponent<AudioSource> ();
+				theSource = this.gameObject.GetComponent<AudioSource> ();
+				if (theClip != null) {
+					theSource.clip = this.theClip;
+					theSource.Play ();
+				}
 			}
 		}
 
@@ -103,12 +114,26 @@ public class AudioGetter : MonoBehaviour {
 		}
 		catch 
 		{
-			this.gameObject.AddComponent<AudioSource> ();
-			theSource = this.gameObject.GetComponent<AudioSource> ();
-			if (theClip != null)
+			try
 			{
-				theSource.clip = this.theClip;
-				theSource.Play ();
+				theSource = this.transform .Find("musicController").gameObject.GetComponent<AudioSource> ();
+				print("use child music controller");
+				if (theClip != null)
+				{
+
+					theSource.clip = this.theClip;
+					theSource.Play ();
+				}
+			}
+			catch
+			{
+				this.gameObject.AddComponent<AudioSource> ();
+				theSource = this.gameObject.GetComponent<AudioSource> ();
+				if (theClip != null)
+				{
+					theSource.clip = this.theClip;
+					theSource.Play ();
+				}
 			}
 		}
 	}

@@ -68,7 +68,8 @@ public class MusicController : MonoBehaviour {
 		}
 		else {
 			//渐变式切换
-			StartCoroutine (smoothVolumeChange ());
+			//StartCoroutine (smoothVolumeChange ());
+			StartCoroutine( "smoothChange", 0.8f);
 		}
 	}
 
@@ -96,6 +97,36 @@ public class MusicController : MonoBehaviour {
 			theBackMusicController.volume += 0.2f * volumeSave;
 		}
 	}
+
+	//这是使用插值法做的声音柔和渐变的方法2
+	//duration是声音变化使用的总时间
+	//因此有两个部分，声音变小和声音变大
+	IEnumerator smoothChange(float duration)
+	{
+		if(theBackMusicController == null)
+			theBackMusicController = this.GetComponent <AudioSource> ();
+		float volumeSave = theBackMusicController.volume;
+		float timePart = duration / 2;
+		float timerNow = 0f;
+		float step = 0.02f;
+		while (timerNow < timePart) 
+		{
+			//timerNow / timePart 补间律
+			theBackMusicController.volume = Mathf.Lerp (theBackMusicController.volume, 0.0f, timerNow / timePart);
+			yield return new WaitForSeconds (step);
+			timerNow += step;
+		}
+		theBackMusicController.clip = theClipNow ;
+		theBackMusicController.Play ();
+	    //接下来倒着算一次
+		while (timerNow > 0) 
+		{
+			theBackMusicController.volume = Mathf.Lerp (theBackMusicController.volume, volumeSave, (timePart - timerNow )/ timePart);
+			yield return new WaitForSeconds (step);
+			timerNow -= step;	
+		}
+	}
+
 
 	// Use this for initialization
 	void Start () {
