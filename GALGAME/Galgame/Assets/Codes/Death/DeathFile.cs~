@@ -15,7 +15,7 @@ public class DeathFile : MonoBehaviour {
 	//初始化
 	public static  void makeAllStart()
 	{
-		print ("start for death file");
+		//print ("start for death file");
 		string theDeathFilePath =  Application .persistentDataPath+"/Death.txt";
 		//print (theCGFilePath );
 		//没有文件就创建文件

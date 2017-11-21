@@ -1,18 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\systemUI\soundSliders.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\thePlots\thePlot1.txt">
     <Files>
       <File FileName="Assets\Codes\buttons\musicModeButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\MusicModeScene\MusicModeController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\MusicController.cs" Line="71" Column="6" />
-      <File FileName="Assets\Codes\UIController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\Death\DeathFile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\thePlots\thePlot2.txt" Line="1" Column="1" />
-      <File FileName="Assets\Codes\buttons\startButtons.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\thePlot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\MusicModeScene\MusicModeController.cs" Line="33" Column="57" />
+      <File FileName="Assets\Codes\MusicController.cs" Line="50" Column="5" />
+      <File FileName="Assets\Codes\thePlot.cs" Line="169" Column="29" />
       <File FileName="Assets\Codes\plotTreeMaker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\Audio\AudioGetter.cs" Line="78" Column="58" />
-      <File FileName="Assets\Codes\systemUI\soundSliders.cs" Line="52" Column="29" />
+      <File FileName="Assets\Codes\Audio\AudioGetter.cs" Line="52" Column="1" />
+      <File FileName="Assets\Codes\systemUI\soundSliders.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\CreaterSpeaking\theCreaterShowerMove.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\extra\saveLoadPicture.cs" Line="137" Column="1" />
+      <File FileName="Assets\Codes\Death\DeathFile.cs" Line="18" Column="5" />
+      <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="20" Column="37" />
+      <File FileName="Assets\Codes\systemInformations.cs" Line="51" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

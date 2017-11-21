@@ -50,6 +50,7 @@
      <Compile Include="Assets\Codes\Audio\tipForAudioController.cs" />
      <Compile Include="Assets\Codes\CGModeScene\CGModeController.cs" />
      <Compile Include="Assets\Codes\CGModeScene\CGModeFile.cs" />
+     <Compile Include="Assets\Codes\CreaterSpeaking\theCreaterShowerMove.cs" />
      <Compile Include="Assets\Codes\Death\DeathFile.cs" />
      <Compile Include="Assets\Codes\Death\deathButton.cs" />
      <Compile Include="Assets\Codes\Death\deathButtonController.cs" />

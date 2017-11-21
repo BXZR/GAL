@@ -36,15 +36,19 @@ public class systemInformations : MonoBehaviour {
 	private static  bool isSkiping = false;//是否在进行快进
 	public static bool ISSkiping { get {return isSkiping;} }
 
+	public static string theBackMusicNameNow = "并没有音乐";//为了防止额外的多次加载，做一个小小的判定
 	//重置快进标记
 	public static void flash()
 	{
+		isAutoWait = true;//剧本到时间自动跳转
 		isThePanelShows = false;//存档面板是不是显示了
 		isChildPanelShows = false;//有一个字panel用来存储一些不是很常用的按钮
 		isSaving = true;//true表示存档，false表示读档（面板相同，用这个标记来区分功能）
 		canControll = true;
 		Time.timeScale = normalModeTimeScale;
 		isSkiping = false;
+		deadPlotIndex = -99;
+		theBackMusicNameNow = "并没有音乐";
 	}
 	//全局唯一的控制是否快进的方法
 	public  static void skipControll()
@@ -65,13 +69,6 @@ public class systemInformations : MonoBehaviour {
 	public static float plotTimeWait = 0.35f;//剧本中每一个字的时间长度
 	//将全局变量赋值成初始值
 	public static float textShowTime = 0.2f;//文本显示的时候每一个字的弹出速度
-	public static  void  makeFlush()
-	{
-		isAutoWait = true;//剧本到时间自动跳转
-		isThePanelShows = true;//存档面板是不是显示了
-		isChildPanelShows = false;//有一个字panel用来存储一些不是很常用的按钮
-		isSaving = true;//true表示存档，false表示读档
-	}
 
 	//----------------------已经阅读的内容记录---------------------------//
 	public  static Queue<string> theReadText = new Queue<string> ();

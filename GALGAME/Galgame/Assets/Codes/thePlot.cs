@@ -34,9 +34,6 @@ public class thePlot : MonoBehaviour {
 	//事实上这个是给开发者用的接口
 	public int startID = -99;//默认初始ID
 
-
-
-
 	public thePlotItem TheItemNow
 	{
 		get
@@ -168,6 +165,7 @@ public class thePlot : MonoBehaviour {
 		//各种控制单元对这个单元的操作
 		theTextController.setTheString (theItem);
 		theUIController.makeShow (theItem);	
+		//print ("theMusicController name is " + theMusicController.gameObject.name);
 		theMusicController.playBackMusic (theItem);
 		theSoundController.playSound (theItem);
 		thePeopleSoundController.playSound (theItem , true);
@@ -301,7 +299,9 @@ public class thePlot : MonoBehaviour {
 			//说起来这个是自动存档的原理
 			if (systemInformations.indexForLoad >= 0 && systemInformations.indexForLoad <= 9) {//正确的存档编号
 				this.theDataController.loadItem (systemInformations.indexForLoad);
-			} else {
+			}
+			else 
+			{
 				playTheItem (theItemNow);
 			}
 		} else if (startID > 0) {//设置自动开始ID
@@ -318,6 +318,7 @@ public class thePlot : MonoBehaviour {
 		}
 		else
 		{
+			//print ("is start white");
 			playTheItem(theItemNow);
 		}
 	}

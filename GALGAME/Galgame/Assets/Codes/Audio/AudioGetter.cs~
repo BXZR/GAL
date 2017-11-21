@@ -33,19 +33,25 @@ public class AudioGetter : MonoBehaviour {
 	}
 		
 	//安全保靠的方法
-	public MusicController  GetMusicController()
+	public MusicController  GetMusicController(bool changeClipImmediate = false)
 	{
 		try
 		{
 			theSource = GameObject.Find ("/theAudioSourceForAll").GetComponent<AudioSource>();
+
 			if (theSource != null) 
 			{
+				
 				if (theClip != null)
 					theSource.clip = theClip;
 				//一定要做的就是播放
 				//如果正在播放就不切换，保持平滑
-				if (theSource.isPlaying == false)
+			
+				if (theSource.isPlaying == false ||changeClipImmediate )
+				{
+					//print("the clip ~~~" );
 					theSource.Play ();
+				}
 			} 
 		}
 		catch 
@@ -71,8 +77,12 @@ public class AudioGetter : MonoBehaviour {
 		}
 
 
-		if(theSource.GetComponent <MusicController>())
-			theController =  theSource.GetComponent <MusicController>();
+
+		if (theSource.GetComponent <MusicController> ()) 
+		{
+			//print ("source is got");
+			theController = theSource.GetComponent <MusicController> ();
+		}
 		else
 		{
 			theSource.gameObject.AddComponent<MusicController> ();

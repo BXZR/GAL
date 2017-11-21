@@ -7,11 +7,12 @@ using UnityEngine;
 public class MusicController : MonoBehaviour {
 
 	private AudioSource theBackMusicController;
-	private string theBackMusicNameNow = "";//为了防止额外的多次加载，做一个小小的判定
+
 
 
 	public void playBackMusic(thePlotItem InP)
 	{
+		//print (InP.musicName +"-------------------------------");
 		playBackMusic(InP .musicName);
 	}
 
@@ -28,7 +29,7 @@ public class MusicController : MonoBehaviour {
 		}
 		if(theBackMusicController == null)
 			theBackMusicController = this.GetComponent <AudioSource> ();
-		theBackMusicNameNow = theClip.name;
+		systemInformations. theBackMusicNameNow = theClip.name;
 
 		if (smoothChange == false)
 		{
@@ -46,19 +47,22 @@ public class MusicController : MonoBehaviour {
 	//因此在这里已经不需要判断
 	public void playBackMusic(string nameIn  , bool smoothChange = true)
 	{
-		if (string.IsNullOrEmpty (nameIn) || nameIn.Equals (theBackMusicNameNow))
+		//print("loadMusic -- " + nameIn );
+		if (string.IsNullOrEmpty (nameIn) || nameIn.Equals (systemInformations.theBackMusicNameNow))
 			return;
 		//没有输入或者没有不安化就不加载
-		//print("loadMusic -- " + nameIn);
+
 		theClipNow  = Resources .Load("music/"+ nameIn) as AudioClip;
 		if (theClipNow  == null) 
 		{
-			//print ("没有加载成功");
+			print ("没有加载成功");
 			return;
 		}
+		//print ("has the clip "+ theClipNow.name);
 		if(theBackMusicController == null)
 			theBackMusicController = this.GetComponent <AudioSource> ();
-		theBackMusicNameNow = nameIn;
+		print (theBackMusicController.gameObject .name +" has audiosSource");
+		systemInformations.theBackMusicNameNow = nameIn;
 
 		if (smoothChange == false)
 		{
