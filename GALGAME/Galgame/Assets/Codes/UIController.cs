@@ -31,11 +31,7 @@ public class UIController : MonoBehaviour {
 	private string theBackName = "";//保留的背景图的引用，因为背景图不用每一次都更新
 	private string thePeopleSmallPictureName = "people/noOne";//说话的时候人物小图的标记
 
-	void Start () 
-	{
-		
-	}
-
+	private Sprite theNoOnePicture = null;
 
 	public void makeShow(thePlotItem theItem)
 	{
@@ -67,13 +63,16 @@ public class UIController : MonoBehaviour {
 			if (theItem.thePartyplayers [i].Equals ("noOne") == false)
 				picNames.Add (theItem.thePartyplayers [i]);
 		}
+
+		//直接置空人物大图要比加载孔图要快很多
+		//希望这种优化能够在手机平台也可以得到很好的应用
 		switch (picNames.Count) 
 		{
 		   //第零种类情况，说话的时候不显示人，这种情况需要把所有的大图都做成"noOne"
 		case 0: 
 			{
 				for (int i = 0; i < bigPeoplePictures.Length; i++) {
-					bigPeoplePictures [i].sprite =  makeLoadSprite ("people/noOne");
+					bigPeoplePictures [i].sprite = null;//  makeLoadSprite ("people/noOne");
 
 				}
 			}
@@ -82,7 +81,7 @@ public class UIController : MonoBehaviour {
 		case 1:
 			{
 				for (int i = 0; i < bigPeoplePictures.Length; i++) {
-					bigPeoplePictures [i].sprite = makeLoadSprite ("people/noOne");
+					bigPeoplePictures [i].sprite = null;// makeLoadSprite ("people/noOne");
 				}
 				bigPeoplePictures [1].sprite = makeLoadSprite ("people/big/" +picNames [0]+"_B") ;
 			}
@@ -91,7 +90,7 @@ public class UIController : MonoBehaviour {
 		case 2:
 			{
 				for (int i = 0; i < bigPeoplePictures.Length; i++) {
-					bigPeoplePictures [i].sprite = makeLoadSprite ("people/noOne");
+					bigPeoplePictures [i].sprite = null;// makeLoadSprite ("people/noOne");
 				}
 				bigPeoplePictures [0].sprite = makeLoadSprite ( "people/big/" +picNames [0]+"_B");
 				bigPeoplePictures [2].sprite = makeLoadSprite ("people/big/" +picNames [1]+"_B");
@@ -113,25 +112,36 @@ public class UIController : MonoBehaviour {
 			int index = System.Convert.ToInt16 (extra [1]);
 			bigPeoplePictures [index].gameObject.AddComponent (System.Type.GetType(extra[0]));
 		}
-
-
-
-		
+			
 	}
 
 	//用这个方法来决定说话的时候的小图用哪一个（左边还是右边）
-	Image getPart()
+	private string theSpeakerNameNow = "--";
+	private Image  theShowPictureInTextNow ;
+	//记录当前说话的人的名字
+	//实际上只有在改变说话人的时候才应该左右换头像
+	//要不然一个人说话来回换头像成何体统
+	Image getPart(string nameIn)
 	{
+		if (nameIn == theSpeakerNameNow)
+			return theShowPictureInTextNow;
+
+		theSpeakerNameNow = nameIn;
+
+		//theShowPictureInText2.gameObject.SetActive (false);
+		//减少上面setActive操作的次数
+		theShowPictureInText1.sprite = theNoOnePicture;
+		theShowPictureInText2.sprite = theNoOnePicture;
+
 		//这只是当前顶包的策略（随机），最好的方法就是用剧本控制
 		int seed= Random.Range(1,4);//(int包前不包后 所以会是0,1,2,3 )
 		if (seed >= 2) 
 		{
-			theShowPictureInText1.gameObject.SetActive (false);
-			theShowPictureInText2.gameObject.SetActive (true);
+			theShowPictureInTextNow = theShowPictureInText2;
 			return theShowPictureInText2;
 		}
-		theShowPictureInText2.gameObject.SetActive (false);
-		theShowPictureInText1.gameObject.SetActive (true);
+
+		theShowPictureInTextNow = theShowPictureInText1;
 		return theShowPictureInText1;
 	}
 
@@ -141,7 +151,7 @@ public class UIController : MonoBehaviour {
 		if (string.IsNullOrEmpty (theItem.theSpeekerName) || theItem.theSpeekerName .Equals("Caim"))
 		{
 			//不显示
-			getPart().sprite = makeLoadSprite ("people/noOne");
+			getPart(theItem.theSpeekerName).sprite = theNoOnePicture;
 			thePeopleSmallPictureName = "noOne";
 		} 
 		else 
@@ -149,7 +159,7 @@ public class UIController : MonoBehaviour {
 			if (theItem.theSpeekerName.Equals (thePeopleSmallPictureName) == false)
 			{
 				string textureName = "people/small/" + theItem.theSpeekerName;
-				getPart().sprite = makeLoadSprite (textureName);
+				getPart(theItem.theSpeekerName).sprite = makeLoadSprite (textureName);
 				thePeopleSmallPictureName = theItem.theSpeekerName;
 			}
 		}
@@ -204,5 +214,14 @@ public class UIController : MonoBehaviour {
 		//textureName = "people/noOne";
 		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
 		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
+	}
+	void Start ()
+	{
+		//UI小图与任务大图不同，人物大图是Sprite == null的时候不显示
+		//但是UI小图是Image如果 == null 这里就会显示一张白图片
+		//这当然是不行的，因此需要比较频繁地置空图片
+		//所以将这一透明图保存起来各种复用
+		theNoOnePicture =  makeLoadSprite ("people/noOne");
+		Image ST = getPart("----------初始化----------");//做初始化，强制让两张图都变成透明
 	}
 }

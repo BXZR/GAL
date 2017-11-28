@@ -53,8 +53,8 @@ public class SceneModeFile : MonoBehaviour {
 			}
 		}
 		//如果有激活就保存到文件里面
-		if(isActiveOne)
-		saveSceneFile();
+		//if(isActiveOne)
+		//saveSceneFile();
 	}
 
 	public static void InitValues()

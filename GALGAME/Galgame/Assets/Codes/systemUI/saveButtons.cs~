@@ -58,6 +58,8 @@ public class saveButtons : MonoBehaviour {
 				theDataController.saveItem (thePlotController.TheItemNow, saveIndex);
 				savePicture ();
 				StartCoroutine (loadPicture ());
+				CGModeFile.saveCGFile ();
+				SceneModeFile.saveSceneFile ();
 				informationPanel.showInformation ("存档");
 			}
 			else 

@@ -146,17 +146,23 @@ public class CGModeFile : MonoBehaviour {
 				break;
 			}
 		}
-//		print ("CGModeFile ---" + isfound);
+
 		//重新保存CG文件
-		if (isfound)
-		{
-			string theCGFilePath = Application.persistentDataPath + "/CG.txt";
-			string information = getSaveStringForString ();
-			CreateFile (information, theCGFilePath);
-		}
+		//if (isfound)
+		//{
+			//print ("CGModeFile ---" + isfound);
+			//print("收集到了CG");
+		//}
 
 	}
-
+	//为了避免文件IO的频繁操作，实际上只有每一次存档的时候才会真正地记录CG手机的情况
+	//也就是说未保存的游戏的CG是不会被收集到的
+	public static void saveCGFile()
+	{
+		string theCGFilePath = Application.persistentDataPath + "/CG.txt";
+		string information = getSaveStringForString ();
+		CreateFile (information, theCGFilePath);
+	}
 
 	private static void readFromFile()
 	{

@@ -8,7 +8,11 @@ public class MusicController : MonoBehaviour {
 
 	private AudioSource theBackMusicController;
 
-
+	//记录下一个plotItem的audioSource并且异步加载
+	//换音乐的时候如果名字相同就可以直接赋值
+	//这只是一个非常单一的缓冲
+	//毕竟音乐比较大，过大的缓冲本身会不会对游戏性能造成影响恐怕也需要考虑一下
+	private AudioClip theClipPool;//目标音乐池
 
 	public void playBackMusic(thePlotItem InP)
 	{
@@ -47,21 +51,30 @@ public class MusicController : MonoBehaviour {
 	//因此在这里已经不需要判断
 	public void playBackMusic(string nameIn  , bool smoothChange = true)
 	{
+		//没有输入或者没有不安化就不加载
 		//print("loadMusic -- " + nameIn );
 		if (string.IsNullOrEmpty (nameIn) || nameIn.Equals (systemInformations.theBackMusicNameNow))
 			return;
-		//没有输入或者没有不安化就不加载
 
+		//如果这个目标音乐正好是上一个被保存目标音乐
+		//就直接赋值
+		if (theClipPool != null && theClipPool.name == nameIn)
+		{
+			theClipNow = theClipPool;
+			return;
+		}
+		//如果没有就需要加在音乐
+		theClipPool = theClipNow;
 		theClipNow  = Resources .Load("music/"+ nameIn) as AudioClip;
 		if (theClipNow  == null) 
 		{
-			print ("没有加载成功");
+			print ("背景音乐没有加载成功");
 			return;
 		}
 		//print ("has the clip "+ theClipNow.name);
 		if(theBackMusicController == null)
 			theBackMusicController = this.GetComponent <AudioSource> ();
-		print (theBackMusicController.gameObject .name +" has audiosSource");
+		//print (theBackMusicController.gameObject .name +" has audiosSource");
 		systemInformations.theBackMusicNameNow = nameIn;
 
 		if (smoothChange == false)
