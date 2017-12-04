@@ -36,7 +36,7 @@ public class sceneModeButton : MonoBehaviour {
 		if (isOpened)
 		{
             //只有在激活条件下才会有效
-			print ("from " + indexForStart + "   to " + indexForEnd);
+			//print ("from " + indexForStart + "   to " + indexForEnd);
 			systemInformations.makeScene (indexForStart,indexForEnd);
 			UnityEngine.SceneManagement.SceneManager.LoadScene (aimsceneName);
 		}

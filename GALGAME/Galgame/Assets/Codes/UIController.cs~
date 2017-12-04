@@ -71,16 +71,17 @@ public class UIController : MonoBehaviour {
 		   //第零种类情况，说话的时候不显示人，这种情况需要把所有的大图都做成"noOne"
 		case 0: 
 			{
-				for (int i = 0; i < bigPeoplePictures.Length; i++) {
+				for (int i = 0; i < bigPeoplePictures.Length; i++) 
+				{
 					bigPeoplePictures [i].sprite = null;//  makeLoadSprite ("people/noOne");
-
 				}
 			}
 			break;
 			//第一种情况，说话的只有一个人，所以显示的是中间的图
 		case 1:
 			{
-				for (int i = 0; i < bigPeoplePictures.Length; i++) {
+				for (int i = 0; i < bigPeoplePictures.Length; i++)
+				{
 					bigPeoplePictures [i].sprite = null;// makeLoadSprite ("people/noOne");
 				}
 				bigPeoplePictures [1].sprite = makeLoadSprite ("people/big/" +picNames [0]+"_B") ;
@@ -112,7 +113,6 @@ public class UIController : MonoBehaviour {
 			int index = System.Convert.ToInt16 (extra [1]);
 			bigPeoplePictures [index].gameObject.AddComponent (System.Type.GetType(extra[0]));
 		}
-			
 	}
 
 	//用这个方法来决定说话的时候的小图用哪一个（左边还是右边）

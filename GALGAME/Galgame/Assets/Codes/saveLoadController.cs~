@@ -84,7 +84,7 @@ public class saveLoadController : MonoBehaviour {
 		int theItemID = aimID;
 		int thePlotID = theItemID / 100000;
 
-		print ("the name is thePlot"+  thePlotID);
+		//print ("the name is thePlot"+  thePlotID);
 		//销毁并且重新建立一棵树
 		thePlot controller = this.GetComponent <thePlot> ();
 
@@ -98,7 +98,7 @@ public class saveLoadController : MonoBehaviour {
 			return;
 
 
-		print ("---------\n"+controller .thePlotNow .text);
+		//print ("---------\n"+controller .thePlotNow .text);
 		controller.makeAllStart ();
 		//		//根据ID查找对应的item
 		thePlotItem [] allItemNow = controller.GetComponentsInChildren<thePlotItem>();
@@ -166,8 +166,8 @@ public class saveLoadController : MonoBehaviour {
 	}
 	/***********************************************************************************/
 
-	void Update ()
-	{
+	//void Update ()
+	//{
 
 //下面这些是保留下来的测试代码
 //		if (Input.GetKeyDown (KeyCode.A)) 
@@ -184,5 +184,5 @@ public class saveLoadController : MonoBehaviour {
 //		{
 //			loadItem (2);
 //		}
-	}
+	//}
 }

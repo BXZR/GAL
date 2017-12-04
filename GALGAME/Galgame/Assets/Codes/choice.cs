@@ -37,13 +37,14 @@ public class choice : MonoBehaviour {
 		theController.shutSelect ();
 	}
 
+	//优化一点点，尽可能减少回调......
 	// Use this for initialization
-	void Start () {
+	//void Start () {
 		
-	}
+	//}
 	
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
 		
-	}
+	//}
 }

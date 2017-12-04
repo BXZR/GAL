@@ -294,20 +294,26 @@ public class thePlot : MonoBehaviour {
 		
 		makeAllStart ();
 		//首先要为所有的控制单元初始化一个被控制的剧本元素
-		if (systemInformations.loadMemory) {
+		if (systemInformations.loadMemory) 
+		{
 			//因为只有一个应用的存档，倒是简单了
 			//说起来这个是自动存档的原理
-			if (systemInformations.indexForLoad >= 0 && systemInformations.indexForLoad <= 9) {//正确的存档编号
+			if (systemInformations.indexForLoad >= 0 && systemInformations.indexForLoad <= 9) 
+			{//正确的存档编号
 				this.theDataController.loadItem (systemInformations.indexForLoad);
 			}
 			else 
 			{
 				playTheItem (theItemNow);
 			}
-		} else if (startID > 0) {//设置自动开始ID
+		} 
+		else if (startID > 0) 
+		{//设置自动开始ID
 			theDataController.loadItemForSkip (startID);
 			startID = -99;
-		} else if (systemInformations.SceneStartIndex > 0 && systemInformations.isScene) {//场景回忆ID
+		} 
+		else if (systemInformations.SceneStartIndex > 0 && systemInformations.isScene) 
+		{//场景回忆ID
 			theDataController.loadItemForSkip (systemInformations.SceneStartIndex);
 		}
 		//如果进入了死亡道场
@@ -353,10 +359,12 @@ public class thePlot : MonoBehaviour {
 			//没有界面操作才会生效
 			if (systemInformations.isChildPanelShows == false) 
 			{
-				if (Input.GetKeyDown (KeyCode.LeftControl)) {
+				if (Input.GetKeyDown (KeyCode.LeftControl)) 
+				{
 					systemInformations.skipControll ();
 				}
-				if (Input.GetKeyUp (KeyCode.LeftControl)) {
+				if (Input.GetKeyUp (KeyCode.LeftControl)) 
+				{
 					systemInformations.skipControll ();
 				}
 			}

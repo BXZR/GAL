@@ -1,9 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\buttons\musicModeButton.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\thePlotItem.cs">
     <Files>
-      <File FileName="Assets\Codes\buttons\musicModeButton.cs" Line="69" Column="36" />
-      <File FileName="Assets\Codes\extra\saveLoadPicture.cs" Line="49" Column="38" />
+      <File FileName="Assets\Codes\buttons\sceneModeButton.cs" Line="39" Column="6" />
+      <File FileName="Assets\Codes\systemUI\saveButtons.cs" Line="22" Column="1" />
+      <File FileName="Assets\Codes\systemUI\soundSliders.cs" Line="34" Column="4" />
+      <File FileName="Assets\Codes\systemUI\systemButtons.cs" Line="32" Column="29" />
+      <File FileName="Assets\Codes\systemUI\textSpeedSlider.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\choice.cs" Line="40" Column="23" />
+      <File FileName="Assets\Codes\choiceController.cs" Line="16" Column="53" />
+      <File FileName="Assets\Codes\configController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\loadSceneController.cs" Line="22" Column="19" />
+      <File FileName="Assets\Codes\MusicController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\plotTreeMaker.cs" Line="103" Column="14" />
+      <File FileName="Assets\Codes\saveLoadController.cs" Line="187" Column="4" />
+      <File FileName="Assets\Codes\soundController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\systemInformations.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\textController.cs" Line="94" Column="4" />
+      <File FileName="Assets\Codes\thePlot.cs" Line="367" Column="5" />
+      <File FileName="Assets\Codes\thePlotItem.cs" Line="122" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

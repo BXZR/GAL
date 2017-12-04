@@ -73,7 +73,7 @@ public class SceneModeController : MonoBehaviour {
 		//就需要做这一步
 		SceneModeFile.InitValues ();
 		makeStart ();
-		changeSceneButton (1);
+		changeSceneButton (3);
 	}
 }
 

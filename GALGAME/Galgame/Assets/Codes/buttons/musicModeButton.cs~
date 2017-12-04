@@ -85,32 +85,27 @@ public class musicModeButton : MonoBehaviour {
 	//顺带错开加载图像和音乐的时间点，这样应该可以更流畅一点
 	public  IEnumerator ImageChange()
 	{
-		Color theImageColor = Color.white;
-		for (int i = 0; i < 5; i++) 
-		{
-			yield return new WaitForSeconds (0.05f);
-			theImageColor.a -= 0.15f;
-			theImageShow.color = theImageColor;
-		}
-		//print ("people/big/"+thePictureName);
-		if (string.IsNullOrEmpty (thePictureName) == false) 
-		{
-			//判断与减少加载图像的次数
-			if(theSavedSprite == null)
-				theSavedSprite = makeLoadSprite ("people/big/" + thePictureName);
-			theImageShow.sprite = theSavedSprite;
-		} 
-		else
-		{
-			//判断与减少加载图像的次数
-			theImageShow.sprite = makeLoadSprite ("Extra/MusicNullBack");
-		}
-		for (int i = 0; i < 5; i++) 
-		{
-			yield return new WaitForSeconds (0.05f);
-			theImageColor.a += 0.15f;
-			theImageShow.color = theImageColor;
-		}
+			Color theImageColor = Color.white;
+			for (int i = 0; i < 5; i++) {
+				yield return new WaitForSeconds (0.05f);
+				theImageColor.a -= 0.15f;
+				theImageShow.color = theImageColor;
+			}
+			//print ("people/big/"+thePictureName);
+			if (string.IsNullOrEmpty (thePictureName) == false) {
+				//判断与减少加载图像的次数
+				if (theSavedSprite == null)
+					theSavedSprite = makeLoadSprite ("people/big/" + thePictureName);
+				theImageShow.sprite = theSavedSprite;
+			} else {
+				//判断与减少加载图像的次数
+				theImageShow.sprite = makeLoadSprite ("Extra/MusicNullBack");
+			}
+			for (int i = 0; i < 5; i++) {
+				yield return new WaitForSeconds (0.05f);
+				theImageColor.a += 0.15f;
+				theImageShow.color = theImageColor;
+			}
 	}
 	private Sprite makeLoadSprite(string textureName)
 	{

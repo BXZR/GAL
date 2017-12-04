@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/musicMode.unity
+- path: Assets/scenes/gal_1.unity
   isLoaded: 1
   isActive: 1

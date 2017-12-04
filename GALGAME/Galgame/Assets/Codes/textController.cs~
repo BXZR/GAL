@@ -88,10 +88,10 @@ public class textController : MonoBehaviour {
 		}
 	}
 
-	void Start () 
-	{
+	//void Start () 
+	//{
 
-	}
+	//}
 
 
 	void Update ()

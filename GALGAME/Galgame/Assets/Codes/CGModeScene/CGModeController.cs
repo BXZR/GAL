@@ -29,11 +29,8 @@ public class CGModeController : MonoBehaviour {
 		List<string> theSelectOne =  selectGroup();
 		makeButtons(theSelectOne);
 		changeSelectButtonEffect(index);
-
-
 	}
-
-
+		
 	private void changeSelectButtonEffect(int index = 0)
 	{
 		for (int i = 0; i < SelectButtons.Length; i++)

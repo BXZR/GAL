@@ -127,7 +127,7 @@ public class AudioGetter : MonoBehaviour {
 			try
 			{
 				theSource = this.transform .Find("musicController").gameObject.GetComponent<AudioSource> ();
-				print("use child music controller");
+				//print("use child music controller");
 				if (theClip != null)
 				{
 

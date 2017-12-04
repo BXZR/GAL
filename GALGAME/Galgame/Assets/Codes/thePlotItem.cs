@@ -138,13 +138,13 @@ public class thePlotItem : MonoBehaviour {
 
  
 
-	void Start () {
+	//void Start () {
 		
-	}
+	//}
 	
 
-	void Update () {
+	//void Update () {
 //		if (Input.GetKeyDown (KeyCode.C))
 //			print (this.name + "---" + this.theChildItems.Count + "----" + isASpitRoot ());
-	}
+	//}
 }
