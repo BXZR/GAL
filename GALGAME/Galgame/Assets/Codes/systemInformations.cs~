@@ -9,7 +9,16 @@ public class systemInformations : MonoBehaviour {
 	public static bool canControll = true;//在渐入转场的时候鼠标是不可以有效果的
 	//think 是旁白，不显示人名的时候用
 	private static string [] proName = {"alice","fione","jik","Caim" ,"mert","fione", "aozi","noOne" , "get"} ;
-	private static string [] showName = {"艾丽斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "菲奥奈", "奥兹","" , "戈尔"};
+	private static string [] showName = {"艾莉斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "菲奥奈", "奥兹","" , "戈尔"};
+	//好感度系统的好感度百分比
+	//从左到右分别是艾莉斯，菲奥奈，吉克
+	//也就是说只有这三个任务是可以被攻略的
+	//好感度100%可以考虑弄一个H彩蛋
+	//好感度是需要跟随存档的，因为不知道什么选择就修改好感度了
+	//每一个人都有默认的初始好感度
+	public static float [] lovePercent = { 0.60f,0.55f,0.45f};
+	//剧本完成度
+	public static float  plotOverPercent = 0;
 
 	public static string getShowNameWithProName(string pro)
 	{

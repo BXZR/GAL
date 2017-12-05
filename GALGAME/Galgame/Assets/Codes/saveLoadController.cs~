@@ -13,14 +13,43 @@ public class saveLoadController : MonoBehaviour {
 //	首先全部加载相关的plot文件，然后用查询的方法定位到ID对应的plotItem
 //	最后赋值到总控制单元的itemNow里面就可以了
 
+	//记录每一个存档要写入的字符串
+	//因为实际是不可能知促一个ID的
+	//因此需要额外的加工
+	private string getSaveInforamtion(thePlotItem theItem)
+	{
+		string information = theItem.ThePlotItemID.ToString ();
+		for (int i = 0; i < systemInformations.lovePercent.Length; i++)
+		{
+			information += ";" + systemInformations.lovePercent [i];
+		}
+		information += ";" + systemInformations.plotOverPercent;
+
+		return information;
+	}
+
+	//解析存档的字符串并且返回目标的itemID
+	//这个过程中顺带把其他的值也就读了
+	private int getLoadInformation(string informationIn)
+	{
+		string[] informationGet = informationIn.Split (';');
+		 int aimID = Convert.ToInt32 (informationGet[0]); 
+		for (int i = 1; i < 4; i++) 
+		{
+			systemInformations.lovePercent [i-1] = (float)Convert.ToDouble (informationGet[i]); 
+		}
+		systemInformations.plotOverPercent = (float)Convert.ToDouble (informationGet [4]);
+		return  aimID;
+	}
 
 	public void saveItem(thePlotItem theItem, int saveID = 0)
 	{
 		if (theItem == null)
 			return;
 
-
-		string theSaveInfotmation = theItem.ThePlotItemID.ToString();
+		//string theSaveInfotmation = theItem.ThePlotItemID.ToString();
+		//更丰富的存档内容
+		string theSaveInfotmation = getSaveInforamtion(theItem);
 		saveInformation (getPath(saveID) , theSaveInfotmation);
 	    
 	}
@@ -44,7 +73,9 @@ public class saveLoadController : MonoBehaviour {
 			return;
 		}
 
-		int theItemID = Convert.ToInt32 (informationGet);
+		//int theItemID = Convert.ToInt32 (informationGet);
+		//更丰富的独挡方式
+		int theItemID =getLoadInformation (informationGet);
 		int thePlotID = theItemID / 100000;
 
 		//销毁并且重新建立一棵树

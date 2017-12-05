@@ -56,6 +56,7 @@
      <Compile Include="Assets\Codes\Death\deathButtonController.cs" />
      <Compile Include="Assets\Codes\Effects\effectBasic.cs" />
      <Compile Include="Assets\Codes\Effects\theMouseEffect.cs" />
+     <Compile Include="Assets\Codes\LoveSystem\LoveSystem.cs" />
      <Compile Include="Assets\Codes\MusicController.cs" />
      <Compile Include="Assets\Codes\MusicModeScene\MusicModeController.cs" />
      <Compile Include="Assets\Codes\UIController.cs" />
