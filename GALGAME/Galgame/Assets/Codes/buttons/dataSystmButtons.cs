@@ -14,6 +14,9 @@ public class dataSystmButtons : MonoBehaviour {
 	public GameObject [] theChildPanel;//子panel
 	private saveLoadController theDataController;//文件存储系统的控制器
 	private thePlot thePlotController;//剧本控制器
+	//有一些功能只有标记了这个才会有
+	//代码复用点太狠了所以需要用这个做一点点区分
+	public bool isSkipControllButton = false;
 
 	void Start () {
 		theDataController = theAllController.GetComponent <saveLoadController> ();
@@ -134,5 +137,18 @@ public class dataSystmButtons : MonoBehaviour {
 			this.GetComponentInChildren<Image> ().color = Color.yellow;
 		else
 			this.GetComponentInChildren<Image> ().color = Color.white;
+	}
+
+	//跨页面跳转的时候有可能出现加速模式未被初始化的问题
+	void OnEnable()
+	{
+		if (isSkipControllButton) 
+		{
+			//额外的一些展示效果
+			if (systemInformations.ISSkiping)
+				this.GetComponentInChildren<Image> ().color = Color.yellow;
+			else
+				this.GetComponentInChildren<Image> ().color = Color.white;
+		}
 	}
 }

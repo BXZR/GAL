@@ -14,7 +14,7 @@ public class LoveSystem : MonoBehaviour {
 	{
 		for (int i = 0; i < percents.Length; i++) 
 		{
-			theShowPercentTexts[i].text = (percents[i]*100).ToString("f0")+"%";
+			theShowPercentTexts[i].text = (percents[i]*100).ToString("f2")+"%";
 			theShowPercentImages [i].fillAmount = percents [i];
 		}
 	}

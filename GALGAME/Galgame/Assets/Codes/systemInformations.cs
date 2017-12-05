@@ -16,9 +16,41 @@ public class systemInformations : MonoBehaviour {
 	//好感度100%可以考虑弄一个H彩蛋
 	//好感度是需要跟随存档的，因为不知道什么选择就修改好感度了
 	//每一个人都有默认的初始好感度
-	public static float [] lovePercent = { 0.60f,0.55f,0.45f};
+	//需要注意与下面flash的数值保持同步
+	public static float [] lovePercent = { 0.30f,0.25f,0.15f};
+
 	//剧本完成度
 	public static float  plotOverPercent = 0;
+	//剧本完成数量(单线剧本+1 ， 多线剧本需要除以分支数量 )
+	//剧本总共数量，这个还是人为设定吧，花多次I/O的时间做这件事情有一点不值得
+	private  static float  plotOverAll = 1;//这需要一个准确的数字
+	//为了防止因为没有顺序执行在造成除零异常，在这里初始值为1，多一点就多一点
+
+	//加载所有剧本数行数的方法（开销是个问题，在犹豫到底用不用）
+	public static void makeOlotOverAllCount()
+	{
+		Object[] plots = Resources.LoadAll("thePlots" , typeof(TextAsset));
+		foreach (TextAsset thePlot in plots) 
+		{
+			string[] theInformation = ((TextAsset)thePlot).text.Split ('\n');
+			for (int j = 0; j < theInformation.Length; j++) 
+			{
+				if (theInformation [j].StartsWith ("//") || string.IsNullOrEmpty (theInformation [j]))
+					continue;
+				plotOverAll++;//每一行一个剧本剧情
+			}
+		}
+		print ("thePlotAllCount = "+ plotOverAll);
+	}
+
+	//累加剧本完成度的方法
+	public static void addPlotOverPercent(thePlotItem theItem)
+	{
+		plotOverPercent +=  1f/(theItem.getChilds ().Count * plotOverAll);
+		if (plotOverPercent > 1f)
+			plotOverPercent = 1f;
+	}
+
 
 	public static string getShowNameWithProName(string pro)
 	{
@@ -58,6 +90,8 @@ public class systemInformations : MonoBehaviour {
 		isSkiping = false;
 		deadPlotIndex = -99;
 		theBackMusicNameNow = "并没有音乐";
+		lovePercent = new  float []  { 0.30f,0.25f,0.15f};
+		plotOverPercent = 0;
 	}
 	//全局唯一的控制是否快进的方法
 	public  static void skipControll()

@@ -63,6 +63,7 @@ public class startController : MonoBehaviour {
 		  SceneModeFile.InitValues();
 		  CGModeFile.makeAllStart();//生成CG文件
 		  DeathFile.makeAllStart();
+		  systemInformations.makeOlotOverAllCount ();//获得总剧本长度
 		}
 		systemInformations.flash ();//默认回到初始界面时间scale变回原状
 		isStarted = true;

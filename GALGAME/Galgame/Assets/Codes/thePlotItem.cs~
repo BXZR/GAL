@@ -38,7 +38,11 @@ public class thePlotItem : MonoBehaviour {
 	public string speakSoundName = "";//语音音效的名字
 	public string extraAction = "";//额外动作脚本配置
 	public int aimPlotItemID = 0;//支持随意跳转，这一项标记目标plotItem的ID
-
+	//经过这个item能够对三个可攻略人物的好感度的影响
+	//目前这是一个非常简单的做法
+	//每一个人的戏份多，好感度也就越多
+	//这个的实现基于存档和读档
+	public float [] loveValue = {0,0,0};
 	//果然还是更喜欢使用局本树的方法处理
 	private  List<thePlotItem>  theChildItems ;//子控制单元 
 
@@ -84,6 +88,41 @@ public class thePlotItem : MonoBehaviour {
 	{
 		speakSoundName = theSpeakSoundNameIn;
 		extraAction = extraActionIn;
+		makeLoveValue ();
+	}
+
+
+	//额外初始化方法1
+	private void  makeLoveValue()
+	{
+		string theSpeakInName = theSpeekerName.Split ('_') [0];
+		switch(theSpeakInName)
+		{
+		case "alice":
+			{
+				loveValue [0] = 0.001f;
+				break;
+			}
+		case "fione":
+			{
+				loveValue [1] = 0.001f;
+				break;
+			}
+		case "jik":
+			{
+				loveValue [2] = 0.001f;
+				break;
+			}
+		}
+	}
+
+	//对外增加好感度的方法
+	public void  makeAddLoveValue()
+	{
+		for (int i = 0; i < systemInformations.lovePercent.Length; i++) 
+		{
+			systemInformations.lovePercent [i] += loveValue [i];//增加好感度
+		}
 	}
 
 	//这个方法在创建树的时候进行
