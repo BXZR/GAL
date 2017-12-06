@@ -1,8 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+
 
 public class systemInformations : MonoBehaviour {
+
+	//当前进入到的死亡到场剧本剧情下标
+	//同时也是是否进入到了死亡道场的标记
+	public static int deadPlotIndex = -99; 
 
 	public  static bool loadMemory = false;//是否加载存档
 	public static int indexForLoad = -99;//存档的编号
@@ -19,12 +25,12 @@ public class systemInformations : MonoBehaviour {
 	//需要注意与下面flash的数值保持同步
 	public static float [] lovePercent = { 0.30f,0.25f,0.15f};
 
-	//剧本完成度
-	public static float  plotOverPercent = 0;
-	//剧本完成数量(单线剧本+1 ， 多线剧本需要除以分支数量 )
 	//剧本总共数量，这个还是人为设定吧，花多次I/O的时间做这件事情有一点不值得
 	private  static float  plotOverAll = 1;//这需要一个准确的数字
 	//为了防止因为没有顺序执行在造成除零异常，在这里初始值为1，多一点就多一点
+	//用这个List来保存所有已经读过的plotItem的ID，用List的count来记录剧本完成数量
+	//这个List会被保存到一个特殊的文件，所有存档共有
+	private static List<int> plotIDRead = new List<int> ();
 
 	//加载所有剧本数行数的方法（开销是个问题，在犹豫到底用不用）
 	public static void makeOlotOverAllCount()
@@ -46,11 +52,57 @@ public class systemInformations : MonoBehaviour {
 	//累加剧本完成度的方法
 	public static void addPlotOverPercent(thePlotItem theItem)
 	{
-		plotOverPercent +=  1f/(theItem.getChilds ().Count * plotOverAll);
-		if (plotOverPercent > 1f)
-			plotOverPercent = 1f;
+		if (!plotIDRead.Contains (theItem.ThePlotItemID))
+			plotIDRead.Add (theItem.ThePlotItemID);
+	}
+	public static float getPlotOverPercent()
+	{
+		return plotIDRead.Count / plotOverAll;
 	}
 
+	//需要找一个特殊的文件保存已经读过的所有的ID
+	public static void SaveTheOverPlot()
+	{
+		string path = Application.persistentDataPath + "/PlotOver.txt";
+		print ("save to "+ path);
+		string informationSave = "";
+		for (int i = 0; i < plotIDRead.Count; i++) 
+		{
+			informationSave  += plotIDRead[i];
+			if(i < plotIDRead.Count -1)
+				informationSave += "\n";
+		}
+		CreateFile(informationSave , path);
+
+	}
+
+	//加载已读plotItem的方法
+	public static void LoadPlotOver()
+	{
+		print ("load over plot");
+		string FilePath =  Application .persistentDataPath+"/PlotOver.txt";
+		if (File.Exists (FilePath) == false)
+		{
+			plotIDRead = new List<int> ();
+		}
+		else 
+		{
+			string informationRead = "";
+			//读取数据
+		    FileStream aFile = new FileStream (FilePath , FileMode.OpenOrCreate);
+			StreamReader sw = new StreamReader (aFile);
+			informationRead = sw.ReadToEnd ();
+			sw.Close ();
+			sw.Dispose ();
+			//分析数据
+			plotIDRead = new List<int> ();
+			string [] reads = informationRead.Split('\n');
+			for (int i = 0; i < reads.Length; i++) 
+			{
+				plotIDRead.Add (System.Convert.ToInt32(reads[i]));
+			}
+		}
+	}
 
 	public static string getShowNameWithProName(string pro)
 	{
@@ -91,7 +143,6 @@ public class systemInformations : MonoBehaviour {
 		deadPlotIndex = -99;
 		theBackMusicNameNow = "并没有音乐";
 		lovePercent = new  float []  { 0.30f,0.25f,0.15f};
-		plotOverPercent = 0;
 	}
 	//全局唯一的控制是否快进的方法
 	public  static void skipControll()
@@ -161,8 +212,21 @@ public class systemInformations : MonoBehaviour {
 		SceneEndIndex = end;
 		isScene = true;
 	}
-	//当前进入到的死亡到场剧本剧情下标
-	//同时也是是否进入到了死亡道场的标记
-	public static int deadPlotIndex = -99; 
+
+
+	//文档读写问题还是应该一个雷一个，这块的代码暂时先不做重复
+	//因为不同的文件和类又可能有不同的逻辑和处理
+	private  static  void  CreateFile(string information , string path)
+	{
+		//没有配置文件就新建一个
+		string informationSave = information;
+		FileStream aFile = new FileStream(path , FileMode.Create);
+		StreamWriter sw = new StreamWriter(aFile);
+		sw.Write(informationSave);
+		sw.Close();
+		sw.Dispose();
+	}
+
+
 
 }

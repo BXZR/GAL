@@ -6,8 +6,8 @@ using System;
 
 public class DeathFile : MonoBehaviour {
 	//这个类存储死亡场景的记录
-	private static List<string> theDeadIndex;//死亡剧本帧下标
-	public static List<string> theDeadPlayIndex;//死亡剧本帧下标
+	private static List<string> theDeadIndex;//死亡剧本帧下标(主线剧情走到这个地方触发死亡)
+	public static List<string> theDeadPlayIndex;//死亡剧本帧下标（死亡剧本的开始ID）
 	public static List<bool> theDeadOpen;//是不是已经激活这个道场
 	public static List<string> theDeathName;//死亡名称
 	public static bool isStarted = false;//开启标记
@@ -144,12 +144,12 @@ public class DeathFile : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
+	//void Start () {
 		
-	}
+	//}
 	
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
 		
-	}
+	//}
 }

@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\Audio\tipForAudioController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\systemUI\saveButtons.cs">
     <Files>
       <File FileName="Assets\Codes\buttons\sceneModeButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\systemUI\saveButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\systemUI\saveButtons.cs" Line="28" Column="29" />
       <File FileName="Assets\Codes\systemUI\soundSliders.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\systemUI\systemButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\systemUI\textSpeedSlider.cs" Line="1" Column="1" />
@@ -13,16 +13,21 @@
       <File FileName="Assets\Codes\loadSceneController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\MusicController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\plotTreeMaker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\saveLoadController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\saveLoadController.cs" Line="6" Column="1" />
       <File FileName="Assets\Codes\soundController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\textController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\thePlot.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\Audio\AudioGetter.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\thePlotItem.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\Effects\theMouseEffect.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\LoveSystem\LoveSystem.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\systemInformations.cs" Line="19" Column="23" />
+      <File FileName="Assets\Codes\LoveSystem\LoveSystem.cs" Line="25" Column="73" />
+      <File FileName="Assets\Codes\systemInformations.cs" Line="64" Column="36" />
       <File FileName="Assets\Codes\Audio\tipForAudioController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\extra\ConfigUser.cs" Line="15" Column="26" />
+      <File FileName="Assets\Codes\MusicModeScene\MusicModeController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\sceneModeScene\SceneModeFile.cs" Line="85" Column="2" />
+      <File FileName="Assets\Codes\buttons\dataSystmButtons.cs" Line="36" Column="27" />
+      <File FileName="Assets\Codes\extra\startController.cs" Line="67" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

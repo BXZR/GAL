@@ -38,6 +38,10 @@ public class saveButtons : MonoBehaviour {
 			theDataController.saveItem (thePlotController.TheItemNow, saveIndex);
 			savePicture ();
 			StartCoroutine (loadPicture ());
+			//额外的文件处理
+			systemInformations.SaveTheOverPlot ();
+			CGModeFile.saveCGFile ();
+			SceneModeFile.saveSceneFile ();
 			informationPanel.showInformation ("存档");
 		} 
 		else
@@ -58,6 +62,8 @@ public class saveButtons : MonoBehaviour {
 				theDataController.saveItem (thePlotController.TheItemNow, saveIndex);
 				savePicture ();
 				StartCoroutine (loadPicture ());
+				//额外的文件处理
+				systemInformations.SaveTheOverPlot ();
 				CGModeFile.saveCGFile ();
 				SceneModeFile.saveSceneFile ();
 				informationPanel.showInformation ("存档");

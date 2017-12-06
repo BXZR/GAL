@@ -23,8 +23,6 @@ public class saveLoadController : MonoBehaviour {
 		{
 			information += ";" + systemInformations.lovePercent [i];
 		}
-		information += ";" + systemInformations.plotOverPercent;
-
 		return information;
 	}
 
@@ -38,7 +36,6 @@ public class saveLoadController : MonoBehaviour {
 		{
 			systemInformations.lovePercent [i-1] = (float)Convert.ToDouble (informationGet[i]); 
 		}
-		systemInformations.plotOverPercent = (float)Convert.ToDouble (informationGet [4]);
 		return  aimID;
 	}
 

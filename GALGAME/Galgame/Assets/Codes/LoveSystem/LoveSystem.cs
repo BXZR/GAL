@@ -22,6 +22,6 @@ public class LoveSystem : MonoBehaviour {
 	void OnEnable () 
 	{
 		makeShow (systemInformations.lovePercent);
-		thePlotOverPercentText.text = (systemInformations.plotOverPercent*100).ToString("f2")+"%";
+		thePlotOverPercentText.text = (systemInformations.getPlotOverPercent()*100).ToString("f2")+"%";
 	}
 }
