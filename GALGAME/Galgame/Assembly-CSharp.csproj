@@ -92,6 +92,7 @@
      <Compile Include="Assets\Codes\systemUI\saveButtons.cs" />
      <Compile Include="Assets\Codes\systemUI\soundSliders.cs" />
      <Compile Include="Assets\Codes\systemUI\systemButtons.cs" />
+     <Compile Include="Assets\Codes\systemUI\textBackModeSwicher.cs" />
      <Compile Include="Assets\Codes\systemUI\textSpeedSlider.cs" />
      <Compile Include="Assets\Codes\textController.cs" />
      <Compile Include="Assets\Codes\thePlot.cs" />

@@ -83,12 +83,12 @@
 100,057, alice_BackhalfDark ,jik_low,alice_BackhalfDark ,,street , 我现在就..... ,,jik,,,,
 100,058, jik_shout ,jik_shout,alice_BackhalfDark  ,,street , 我错了......！！！ ,,jik,,,,
 100,059,  noOne,jik_low, alice_dark, ,street ,  看来这一顿我不用花钱了。 ,,jik,,,,
-100,060,  alice_dark ,jik_low, alice_dark  ,,street , 那吉克大人是不是应该做点什么来堵住我的悠悠之口呢? ,,jik,,,,
+100,060,  alice_dark ,jik_low, alice_dark  ,,street , 那吉克大人是不是应该做点什么来堵住我的悠悠之口呢?,,jik,,,,
 100,061,  jik_low  ,jik_low, alice_dark  ,,street , 好好，真是怕了你了。 ,,jik,,,,
 100,062,  noOne,jik_happy , alice_happy ,,street ,  昨晚是梅尔特康复之后的庆祝宴会。 ,,jik,,,,
 100,063,  noOne,jik_happy , alice_happy ,,street , 吉克是喝的最开心的。 ,,jik,,,,
 100,064,  noOne,jik_happy , alice_happy ,,street , 如果能把他和梅尔特撮合在一起，倒也真是不错。 ,,jik,,,,
-100,065,  noOne,jik_happy , alice_happy ,,street , 糟糕，有一点体会到艾丽斯的邪恶想法了...近朱者赤啊... ,,jik,,,,
+100,065,  noOne,jik_happy , alice_happy ,,street , 糟糕，有一点体会到艾丽斯的邪恶想法了,近朱者赤啊... ,,jik,,,,
 
 //梅尔特登场
 100,066,  mert_normal ,jik_happy , alice_happy ,mert_normal ,street , 你们昨天疯了一晚上。 ,,jik,,,,
