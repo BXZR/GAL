@@ -18,15 +18,22 @@ public class saveButtons : MonoBehaviour {
 	private thePlot thePlotController;//剧本控制器
 	private saveLoadPicture pictureMaker;//截图控制单元
 	private Image theSavePicture = null;//保存截图显示
+	//这个存档按钮的提示文本，显示的是存档最后被修改的事件
+	private Text theShowTimeText;
 
+	//注意这个按钮的代码需要与startButton的代码同步
+	//这是前期设计上的一个问题，后期还需要修正
 	void Start () {
 		theDataController = theAllController.GetComponent <saveLoadController> ();
 		thePlotController = theAllController.GetComponent <thePlot> ();
 		pictureMaker = theAllController.GetComponent <saveLoadPicture> ();
+		theShowTimeText = this.GetComponentInChildren<Text> ();
+		if(theShowTimeText) theShowTimeText.text = "空档";
 		//saveLoadPicture名字是固定的
 		theSavePicture = this.transform.Find ("saveLoadPicture").GetComponent<Image>();
 		pictureMaker.getCamera ();
 		makeFlash ();
+
 	}
 
 
@@ -100,6 +107,7 @@ public class saveButtons : MonoBehaviour {
 			yield return theWWW;
 			//加载图片
 			Texture2D theTextureIn = theWWW.texture;
+
 			if (theTextureIn != null && theSavePicture != null) 
 			{
 				theSavePicture.sprite = Sprite.Create (theTextureIn, new Rect (0, 0, theTextureIn.width, theTextureIn.height), new Vector2 (0, 0));
@@ -107,6 +115,13 @@ public class saveButtons : MonoBehaviour {
 			else 
 			{
 				print ("load fail!");
+			}
+			//加载修改时间
+			FileInfo fi = new FileInfo(chaeckPath);
+			if (theShowTimeText) 
+			{
+				//因为快速存档是没有这个时间标记的，所以需要做一下判断
+				theShowTimeText.text = fi.LastWriteTime.ToString ();
 			}
 		}
 

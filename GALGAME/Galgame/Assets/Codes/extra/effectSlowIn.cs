@@ -52,5 +52,6 @@ public class effectSlowIn : MonoBehaviour {
 		theImage = this.GetComponent <Image > ();
 		if( MakeInStart)
 		theImage.CrossFadeAlpha(0,0.05f,true);//淡出执行参数，0=透明 0.5f=时间 true=start
+		
 	}
 }

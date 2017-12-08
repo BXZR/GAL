@@ -195,7 +195,8 @@ public class UIController : MonoBehaviour {
 				{
 					//这个转换是一个非常细节的转换，需要保证转换的时间要比下一个剧本帧的转换时间短，要不然会出现图片转换会出现问题
 					Invoke ("waitChangeInvoke", theItem.waitTimeForAutoSkip * 0.5f / Time.timeScale);
-					theForwardPicture.makeChange (theItem.waitTimeForAutoSkip*1.6f);
+					if(theForwardPicture && theForwardPicture.gameObject .activeInHierarchy)
+					    theForwardPicture.makeChange (theItem.waitTimeForAutoSkip*1.6f);
 				}
 			}
 

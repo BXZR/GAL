@@ -9,12 +9,23 @@ public class startButtons : MonoBehaviour {
 
 	public int index = -99;//编号，用于定位存档，能使用的有0-9
 	private Image theSavePicture = null;//保存截图显示
-
+	//这个存档按钮的提示文本，显示的是存档最后被修改的事件
+	private Text theShowTimeText;
 
 	void Start () 
 	{
 		if(index >=0 && index <=9)
 		theSavePicture = this.transform.Find ("saveLoadPicture").GetComponent<Image>();
+		try
+		{
+		theShowTimeText = this.transform.Find ("TimeTextShow").GetComponentInChildren<Text> ();
+		if(theShowTimeText) 
+			theShowTimeText.text = "空档";
+		}
+		catch
+		{
+			print ("这不是用来显示存档的按钮，所以没有此项配置");
+		}
 		StartCoroutine (loadPicture());
 	}
 
@@ -73,6 +84,15 @@ public class startButtons : MonoBehaviour {
 			{
 				print ("load fail!");
 			}
+
+			//加载修改时间
+			FileInfo fi = new FileInfo(chaeckPath);
+			if (theShowTimeText) 
+			{
+				//因为快速存档是没有这个时间标记的，所以需要做一下判断
+				theShowTimeText.text = fi.LastWriteTime.ToString ();
+			}
+
 		} 
 
 	}
