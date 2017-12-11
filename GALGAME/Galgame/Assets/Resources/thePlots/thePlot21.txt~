@@ -1,0 +1,23 @@
+﻿//剧本每一项用,分割
+//例如 100,001,alice_happy,fione_happy,alice_happy,jik_happy,street,你想不想加入大吸？,加入大吸,jik,jik_kill,100003
+//100 第一号剧本的总分支， 百位是剧本文件编号
+//002 某一个分支的中的顺序
+//alice_happy 文本框显示的头像任务名称和心情
+//后面的 fione_happy,alice_happy,jik_happy 显示在场景中的发图的人物名称和心情
+//street 背景图名称，也就是场景名称
+//你想不想加入大吸？ 说话的具体内容
+//加入大吸 分支项目用的分支标记
+//jik 背景音乐名称
+//jik_kill 音效明称
+//结束之后直接跳转到的剧本元素ID
+//以---开头的是占位用的
+//noOne表示凯伊姆的内心活动
+//剧本内部的空行和//被无视
+//下面是正式的剧本内容
+
+//菲奥奈的H特典
+2100,000,noOne,,,,changeBack ,-----, ,death,,,,
+2100,001,get_Normal ,get_Normal ,,,DeadChart, 不好意思，你挂了...., ,death,,,,
+2100,002,get_Normal ,get_Normal ,,,DeadChart, 嘛，凡事都有第一次，反正以后还会常来。, ,death,,,,
+2100,003,get_Normal ,get_Normal ,,,DeadChart, 让我们来看看这一次是怎么死的。, ,death,,,,
+2100,012,noOne,,,,changeBack ,---------, ,death,,,,

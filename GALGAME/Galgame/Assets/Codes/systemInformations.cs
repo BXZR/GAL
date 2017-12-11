@@ -24,7 +24,6 @@ public class systemInformations : MonoBehaviour {
 	//每一个人都有默认的初始好感度
 	//需要注意与下面flash的数值保持同步
 	public static float [] lovePercent = { 0.30f,0.25f,0.15f};
-
 	//剧本总共数量，这个还是人为设定吧，花多次I/O的时间做这件事情有一点不值得
 	private  static float  plotOverAll = 1;//这需要一个准确的数字
 	//为了防止因为没有顺序执行在造成除零异常，在这里初始值为1，多一点就多一点
@@ -64,7 +63,7 @@ public class systemInformations : MonoBehaviour {
 	public static void SaveTheOverPlot()
 	{
 		string path = Application.persistentDataPath + "/PlotOver.txt";
-		print ("save to "+ path);
+		//print ("save to "+ path);
 		string informationSave = "";
 		for (int i = 0; i < plotIDRead.Count; i++) 
 		{
@@ -79,7 +78,7 @@ public class systemInformations : MonoBehaviour {
 	//加载已读plotItem的方法
 	public static void LoadPlotOver()
 	{
-		print ("load over plot");
+		//print ("load over plot");
 		string FilePath =  Application .persistentDataPath+"/PlotOver.txt";
 		if (File.Exists (FilePath) == false)
 		{
@@ -227,6 +226,12 @@ public class systemInformations : MonoBehaviour {
 		sw.Dispose();
 	}
 
+	public static Sprite makeLoadSprite(string textureName)
+	{
+		//textureName = "people/noOne";
+		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
+		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
+	}
 
 
 }

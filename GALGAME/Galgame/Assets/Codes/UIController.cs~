@@ -84,7 +84,7 @@ public class UIController : MonoBehaviour {
 				{
 					bigPeoplePictures [i].sprite = null;// makeLoadSprite ("people/noOne");
 				}
-				bigPeoplePictures [1].sprite = makeLoadSprite ("people/big/" +picNames [0]+"_B") ;
+				bigPeoplePictures [1].sprite = systemInformations.makeLoadSprite ("people/big/" +picNames [0]+"_B") ;
 			}
 			break;
 			//第二种情况，说话的有两个人所以是两边的图被显示
@@ -93,15 +93,15 @@ public class UIController : MonoBehaviour {
 				for (int i = 0; i < bigPeoplePictures.Length; i++) {
 					bigPeoplePictures [i].sprite = null;// makeLoadSprite ("people/noOne");
 				}
-				bigPeoplePictures [0].sprite = makeLoadSprite ( "people/big/" +picNames [0]+"_B");
-				bigPeoplePictures [2].sprite = makeLoadSprite ("people/big/" +picNames [1]+"_B");
+				bigPeoplePictures [0].sprite = systemInformations.makeLoadSprite ( "people/big/" +picNames [0]+"_B");
+				bigPeoplePictures [2].sprite =systemInformations. makeLoadSprite ("people/big/" +picNames [1]+"_B");
 			}
 			break;
 			//第三种情况，说话的有三个人,，所以三张图都显示
 		case 3:
 			{
 				for (int i = 0; i < bigPeoplePictures.Length; i++) {
-					bigPeoplePictures [i].sprite = makeLoadSprite ("people/big/" + picNames [i]+"_B");
+					bigPeoplePictures [i].sprite = systemInformations.makeLoadSprite ("people/big/" + picNames [i]+"_B");
 				}
 			}
 			break;
@@ -159,7 +159,7 @@ public class UIController : MonoBehaviour {
 			if (theItem.theSpeekerName.Equals (thePeopleSmallPictureName) == false)
 			{
 				string textureName = "people/small/" + theItem.theSpeekerName;
-				getPart(theItem.theSpeekerName).sprite = makeLoadSprite (textureName);
+				getPart(theItem.theSpeekerName).sprite = systemInformations.makeLoadSprite (textureName);
 				thePeopleSmallPictureName = theItem.theSpeekerName;
 			}
 		}
@@ -172,7 +172,7 @@ public class UIController : MonoBehaviour {
 		{
 			//显示默认背景图，没有不行啊
 			//这也是显示出来的第一张的图了
-			theBackPicture.sprite = makeLoadSprite ("backPicture/home");
+			theBackPicture.sprite = systemInformations.makeLoadSprite ("backPicture/home");
 			theBackName = "home";
 		} 
 		else 
@@ -189,7 +189,7 @@ public class UIController : MonoBehaviour {
 					 
 					//CG 控制
 					CGModeFile.CGActive (theBackName+"_Button");//激活这个CG
-					theBackPicture.sprite = makeLoadSprite ("backPicture/" + theBackName);
+					theBackPicture.sprite =systemInformations. makeLoadSprite ("backPicture/" + theBackName);
 				} 
 				else 
 				{
@@ -206,23 +206,18 @@ public class UIController : MonoBehaviour {
 	//延时转换2（在这里不太推荐协程，似乎对事件的控制有一点不妙）
 	private void waitChangeInvoke()
 	{
-		theBackPicture.sprite = makeLoadSprite ("backPicture/changeBack");
+		theBackPicture.sprite = systemInformations.makeLoadSprite ("backPicture/changeBack");
 
 	}
 
-	public Sprite makeLoadSprite(string textureName)
-	{
-		//textureName = "people/noOne";
-		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
-		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
-	}
+ 
 	void Start ()
 	{
 		//UI小图与任务大图不同，人物大图是Sprite == null的时候不显示
 		//但是UI小图是Image如果 == null 这里就会显示一张白图片
 		//这当然是不行的，因此需要比较频繁地置空图片
 		//所以将这一透明图保存起来各种复用
-		theNoOnePicture =  makeLoadSprite ("people/noOne");
+		theNoOnePicture =  systemInformations. makeLoadSprite ("people/noOne");
 		Image ST = getPart("----------初始化----------");//做初始化，强制让两张图都变成透明
 	}
 }

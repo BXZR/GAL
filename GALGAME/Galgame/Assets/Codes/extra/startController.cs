@@ -65,6 +65,7 @@ public class startController : MonoBehaviour {
 		  DeathFile.makeAllStart();
 		  systemInformations.makeOlotOverAllCount ();//获得总剧本长度
 		  systemInformations.LoadPlotOver();
+		  extraHFile.makeAllStart ();//额外特典标记
 		}
 		systemInformations.flash ();//默认回到初始界面时间scale变回原状
 		isStarted = true;

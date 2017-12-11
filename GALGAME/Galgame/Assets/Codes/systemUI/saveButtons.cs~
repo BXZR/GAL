@@ -49,6 +49,7 @@ public class saveButtons : MonoBehaviour {
 			systemInformations.SaveTheOverPlot ();
 			CGModeFile.saveCGFile ();
 			SceneModeFile.saveSceneFile ();
+			extraHFile.saveHExtra ();
 			informationPanel.showInformation ("存档");
 		} 
 		else
@@ -73,6 +74,7 @@ public class saveButtons : MonoBehaviour {
 				systemInformations.SaveTheOverPlot ();
 				CGModeFile.saveCGFile ();
 				SceneModeFile.saveSceneFile ();
+				extraHFile.saveHExtra ();
 				informationPanel.showInformation ("存档");
 			}
 			else 

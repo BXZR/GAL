@@ -22,7 +22,7 @@ public class sceneModeButton : MonoBehaviour {
 		{
 			theText.text =  "["+nameIn +"]";
 			//更改背景图片功能在这里写
-			this.GetComponent<Image>().sprite = makeLoadSprite("UI/sceneBook");
+			this.GetComponent<Image>().sprite = systemInformations. makeLoadSprite("UI/sceneBook");
 		}
 		else
 		{
@@ -43,11 +43,12 @@ public class sceneModeButton : MonoBehaviour {
 	}
 
 	//加载图片
-	public  Sprite makeLoadSprite(string textureName)
-	{
-		//textureName = "people/noOne";
-		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
-		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
-	}
+	//这个反复噶已经被同意为systeminformations的方法
+	//public  Sprite makeLoadSprite(string textureName)
+	//{
+	//	//textureName = "people/noOne";
+	//	Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
+	//	return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
+	//}
 
 }

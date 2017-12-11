@@ -56,6 +56,9 @@
      <Compile Include="Assets\Codes\Death\deathButtonController.cs" />
      <Compile Include="Assets\Codes\Effects\effectBasic.cs" />
      <Compile Include="Assets\Codes\Effects\theMouseEffect.cs" />
+     <Compile Include="Assets\Codes\ExtraHScene\extraHButtons.cs" />
+     <Compile Include="Assets\Codes\ExtraHScene\extraHController.cs" />
+     <Compile Include="Assets\Codes\ExtraHScene\extraHFile.cs" />
      <Compile Include="Assets\Codes\LoveSystem\LoveSystem.cs" />
      <Compile Include="Assets\Codes\MusicController.cs" />
      <Compile Include="Assets\Codes\MusicModeScene\MusicModeController.cs" />
@@ -97,10 +100,13 @@
      <Compile Include="Assets\Codes\textController.cs" />
      <Compile Include="Assets\Codes\thePlot.cs" />
      <Compile Include="Assets\Codes\thePlotItem.cs" />
+     <None Include="Assets\Resources\thePlots\thePlot21.txt" />
      <None Include="Assets\Resources\thePlots\thePlot10.txt" />
+     <None Include="Assets\Resources\thePlots\thePlot20.txt" />
      <None Include="Assets\Resources\thePlots\thePlot2.txt" />
      <None Include="Assets\Resources\thePlots\thePlot1.txt" />
      <None Include="Assets\save0.txt" />
+     <None Include="Assets\Resources\thePlots\thePlot22.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity3D 5.6.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

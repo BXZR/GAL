@@ -21,7 +21,7 @@ public class CGModeButton : MonoBehaviour {
 		isGet = CGModeFile.checkIsLocked (this.pictureName);
 		//按钮上面加载的都是小图
 		if(isGet)
-			this.GetComponent <Button>().image.sprite = makeLoadSprite("backPictureForButton/"+pictureNameIn);
+			this.GetComponent <Button>().image.sprite = systemInformations.makeLoadSprite("backPictureForButton/"+pictureNameIn);
 	}
 
 
@@ -40,16 +40,17 @@ public class CGModeButton : MonoBehaviour {
 		if (isGet == false)
 			return;//CG未解锁，神都不
 		string pictureNameUse =pictureName.Remove(pictureName.LastIndexOf("_Button"));
-		theBigPicture.GetComponent <Image> ().sprite = makeLoadSprite ("backPicture/"+pictureNameUse);
+		theBigPicture.GetComponent <Image> ().sprite = systemInformations.makeLoadSprite ("backPicture/"+pictureNameUse);
 		theBigPicture.gameObject.SetActive (true);
 	}
 
 	//加载图片
-	public  Sprite makeLoadSprite(string textureName)
-	{
-		//textureName = "people/noOne";
-		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
-		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
-	}
+	//这个方法被统一使用为systeminformation的方法
+    //public  Sprite makeLoadSprite(string textureName)
+	//{
+	//	//textureName = "people/noOne";
+	//	Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
+	//	return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
+	//}
 
 }

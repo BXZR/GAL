@@ -95,11 +95,11 @@ public class musicModeButton : MonoBehaviour {
 			if (string.IsNullOrEmpty (thePictureName) == false) {
 				//判断与减少加载图像的次数
 				if (theSavedSprite == null)
-					theSavedSprite = makeLoadSprite ("people/big/" + thePictureName);
+				theSavedSprite = systemInformations. makeLoadSprite ("people/big/" + thePictureName);
 				theImageShow.sprite = theSavedSprite;
 			} else {
 				//判断与减少加载图像的次数
-				theImageShow.sprite = makeLoadSprite ("Extra/MusicNullBack");
+			    theImageShow.sprite =  systemInformations. makeLoadSprite ("Extra/MusicNullBack");
 			}
 			for (int i = 0; i < 5; i++) {
 				yield return new WaitForSeconds (0.05f);
@@ -107,10 +107,11 @@ public class musicModeButton : MonoBehaviour {
 				theImageShow.color = theImageColor;
 			}
 	}
-	private Sprite makeLoadSprite(string textureName)
-	{
-		//textureName = "people/noOne";
-		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
-		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
-	}
+//统一用systeminformation的加载
+//	private Sprite makeLoadSprite(string textureName)
+//	{
+//		//textureName = "people/noOne";
+//		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
+//		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
+//	}
 }

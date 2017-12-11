@@ -122,6 +122,11 @@ public class thePlotItem : MonoBehaviour {
 		for (int i = 0; i < systemInformations.lovePercent.Length; i++) 
 		{
 			systemInformations.lovePercent [i] += loveValue [i];//增加好感度
+			if (systemInformations.lovePercent [i] >= 1 && extraHFile.loveOpend [i]== false)
+			{
+				extraHFile.loveOpend [i] = true;//好感度只需要超过1一次就可以激活特典
+				informationPanel.showInformation("特典《"+ extraHFile.PlotName[i]+"》已经被激活");
+			}
 		}
 	}
 
