@@ -114,7 +114,10 @@ public class CGModeFile : MonoBehaviour {
 	public static void CGActive(string CGName)
 	{
 		if(isStarted == false)
-		makeAllStart ();//防止出现没有初始化的问题
+		{
+		  makeAllStart ();//防止出现没有初始化的问题
+			isStarted = true;
+		}
 
 
 		bool isfound = false;
@@ -151,7 +154,7 @@ public class CGModeFile : MonoBehaviour {
 		//if (isfound)
 		//{
 			//print ("CGModeFile ---" + isfound);
-			//print("收集到了CG");
+			//print("收集到了CG: "+CGName);
 		//}
 
 	}

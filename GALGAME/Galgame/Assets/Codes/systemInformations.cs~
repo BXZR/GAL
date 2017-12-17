@@ -25,7 +25,7 @@ public class systemInformations : MonoBehaviour {
 	//需要注意与下面flash的数值保持同步
 	public static float [] lovePercent = { 0.30f,0.25f,0.15f};
 	//剧本总共数量，这个还是人为设定吧，花多次I/O的时间做这件事情有一点不值得
-	private  static float  plotOverAll = 1;//这需要一个准确的数字
+	private  static float  plotOverAll = 0;//这需要一个准确的数字
 	//为了防止因为没有顺序执行在造成除零异常，在这里初始值为1，多一点就多一点
 	//用这个List来保存所有已经读过的plotItem的ID，用List的count来记录剧本完成数量
 	//这个List会被保存到一个特殊的文件，所有存档共有
@@ -40,12 +40,15 @@ public class systemInformations : MonoBehaviour {
 			string[] theInformation = ((TextAsset)thePlot).text.Split ('\n');
 			for (int j = 0; j < theInformation.Length; j++) 
 			{
-				if (theInformation [j].StartsWith ("//") || string.IsNullOrEmpty (theInformation [j]))
+				string checkString = theInformation [j].Trim ();
+				if (checkString.StartsWith ("//") || string .IsNullOrEmpty (checkString))
 					continue;
+				
 				plotOverAll++;//每一行一个剧本剧情
+		     //测试输出全剧本长度
+		     //print ("thePlotAllCount = "+ plotOverAll);
 			}
 		}
-		print ("thePlotAllCount = "+ plotOverAll);
 	}
 
 	//累加剧本完成度的方法

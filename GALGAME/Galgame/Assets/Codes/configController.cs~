@@ -134,7 +134,7 @@ public class configController : MonoBehaviour  {
 	{
 		
 		string theIniPath =  Application .persistentDataPath+"/GalConfig.txt";
-		print (theIniPath);
+		//print (theIniPath);
 		if (File.Exists (theIniPath) == false) 
 		{
 			makeConfig ();

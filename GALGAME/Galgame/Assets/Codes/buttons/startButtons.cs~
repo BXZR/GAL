@@ -24,7 +24,7 @@ public class startButtons : MonoBehaviour {
 		}
 		catch
 		{
-			print ("这不是用来显示存档的按钮，所以没有此项配置");
+			//print ("这不是用来显示存档的按钮，所以没有此项配置");
 		}
 		StartCoroutine (loadPicture());
 	}

@@ -17,11 +17,28 @@ public class LoveSystem : MonoBehaviour {
 			theShowPercentTexts[i].text = (percents[i]*100).ToString("f2")+"%";
 			theShowPercentImages [i].fillAmount = percents [i];
 		}
+		thePlotOverPercentText.text = (systemInformations.getPlotOverPercent () * 100).ToString ("f2") + "%";
+	}
+
+	public void makeShowForScene()
+	{
+		for (int i = 0; i < theShowPercentTexts.Length; i++) 
+		{
+			theShowPercentTexts[i].text = "不可知";
+			theShowPercentImages [i].fillAmount = 1f;
+		}
+		thePlotOverPercentText.text = (systemInformations.getPlotOverPercent () * 100).ToString ("f2") + "%";
 	}
 
 	void OnEnable () 
 	{
-		makeShow (systemInformations.lovePercent);
-		thePlotOverPercentText.text = (systemInformations.getPlotOverPercent()*100).ToString("f2")+"%";
+		if (systemInformations.isScene) 
+		{
+			makeShowForScene ();
+		}
+		else 
+		{
+			makeShow (systemInformations.lovePercent);
+		}
 	}
 }

@@ -160,6 +160,10 @@ public class thePlot : MonoBehaviour {
 			SceneManager.LoadScene ("start");
 			return;
 		}
+		//尝试激活Scene
+		//规则是当一个剧本帧的下标到达了某一个scene的最后一个下标，那么这个scerne就可以被解锁
+		SceneModeFile.activeScene(theItem.ThePlotItemID);
+
 		theItemNow = theItem;
 		watiForSkipTimer = theItemNow .waitTimeForAutoSkip;
 		//剧本完成度控制
@@ -173,9 +177,6 @@ public class thePlot : MonoBehaviour {
 		theMusicController.playBackMusic (theItem);
 		theSoundController.playSound (theItem);
 		thePeopleSoundController.playSound (theItem , true);
-		//尝试激活Scene
-		//规则是当一个剧本帧的下标到达了某一个scene的最后一个下标，那么这个scerne就可以被解锁
-		SceneModeFile.activeScene(TheItemNow.ThePlotItemID);
 	}
 
 

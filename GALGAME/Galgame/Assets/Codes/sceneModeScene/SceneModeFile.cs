@@ -22,10 +22,12 @@ public class SceneModeFile : MonoBehaviour {
 
 	public static void activeScene(int endIndex)
 	{
+		//print ("check: "+endIndex);
 		//防止初始化出现问题
 		if (isStarted == false)
 			InitValues ();
 		bool isActiveOne = false;
+		scenes theSceneGet = new scenes("-",1,2,3,false);//测试用的scene
 		//用尾巴标记进行激活
 		//有一些不用激活的在初始化的时候直接标记为true就可以了
 		for (int i = 0; i < theSceneList1.Count; i++) 
@@ -34,24 +36,34 @@ public class SceneModeFile : MonoBehaviour {
 			{
 				isActiveOne = true;
 				theSceneList1 [i].isOpened = true;
+				theSceneGet = theSceneList1 [i];
 			}
 		}
 		for (int i = 0; i < theSceneList2.Count; i++) 
 		{
+			//print ("G2 -> "+theSceneList2 [i].endIndex);
+
 			if (theSceneList2 [i].endIndex == endIndex) 
 			{
 				isActiveOne = true;
 				theSceneList2 [i].isOpened = true;
+				theSceneGet = theSceneList2 [i];
 			}
 		}
+
 		for (int i = 0; i < theSceneList3.Count; i++) 
 		{
 			if (theSceneList3 [i].endIndex == endIndex) 
 			{
 				isActiveOne = true;
 				theSceneList3 [i].isOpened = true;
+				theSceneGet = theSceneList3 [i];
 			}
 		}
+		//if (isActiveOne)
+		//{
+		//	print ("场景激活： "+ theSceneGet.sceneName);
+		//}
 		//如果有激活就保存到文件里面
 		//if(isActiveOne)
 		//saveSceneFile();
@@ -143,7 +155,7 @@ public class SceneModeFile : MonoBehaviour {
 		theSceneList1.Add (new scenes("独白" ,200027,200044 , 1,false));
 		//第二组
 		theSceneList2.Add (new scenes("能吃是福" ,100077,100091, 2,false));
-		theSceneList2.Add (new scenes("新的任务" ,200045,200089, 2,false));
+		theSceneList2.Add (new scenes("新的任务" ,200046 ,200089 , 2,false));
 
 		//第三组
 		theSceneList3.Add (new scenes("近朱者赤" ,100046, 100065 , 3,false));

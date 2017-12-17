@@ -106,8 +106,7 @@
 //在酒店里面遇到菲奥奈
 100,077,  noOne  , , ,   , bar, 店里的装潢..... ,, smile , resturant ,,,
 100,078,  noOne  , , ,   , bar, 简直就是跟坠落之前一模一样。 ,, smile ,,,,
-100,079,  noOne  , , ,   , bar, 让人莫名地心安。 ,, smile ,,,,
-100,079,  noOne  , , ,   , bar, 啊啊，就像梅尔特本人。 ,, smile ,,,,
+100,079,  noOne  , , ,   , bar, 让人莫名地心安，就像梅尔特本人。,, smile ,,,,
 100,080,  noOne  , , ,   , bar, 走到桌前，才发现那个埋头痛吃的身影。 ,, smile ,,,,
 100,081,  Caim  , , ,   , bar,  菲奥奈，你怎么也在这？ ,, smile ,,,Caim11,
 100,082,  fione_shork, fione_shork , ,   , bar,  啊，凯伊姆？ ,, smile ,,,,
@@ -232,7 +231,7 @@
 100,191,noOne,, darkPlume_normal ,,street_Dark ,准备好架势，格挡这一击，然后反杀。, ,fight,,,,
 100,192,darkPlume_normal,, ,,darkAttack1  ,吼！！！！！, ,fight,,,,
 100,193,noOne,, darkPlume_normal ,,darkAttack1  ,好，抵挡住了..., ,fight,knife3,,,
-100,194,darkPlume_normal, ,,darkAttack2  ,吼！！！！！, ,fight,,,,
+100,194,noOne,, darkPlume_normal ,,darkAttack2  ,吼！！！！, ,fight,,,,
 100,195,noOne,,   ,,darkAttack2 ,可恶，居然是二连击！, ,fight,,,,
 100,196,darkPlume_normal,,darkPlume_normal,,darkAttack2  ,吼！！！！！, ,fight,,,,
 100,197,noOne,,   ,,darkAttack2  , 这一招，怎么解决？, ,fight,,,,
