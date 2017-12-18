@@ -93,6 +93,7 @@
      <Compile Include="Assets\Codes\systemUI\readText\ReadTextPanel.cs" />
      <Compile Include="Assets\Codes\systemUI\readText\readTextButton.cs" />
      <Compile Include="Assets\Codes\systemUI\saveButtons.cs" />
+     <Compile Include="Assets\Codes\systemUI\showAllOverPercentLabel.cs" />
      <Compile Include="Assets\Codes\systemUI\soundSliders.cs" />
      <Compile Include="Assets\Codes\systemUI\systemButtons.cs" />
      <Compile Include="Assets\Codes\systemUI\textBackModeSwicher.cs" />

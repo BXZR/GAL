@@ -18,8 +18,8 @@ public class startButtons : MonoBehaviour {
 		theSavePicture = this.transform.Find ("saveLoadPicture").GetComponent<Image>();
 		try
 		{
-		theShowTimeText = this.transform.Find ("TimeTextShow").GetComponentInChildren<Text> ();
-		if(theShowTimeText) 
+		  theShowTimeText = this.transform.Find ("TimeTextShow").GetComponentInChildren<Text> ();
+		  if(theShowTimeText) 
 			theShowTimeText.text = "空档";
 		}
 		catch

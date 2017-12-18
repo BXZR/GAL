@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\systemInformations.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\thePlots\thePlot2.txt">
     <Files>
       <File FileName="Assets\Codes\sceneModeScene\SceneModeFile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\thePlots\thePlot2.txt" Line="1" Column="1" />
-      <File FileName="Assets\Codes\thePlot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\thePlots\thePlot2.txt" Line="164" Column="8" />
+      <File FileName="Assets\Codes\thePlot.cs" Line="160" Column="1" />
       <File FileName="Assets\Codes\thePlotItem.cs" Line="1" Column="1" />
       <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="1" Column="1" />
       <File FileName="Assets\Codes\buttons\startButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\CGModeScene\CGModeFile.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\configController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\systemInformations.cs" Line="14" Column="46" />
+      <File FileName="Assets\Codes\systemInformations.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\LoveSystem\LoveSystem.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\systemUI\saveButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\plotTreeMaker.cs" Line="1" Column="1" />
@@ -18,6 +18,9 @@
       <File FileName="Assets\Resources\thePlots\thePlot20.txt" Line="1" Column="1" />
       <File FileName="Assets\Resources\thePlots\thePlot22.txt" Line="1" Column="1" />
       <File FileName="Assets\Resources\thePlots\thePlot21.txt" Line="1" Column="1" />
+      <File FileName="Assets\Codes\buttons\dataSystmButtons.cs" Line="133" Column="28" />
+      <File FileName="Assets\Codes\systemUI\showAllOverPercentLabel.cs" Line="16" Column="90" />
+      <File FileName="Assets\Codes\choiceController.cs" Line="30" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

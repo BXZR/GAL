@@ -114,11 +114,23 @@ public class dataSystmButtons : MonoBehaviour {
 	//回到初始界面
 	public void  backStartScene()
 	{
+		//额外的文件处理
+		//既然已经完成了，就保存一下吧
+		systemInformations.SaveTheOverPlot ();
+		CGModeFile.saveCGFile ();
+		SceneModeFile.saveSceneFile ();
+		extraHFile.saveHExtra ();
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("start");
 	}
 
 	public void gameOver()
 	{
+		//额外的文件处理
+		//既然已经完成了，就保存一下吧
+		systemInformations.SaveTheOverPlot ();
+		CGModeFile.saveCGFile ();
+		SceneModeFile.saveSceneFile ();
+		extraHFile.saveHExtra ();
 		Application.Quit ();
 	}
 

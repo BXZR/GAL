@@ -129,6 +129,7 @@ public class thePlot : MonoBehaviour {
 			//如果是死亡场景，就直接进入道场
 			if (DeathFile.setDead (theItemNow.ThePlotItemID.ToString ())) 
 			{
+
 				UnityEngine.SceneManagement.SceneManager.LoadScene ("DeadScene");//进入到死亡道场
 			} 
 			else 
@@ -156,6 +157,13 @@ public class thePlot : MonoBehaviour {
 		//简单的防护措施
 		if (theItem == null)
 		{
+			//额外的文件处理
+			//既然已经完成了，就保存一下吧
+			systemInformations.SaveTheOverPlot ();
+			CGModeFile.saveCGFile ();
+			SceneModeFile.saveSceneFile ();
+			extraHFile.saveHExtra ();
+
 			//print ("没有可控制的剧本元素");
 			SceneManager.LoadScene ("start");
 			return;
