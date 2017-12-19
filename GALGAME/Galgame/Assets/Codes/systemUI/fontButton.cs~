@@ -25,21 +25,28 @@ public class fontButton : MonoBehaviour ,configUser {
 		}
 	}
 
+	Text theFontText = null;
 	private void tosFont1()
 	{
+		if (theFontText == null)
+			theFontText = this.GetComponentInChildren<Text> ();
+		
 		isNormal = false;
 		Font theFont = Resources.Load <Font>("Font/GB2312");
 		theTextForTalk.font = theFont; 
-		this.GetComponentInChildren<Text> ().text = "仿宋";
+		theFontText .text = "仿宋";
 		setting = "2";
 	}
 
 	private void toFont2()
 	{
+		if (theFontText == null)
+			theFontText = this.GetComponentInChildren<Text> ();
+		
 		isNormal = true;
 		Font theFont = Resources.Load <Font>("Font/words");
 		theTextForTalk.font = theFont; 
-		this.GetComponentInChildren<Text> ().text = "繁体";
+		theFontText .text = "繁体";
 		setting = "1";
 	}
 

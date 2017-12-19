@@ -23,7 +23,8 @@ public class saveButtons : MonoBehaviour {
 
 	//注意这个按钮的代码需要与startButton的代码同步
 	//这是前期设计上的一个问题，后期还需要修正
-	void Start () {
+	void Start () 
+	{
 		theDataController = theAllController.GetComponent <saveLoadController> ();
 		thePlotController = theAllController.GetComponent <thePlot> ();
 		pictureMaker = theAllController.GetComponent <saveLoadPicture> ();
@@ -79,8 +80,10 @@ public class saveButtons : MonoBehaviour {
 			}
 			else 
 			{
-				theDataController.loadItem (saveIndex);
-				informationPanel.showInformation ("读档");
+				if(theDataController.loadItem (saveIndex))
+				    informationPanel.showInformation ("读档成功");
+				else
+				    informationPanel.showInformation ("读档失败");
 			}
 		}
 	}

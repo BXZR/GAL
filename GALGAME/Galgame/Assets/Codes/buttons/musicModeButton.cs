@@ -25,7 +25,7 @@ public class musicModeButton : MonoBehaviour {
 	//显示正在播放的音乐
 	private Text theShowMusicNameText;
 	//记录下来已经加载的东西，减少重复的加载过程
-	private Sprite theSavedSprite = null;
+	private static string  theSavedSpriteName  = "picture";
 
 	public void makeStart(string nameIn ,string pictureNameIn, MusicController MusicControllerIn , Image ImageIn , Text MusicNameText)
 	{
@@ -53,12 +53,13 @@ public class musicModeButton : MonoBehaviour {
 			if (theMusicPlayController != null)
 				theMusicPlayController.playBackMusic (this.theMusicName);
 		}
-		if (theButtonImageSaved != null && theButtonImageSaved.sprite.name == thePictureName) 
+		if ( theSavedSpriteName == thePictureName) 
 		{
 			//print("相同图片不加载");
 		}
 		else 
 		{
+			//flashChoice ();
 			StartCoroutine (ImageChange ());
 		}
 		//if (thisImage != theButtonImageSaved )
@@ -92,20 +93,32 @@ public class musicModeButton : MonoBehaviour {
 				theImageShow.color = theImageColor;
 			}
 			//print ("people/big/"+thePictureName);
-			if (string.IsNullOrEmpty (thePictureName) == false) {
+		   if (string.IsNullOrEmpty (thePictureName.Trim()) == false) 
+		   {
 				//判断与减少加载图像的次数
-				if (theSavedSprite == null)
-				theSavedSprite = systemInformations. makeLoadSprite ("people/big/" + thePictureName);
-				theImageShow.sprite = theSavedSprite;
-			} else {
+			    theSavedSpriteName =  thePictureName;
+				theImageShow.sprite =  systemInformations. makeLoadSprite ("people/big/" + thePictureName);
+			} 
+	     	else
+		    {
 				//判断与减少加载图像的次数
-			    theImageShow.sprite =  systemInformations. makeLoadSprite ("Extra/MusicNullBack");
+			    theSavedSpriteName =  thePictureName;
+				theImageShow.sprite = systemInformations. makeLoadSprite ("Extra/MusicNullBack");
 			}
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 5; i++)
+		    {
 				yield return new WaitForSeconds (0.05f);
 				theImageColor.a += 0.15f;
 				theImageShow.color = theImageColor;
 			}
+	}
+
+	private void flashChoice()
+	{
+		StopCoroutine (ImageChange());
+		Color theImageColor = Color.white;
+		theImageColor.a = 1f;
+		theImageShow.color = theImageColor;
 	}
 //统一用systeminformation的加载
 //	private Sprite makeLoadSprite(string textureName)

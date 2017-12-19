@@ -10,49 +10,35 @@ using UnityEngine.UI;
 public class informationPanel : MonoBehaviour {
 
 	public static string informationShow = "开始游戏";
-	public Color BackColor;//背景图的显示颜色
-	private static float showTimer = 2f;
-	private static float showTimerAll = 2f;
+	private static float showTimer = 1.5f;
+	private static float showTimerAll = 1.5f;
 	private static Text theTextShow;
-	private static Image theBackImage;
-	private static Color theBackColor;
+	private static GameObject thePanel;
 
 	public static void  showInformation(string toShow)
 	{
 		informationShow = toShow; 
 		showTimer = showTimerAll;
 		theTextShow.text = informationShow;
-		theBackImage.color = theBackColor;
+		thePanel.SetActive (true);
 	}
-
-	// Use this for initialization
+		
 	void Start ()
 	{
+		thePanel = this.gameObject;
 		theTextShow = this.GetComponentInChildren<Text> ();
-		theBackImage = this.GetComponentInChildren<Image> ();
-		theBackColor = BackColor;
-		InvokeRepeating ("flush" , 0f,1f);
-
+		showTimer = showTimerAll;
+		thePanel.SetActive (false);
 	}
 
-
-	void flush()
+	//只有在开启的时候才会Update
+	//相较于总的invokeRepeat，来说计算次数大大减少
+	void Update()
 	{
-		if (string.IsNullOrEmpty (informationShow) == false) 
-		{
-			showTimer --;
-			if (showTimer < 0) 
-			{
-				shutShow ();
-			}
-		}
+		showTimer -= Time.deltaTime;
+		if (showTimer < 0)
+			thePanel.SetActive (false);
 	}
-
-	void shutShow()
-	{
-		informationShow = "";
-		theTextShow.text = "";
-		theBackImage.color = new Color (0,0,0,0);
-	}
+			
 		
 }

@@ -46,8 +46,10 @@ public class dataSystmButtons : MonoBehaviour {
 		} 
 		else
 		{
-			theDataController.loadItem (0);
-			informationPanel.showInformation ("快速读档成功");
+			if(theDataController.loadItem (0))
+			  informationPanel.showInformation ("快速读档成功");
+			else
+			  informationPanel.showInformation ("快速读档失败");
 		}
 	}
 
@@ -141,14 +143,18 @@ public class dataSystmButtons : MonoBehaviour {
 	}
 
 	//控制快进与否的按钮
+	Image ImageForSkip = null;
 	public  void makeSkipControll()
 	{
+		if (ImageForSkip == null)
+			ImageForSkip = this.GetComponentInChildren<Image> ();
+		
 		systemInformations.skipControll ();
 		//额外的一些展示效果
 		if (systemInformations.ISSkiping)
-			this.GetComponentInChildren<Image> ().color = Color.yellow;
+			ImageForSkip.color = Color.yellow;
 		else
-			this.GetComponentInChildren<Image> ().color = Color.white;
+			ImageForSkip.color = Color.white;
 	}
 
 	//跨页面跳转的时候有可能出现加速模式未被初始化的问题
@@ -156,11 +162,13 @@ public class dataSystmButtons : MonoBehaviour {
 	{
 		if (isSkipControllButton) 
 		{
+			if (ImageForSkip == null)
+				ImageForSkip = this.GetComponentInChildren<Image> ();
 			//额外的一些展示效果
 			if (systemInformations.ISSkiping)
-				this.GetComponentInChildren<Image> ().color = Color.yellow;
+				ImageForSkip.color = Color.yellow;
 			else
-				this.GetComponentInChildren<Image> ().color = Color.white;
+				ImageForSkip.color = Color.white;
 		}
 	}
 }

@@ -313,7 +313,7 @@ public class thePlot : MonoBehaviour {
 			//说起来这个是自动存档的原理
 			if (systemInformations.indexForLoad >= 0 && systemInformations.indexForLoad <= 9) 
 			{//正确的存档编号
-				this.theDataController.loadItem (systemInformations.indexForLoad);
+				bool load = this.theDataController.loadItem (systemInformations.indexForLoad);
 			}
 			else 
 			{

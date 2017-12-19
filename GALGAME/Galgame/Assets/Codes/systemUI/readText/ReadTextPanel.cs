@@ -15,7 +15,7 @@ public class ReadTextPanel : MonoBehaviour {
 
 	void makeFlash()
 	{
-       
+        //这里的开销还是比较大的，但是因为缓存随时会变化，所以暂时还不知道有什么很好的处理方案
 		readTextButton[] childs = this.GetComponentsInChildren<readTextButton> ();
 		for (int i = 0; i < childs.Length; i++)
 			Destroy (childs[i].gameObject);

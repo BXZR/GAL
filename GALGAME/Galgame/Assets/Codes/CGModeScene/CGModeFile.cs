@@ -170,15 +170,15 @@ public class CGModeFile : MonoBehaviour {
 	private static void readFromFile()
 	{
 		//读取数据
-		    string theCGFilePath =  Application .persistentDataPath+"/CG.txt";
-			string informationRead = "";
-			//读取数据
-		    FileStream aFile = new FileStream (theCGFilePath, FileMode.OpenOrCreate);
-		    StreamReader sw = new StreamReader (aFile);
-			informationRead = sw.ReadToEnd ();
-			sw.Close ();
-			sw.Dispose ();
-	  //分析数据
+	    string theCGFilePath =  Application .persistentDataPath+"/CG.txt";
+		string informationRead = "";
+		//读取数据
+	    FileStream aFile = new FileStream (theCGFilePath, FileMode.OpenOrCreate);
+	    StreamReader sw = new StreamReader (aFile);
+		informationRead = sw.ReadToEnd ();
+		sw.Close ();
+		sw.Dispose ();
+	    //分析数据
 		string [] theSplited = informationRead.Split(';');
 		theCG1 = new List<CGSaves> ();
 		theCG2 = new List<CGSaves> ();
@@ -189,7 +189,6 @@ public class CGModeFile : MonoBehaviour {
 		for (int i = 0; i < CP.Length; i+=4)
 		{
 			theCG1.Add (new CGSaves (CP [i], Convert.ToInt32 (CP [i + 1]), Convert.ToBoolean (CP [i + 2]), Convert.ToInt32 (CP [i + 3])));
-
 		}
 		//第二组
 		CP = theSplited[1].Split(',');
@@ -267,10 +266,10 @@ public class CGModeFile : MonoBehaviour {
 			//没有配置文件就新建一个
 		 	string informationSave = information;
 		    FileStream aFile = new FileStream(path , FileMode.Create);
-				StreamWriter sw = new StreamWriter(aFile);
-				sw.Write(informationSave);
-				sw.Close();
-				sw.Dispose();
+			StreamWriter sw = new StreamWriter(aFile);
+			sw.Write(informationSave);
+			sw.Close();
+			sw.Dispose();
 	}
 
 

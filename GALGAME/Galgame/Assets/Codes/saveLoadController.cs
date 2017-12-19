@@ -51,23 +51,23 @@ public class saveLoadController : MonoBehaviour {
 	    
 	}
 
-	public void loadItem(int saveID = 0)//0,1,2号码的存档
+	public bool loadItem(int saveID = 0)//0,1,2号码的存档
 	{
 		
 		if (saveID > 9 || saveID < 0)
-			return;
+			return false;
 
 		string thePath = getPath (saveID);
 		if (!File.Exists (thePath)) 
 		{
 			print ("The path is not right : " + thePath);
-			return;
+			return false; 
 		}
 		string informationGet =  loadInformation(thePath);
 		if (string.IsNullOrEmpty (informationGet)) 
 		{
 			//读取的信息不能用
-			return;
+			return false;
 		}
 
 		//int theItemID = Convert.ToInt32 (informationGet);
@@ -103,6 +103,7 @@ public class saveLoadController : MonoBehaviour {
 			controller.GetComponent <choiceController> ().shutSelect ();
 			controller.playTheItem (nowUse);
 		}
+		return true;
 	}
 
 	//这个用于强制跳转

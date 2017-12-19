@@ -11,22 +11,31 @@ public class startButtons : MonoBehaviour {
 	private Image theSavePicture = null;//保存截图显示
 	//这个存档按钮的提示文本，显示的是存档最后被修改的事件
 	private Text theShowTimeText;
-
+	//开始场景每一次重新进入这个made值才会更新为false
+	//也就是说每一次进入start场景的时候这里才会更新一次
+	//这从逻辑上来说是通的，可以减少生成的次数，算是优化
+	private bool made = false;
 	void Start () 
 	{
-		if(index >=0 && index <=9)
-		theSavePicture = this.transform.Find ("saveLoadPicture").GetComponent<Image>();
-		try
+		if (made)
+			return;
+		
+		if (index >= 0 && index <= 9) 
 		{
-		  theShowTimeText = this.transform.Find ("TimeTextShow").GetComponentInChildren<Text> ();
-		  if(theShowTimeText) 
-			theShowTimeText.text = "空档";
+			theSavePicture = this.transform.Find ("saveLoadPicture").GetComponent<Image> ();
+			try 
+			{
+				theShowTimeText = this.transform.Find ("TimeTextShow").GetComponentInChildren<Text> ();
+				if (theShowTimeText)
+					theShowTimeText.text = "空档";
+			} 
+			catch 
+			{
+				print ("这不是用来显示存档的按钮，所以没有此项配置");
+			}
+			StartCoroutine (loadPicture ());
+			made = true;
 		}
-		catch
-		{
-			//print ("这不是用来显示存档的按钮，所以没有此项配置");
-		}
-		StartCoroutine (loadPicture());
 	}
 
 

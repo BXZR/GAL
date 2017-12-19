@@ -8,7 +8,7 @@ public class extraHController : MonoBehaviour {
 	//额外特典的按钮
 	public GameObject theExtraButton;//按钮预设物
 	public GameObject theContent;//放置预设物的父物体
-
+	private bool made = false;
 
 	private void makeClear()
 	{
@@ -31,12 +31,18 @@ public class extraHController : MonoBehaviour {
 		}
 	}
 
+	//开始场景每一次重新进入这个made值才会更新为false
+	//也就是说每一次进入start场景的时候这里才会更新一次
+	//这从逻辑上来说是通的，可以减少生成的次数，算是优化
 
 	void OnEnable()
 	{
+		if (made)
+			return;
 		makeClear ();
 		//在展示的排序上，死亡道场在前面，H特典在后面
 		Invoke ("makeButtons",0.05f);
 		//makeButtons ();
+		made = true;
 	}
 }
