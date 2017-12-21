@@ -127,6 +127,7 @@ public class thePlotItem : MonoBehaviour {
 				extraHFile.loveOpend [i] = true;//好感度只需要超过1一次就可以激活特典
 				informationPanel.showInformation("特典《"+ extraHFile.PlotName[i]+"》已经被激活");
 			}
+			systemInformations.lovePercent [i] = Mathf.Clamp (systemInformations.lovePercent [i],0f,1f);
 		}
 	}
 

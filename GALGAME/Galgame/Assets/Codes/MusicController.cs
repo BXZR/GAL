@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent (typeof(AudioSource))]
 public class MusicController : MonoBehaviour {
 
+	public bool isMainMusicController = false;
 	private AudioSource theBackMusicController;
 
 	//记录下一个plotItem的audioSource并且异步加载
@@ -150,6 +151,8 @@ public class MusicController : MonoBehaviour {
 		theBackMusicController = this.GetComponent <AudioSource> ();
 		if(theBackMusicController != null)
 		theBackMusicController.loop = true;
+		if (isMainMusicController)
+			systemInformations.theMainMusicController = this;
 	}
 
 	//注销，减少回调个数

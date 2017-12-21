@@ -20,6 +20,19 @@ public class ReadTextPanel : MonoBehaviour {
 		for (int i = 0; i < childs.Length; i++)
 			Destroy (childs[i].gameObject);
 
+		//show ();
+		show2();
+	}
+
+	//回调方法，自动调用实现刷新
+	void  OnEnable()
+	{
+		makeFlash ();
+	}
+
+	//一个很直观的展示方法
+	void show()
+	{
 		//因为用到的是队列进行保存，并不能直接用下标，所以做一次简单的折中，
 		//这个地方当然应该是可以优化的
 		List<string> readText = new List<string> ();
@@ -37,9 +50,22 @@ public class ReadTextPanel : MonoBehaviour {
 		}
 	}
 
-	//回调方法，自动调用实现刷新
-	void  OnEnable()
+	//一个很直观的展示方法
+	//因为用的是数组而且是直接toArray的，似乎比上面的方法1要快一点
+	void show2()
 	{
-		makeFlash ();
+		//因为用到的是队列进行保存，并不能直接用下标，所以做一次简单的折中，
+		//这个地方当然应该是可以优化的
+		string[] reads = systemInformations.theReadText.ToArray ();
+		string[] speaks = systemInformations.theReadTextSpeak.ToArray ();
+
+		for (int i = 0; i <reads.Length; i++) 
+		{
+			GameObject theTextShowUse = GameObject.Instantiate<GameObject> ( theProfabText);
+			theTextShowUse.GetComponentInChildren<Text> ().text = reads [i];
+			theTextShowUse.GetComponentInChildren<readTextButton> ().makeStart (speaks[i] , theAudioSouce);
+			theTextShowUse.transform.SetParent (this.transform);
+		}
 	}
+
 }

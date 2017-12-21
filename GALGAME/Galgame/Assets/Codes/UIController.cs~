@@ -130,9 +130,10 @@ public class UIController : MonoBehaviour {
 
 		//theShowPictureInText2.gameObject.SetActive (false);
 		//减少上面setActive操作的次数
+		//UI不同 ，这里不可以被重置为为null
 		theShowPictureInText1.sprite = theNoOnePicture;
 		theShowPictureInText2.sprite = theNoOnePicture;
-
+	
 		//这只是当前顶包的策略（随机），最好的方法就是用剧本控制
 		int seed= Random.Range(1,4);//(int包前不包后 所以会是0,1,2,3 )
 		if (seed >= 2) 

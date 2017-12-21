@@ -31,6 +31,10 @@ public class readTextButton : MonoBehaviour {
 	//点击播放的方法
 	public void playSpeakSound()
 	{
+		//还是从中截断比较好，不带“回声处理”
+		if (theAudioSource.isPlaying)
+			theAudioSource.Stop ();
+		
 		theAudioSource.PlayOneShot (theClip);
 	}
 }

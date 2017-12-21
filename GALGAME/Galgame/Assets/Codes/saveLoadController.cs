@@ -60,7 +60,7 @@ public class saveLoadController : MonoBehaviour {
 		string thePath = getPath (saveID);
 		if (!File.Exists (thePath)) 
 		{
-			print ("The path is not right : " + thePath);
+			//print ("The path is not right : " + thePath);
 			return false; 
 		}
 		string informationGet =  loadInformation(thePath);

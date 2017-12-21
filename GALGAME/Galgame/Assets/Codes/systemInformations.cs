@@ -31,6 +31,10 @@ public class systemInformations : MonoBehaviour {
 	//这个List会被保存到一个特殊的文件，所有存档共有
 	private static List<int> plotIDRead = new List<int> ();
 
+	//主音频控制单元，这个控制单元将从start场景开始不消失，所有的音频管理懂从这里开始
+	//注意这里必须判断是否为空，如果为空，就是用本场景中自己的音频控制单元
+	public static MusicController theMainMusicController = null;
+
 	//加载所有剧本数行数的方法（开销是个问题，在犹豫到底用不用）
 	public static void makeOlotOverAllCount()
 	{
@@ -132,7 +136,8 @@ public class systemInformations : MonoBehaviour {
 	public static bool ISSkiping { get {return isSkiping;} }
 
 	public static string theBackMusicNameNow = "并没有音乐";//为了防止额外的多次加载，做一个小小的判定
-	//重置快进标记
+
+	//重置快进标记-----------------------------------------------------------------
 	public static void flash()
 	{
 		isAutoWait = true;//剧本到时间自动跳转
@@ -166,7 +171,7 @@ public class systemInformations : MonoBehaviour {
 	//将全局变量赋值成初始值
 	public static float textShowTime = 0.2f;//文本显示的时候每一个字的弹出速度
 
-	//----------------------已经阅读的内容记录---------------------------//
+	//----------------------已经阅读的内容最近几条内容的记录---------------------------//
 	public  static Queue<string> theReadText = new Queue<string> ();
 	public  static Queue<string> theReadTextSpeak = new Queue<string> ();
 	private static  int theReadLength = 25;//最多记录25条最新的已读内容

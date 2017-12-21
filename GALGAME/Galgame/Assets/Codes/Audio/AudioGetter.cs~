@@ -37,8 +37,9 @@ public class AudioGetter : MonoBehaviour {
 	{
 		try
 		{
-			theSource = GameObject.Find ("/theAudioSourceForAll").GetComponent<AudioSource>();
-
+			//使用引用保存而不是查找，这当然更快
+			//theSource = GameObject.Find ("/theAudioSourceForAll").GetComponent<AudioSource>();
+			theSource = systemInformations.theMainMusicController.GetComponent <AudioSource>();
 			if (theSource != null) 
 			{
 				
@@ -58,6 +59,7 @@ public class AudioGetter : MonoBehaviour {
 		{
 			try
 			{
+				//没有主音频控制单元当然就需要麻烦一点
 				theSource = this.transform .Find("musicController").gameObject.GetComponent<AudioSource> ();
 				if (theClip != null)
 				{
@@ -99,7 +101,9 @@ public class AudioGetter : MonoBehaviour {
 	{
 		try
 		{
-			theSource = GameObject.Find ("/theAudioSourceForAll").GetComponent<AudioSource>();
+			//使用引用保存而不是查找，这当然更快
+			//theSource = GameObject.Find ("/theAudioSourceForAll").GetComponent<AudioSource>();
+			theSource = systemInformations.theMainMusicController.GetComponent <AudioSource>();
 			if (theSource != null ) 
 			{
 				//为了确保每一次的缓慢切换都是正确的并且没有冲突的
@@ -126,6 +130,7 @@ public class AudioGetter : MonoBehaviour {
 		{
 			try
 			{
+				//没有主音频控制单元当然就需要麻烦一点
 				theSource = this.transform .Find("musicController").gameObject.GetComponent<AudioSource> ();
 				//print("use child music controller");
 				if (theClip != null)

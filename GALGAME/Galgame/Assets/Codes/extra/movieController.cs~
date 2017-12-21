@@ -86,7 +86,7 @@ public class movieController : MonoBehaviour {
 		#endif
 	}
 		
-	void Update () {
+//	void Update () {
 //		if (Input.GetKeyDown (KeyCode.A)) 
 //		{
 //			print ("mc");
@@ -94,5 +94,5 @@ public class movieController : MonoBehaviour {
 //		}
 //		if (Input.GetKeyDown (KeyCode.S))
 //			endMovio ();
-	}
+//	}
 }

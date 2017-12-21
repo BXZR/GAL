@@ -50,6 +50,10 @@ public class plotTreeMaker : MonoBehaviour {
 		string[] theInformation = thePlot.text.Split ('\n');
 		for (int j = 0; j < theInformation.Length; j++) 
 		{
+			//下面制作已用了trycatch，其实就是有空格而不是空行的情况，因此可以在这里做一下处理
+			//在这里去掉了所有的空格，所以后面的剧本元素就没有必要在做这些操作了，这样就可以减少十次多出来的操作
+			//原先使用Trim来做的，这是一个非常巨大的危害
+			theInformation [j] = theInformation [j].Replace(" ","");
 			if (theInformation[j].StartsWith ("//") || string .IsNullOrEmpty (theInformation[j]))
 				continue;
 			//"//"是一个文本编辑用的分隔符号，顺带用于注释
@@ -58,10 +62,10 @@ public class plotTreeMaker : MonoBehaviour {
 				//在这里需要追加更加细致的设定和分割
 				//并且首位随意添加空格
 				string[] theInformationIn = theInformation [j].Split (',');
-				int thePlotBranchID = Convert.ToInt32 (theInformationIn[0].Trim());
-				int theBranchTalkID = Convert.ToInt32 (theInformationIn [1].Trim());
+				int thePlotBranchID = Convert.ToInt32 (theInformationIn[0]);
+				int theBranchTalkID = Convert.ToInt32 (theInformationIn [1]);
 
-				string theSpeekerName = theInformationIn [2].Trim();
+				string theSpeekerName = theInformationIn [2];
 				/*
                   speakerName  说话的人
                   SpeakerPictureName 说话的人的图的特征
@@ -69,33 +73,34 @@ public class plotTreeMaker : MonoBehaviour {
                   例如 alice_happy
                   至于中文名称显示翻译，用一个数组做映射就行，反正也没几个人
                 */
-				string player1 = theInformationIn[3].Trim();//参与说话的第一个人
-				string player2 = theInformationIn[4].Trim();//参与说话的第二个人
-				string player3 = theInformationIn[5].Trim();//参与说话的第三个人
+				string player1 = theInformationIn[3];//参与说话的第一个人
+				string player2 = theInformationIn[4];//参与说话的第二个人
+				string player3 = theInformationIn[5];//参与说话的第三个人
 
-				string theBackPictureName = theInformationIn [6].Trim();
-				string theTalkInformation = theInformationIn [7].Trim();
-				string title = theInformationIn [8].Trim();//额外标记
+				string theBackPictureName = theInformationIn [6];
+				string theTalkInformation = theInformationIn [7];
+				string title = theInformationIn [8];//额外标记
 
-				string musicName = theInformationIn [9].Trim();//背景音乐名称
-				string soundName = theInformationIn [10].Trim();//音效模名称
+				string musicName = theInformationIn [9];//背景音乐名称
+				string soundName = theInformationIn [10];//音效模名称
 				//print("music :" + musicName +"   sound :"+ soundName);
 
-				string aimIDIN = theInformationIn [11].Trim();
-				string speakName = theInformationIn[12].Trim();
-				string extraAction = theInformationIn[13].Trim();
+				string aimIDIN = theInformationIn [11];
+				string speakName = theInformationIn[12];
+				string extraAction = theInformationIn[13];
 				int aimID  = -1;
-				if (string .IsNullOrEmpty( theInformationIn [11].Trim()) == false)
+				if (string .IsNullOrEmpty( theInformationIn [11]) == false)
 				{
 					try
 					{
-					aimID  = Convert .ToInt32(theInformationIn [11].Trim());//跳转目标
+					aimID  = Convert .ToInt32(theInformationIn [11]);//跳转目标
 					}
 					catch
 					{
 						aimID = -2;
 					}
 				}
+				//制作剧本帧
 				GameObject theNewItem = GameObject.Instantiate <GameObject> (theProfabForItem);
 				thePlotItem theItem = theNewItem.GetComponent <thePlotItem> ();
 				theItem.makeCreate1 (thePlotBranchID , theBranchTalkID , theSpeekerName ,theBackPictureName,theTalkInformation ,title);
@@ -188,6 +193,7 @@ public class plotTreeMaker : MonoBehaviour {
 		//	print (theP[i] +"  ");
 	}
 
+	//这个脚本的计算开销很大，能减少一点就是一点
 	void quickSort(List <thePlotItem> theP ,int low,int high)
 	{
 		if(low>= high)
@@ -213,8 +219,7 @@ public class plotTreeMaker : MonoBehaviour {
 	//建立游戏物体的父子关系
 	//单个分支之间的父子关系
 	void setParentsForBranchPrivate()
-	{
-		 
+	{ 
 		//字典的每一个分支内部排序
 		for (int i = 0; i < theIDS.Count; i++)
 		{

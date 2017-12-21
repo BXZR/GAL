@@ -30,15 +30,20 @@ public class LoveSystem : MonoBehaviour {
 		thePlotOverPercentText.text = (systemInformations.getPlotOverPercent () * 100).ToString ("f2") + "%";
 	}
 
-	void OnEnable () 
+	void OnEnable ()
+	{
+		if (systemInformations.isScene == false) 
+		{
+			makeShow (systemInformations.lovePercent);
+		}
+	}
+	//scene模式之下没有必要重复读取，所以只是在start里面做一下设定就足够了
+	void Start () 
 	{
 		if (systemInformations.isScene) 
 		{
 			makeShowForScene ();
 		}
-		else 
-		{
-			makeShow (systemInformations.lovePercent);
-		}
+
 	}
 }
