@@ -93,6 +93,7 @@ public class thePlotItem : MonoBehaviour {
 
 
 	//额外初始化方法1
+	//实际上只有这三个人会有好感度系统
 	private void  makeLoveValue()
 	{
 		string theSpeakInName = theSpeekerName.Split ('_') [0];

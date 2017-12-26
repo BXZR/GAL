@@ -238,7 +238,9 @@ public class systemInformations : MonoBehaviour {
 	{
 		//textureName = "people/noOne";
 		Texture2D theTextureIn = Resources.Load <Texture2D> (textureName);
-		return Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
+		Sprite theSprite =  Sprite .Create(theTextureIn,new Rect (0,0,theTextureIn.width,theTextureIn.height),new Vector2 (0,0));
+		theSprite.name = textureName;
+		return theSprite;
 	}
 
 

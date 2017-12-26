@@ -47,16 +47,25 @@ public class UIController : MonoBehaviour {
 	{
 		//有一些用来占时间的过长没必要显示说话文本框
 		//print("check");
-		bool show = theItem.theTalkInformation.StartsWith ("---");
-		theShowText.gameObject.SetActive (!show);
+		//这段代码确实就写得挺简洁的，但是如果每一次都setActive = true很显然是一个浪费
+		//SetActive(true)，很触发MonoBehaviour.OnEnable()事件，就算对象之前本就是activeSelf==true，事件依然会发生； 
+		//SetActive(false)，很触发MonoBehaviour.OnDisable()事件,就算对象之前本就是activeSelf==false，事件依然会发生；
+		//对策就是加一个检查
+		bool show = !theItem.theTalkInformation.StartsWith ("---");
+		if (theShowText.gameObject.activeInHierarchy !=  show)
+		{
+			theShowText.gameObject.SetActive (show);
+		}
+		//theShowText.gameObject.SetActive (show);
 			
 	}
 
 	//说话的时候的人物大图
+	List <string > picNames = new List<string> ();
 	void makeBigPicture(thePlotItem theItem)
 	{
 		int count = 0;
-		List <string > picNames = new List<string> ();
+		picNames.Clear ();//不用new而使用clear
 
 		for (int i = 0; i < theItem.thePartyplayers.Length; i++) 
 		{
@@ -80,28 +89,42 @@ public class UIController : MonoBehaviour {
 			//第一种情况，说话的只有一个人，所以显示的是中间的图
 		case 1:
 			{
-				for (int i = 0; i < bigPeoplePictures.Length; i++)
-				{
-					bigPeoplePictures [i].sprite = null;// makeLoadSprite ("people/noOne");
-				}
-				bigPeoplePictures [1].sprite = systemInformations.makeLoadSprite ("people/big/" +picNames [0]+"_B") ;
+				//------------------这个加载方法就是每一步刷新，好想好写格调高，但是开销真的很大，每一个一个剧本帧---------------------------------------------//
+				//for (int i = 0; i < bigPeoplePictures.Length; i++)
+				//{
+				//	bigPeoplePictures [i].sprite = null;// makeLoadSprite ("people/noOne");
+				//}
+				//bigPeoplePictures [1].sprite = systemInformations.makeLoadSprite ("people/big/" +picNames [0]+"_B") ;
+
+				//------------------土一些的立即数方法，有针对性的刷新----------------------------------------------------------------------------------------//
+				bigPeoplePictures [0].sprite = null;
+				loadWithCheckForBigPicture(bigPeoplePictures [1] , "people/big/" + picNames [0]+"_B" );
+				bigPeoplePictures [2].sprite = null;
 			}
 			break;
 			//第二种情况，说话的有两个人所以是两边的图被显示
 		case 2:
 			{
-				for (int i = 0; i < bigPeoplePictures.Length; i++) {
-					bigPeoplePictures [i].sprite = null;// makeLoadSprite ("people/noOne");
-				}
-				bigPeoplePictures [0].sprite = systemInformations.makeLoadSprite ( "people/big/" +picNames [0]+"_B");
-				bigPeoplePictures [2].sprite =systemInformations. makeLoadSprite ("people/big/" +picNames [1]+"_B");
+				//------------------这个加载方法就是每一步刷新，好想好写格调高，但是开销真的很大，每一个一个剧本帧---------------------------------------------//
+				//for (int i = 0; i < bigPeoplePictures.Length; i++)
+				//{
+				//	bigPeoplePictures [i].sprite = null;// makeLoadSprite ("people/noOne");
+				//}
+				//bigPeoplePictures [0].sprite = systemInformations.makeLoadSprite ( "people/big/" +picNames [0]+"_B");
+				//bigPeoplePictures [2].sprite =systemInformations. makeLoadSprite ("people/big/" +picNames [1]+"_B");
+				//------------------土一些的立即数方法，有针对性的刷新----------------------------------------------------------------------------------------//
+				loadWithCheckForBigPicture(bigPeoplePictures [0] , "people/big/" + picNames [0]+"_B" );
+				bigPeoplePictures [1].sprite = null;
+				loadWithCheckForBigPicture(bigPeoplePictures [2], "people/big/" + picNames [1]+"_B" );
 			}
 			break;
 			//第三种情况，说话的有三个人,，所以三张图都显示
 		case 3:
 			{
-				for (int i = 0; i < bigPeoplePictures.Length; i++) {
-					bigPeoplePictures [i].sprite = systemInformations.makeLoadSprite ("people/big/" + picNames [i]+"_B");
+				for (int i = 0; i < bigPeoplePictures.Length; i++) 
+				{
+					loadWithCheckForBigPicture(bigPeoplePictures [i] , "people/big/" + picNames [i]+"_B" );
+					//bigPeoplePictures [i].sprite = systemInformations.makeLoadSprite ("people/big/" + picNames [i]+"_B");
 				}
 			}
 			break;
@@ -114,6 +137,33 @@ public class UIController : MonoBehaviour {
 			bigPeoplePictures [index].gameObject.AddComponent (System.Type.GetType(extra[0]));
 		}
 	}
+
+	//如果只是检查单纯地load人物图的话，其实每一个剧本帧都是在不断重复加载 systemInformations.makeLoadSprite
+	//这很显然有大量的浪费存在，所以在加载之前做一下检查比较好
+	private void loadWithCheckForBigPicture(SpriteRenderer theImage  , string SpriteNameNew)
+	{
+		//剧本帧同样的人物大图就没有要再一次加载了
+		if (theImage.sprite == null || theImage.sprite.name != SpriteNameNew)
+		{
+			//if (theImage.sprite != null) 
+			//{
+			//	print ("SpriteNameNew = " + SpriteNameNew + "    theImage.sprite.name = " + theImage.sprite.name);
+			//	print ("load bigPicture");
+			//}
+		  theImage.sprite = systemInformations.makeLoadSprite (SpriteNameNew);
+		}
+	}
+	private void loadWithCheckForSmallPicture(Image theImage  , string SpriteNameNew)
+	{
+		//剧本帧同样的人物大图就没有要再一次加载了
+		if (theImage!= null && theImage .sprite!=null &&  theImage .sprite .name != SpriteNameNew)
+		{
+			//print ("SpriteNameNew = " + SpriteNameNew + "    theImage.sprite.name = " +  theImage .sprite );
+		    //print ("load smallPicture");
+			theImage .sprite  = systemInformations.makeLoadSprite (SpriteNameNew);
+		}
+	}
+
 
 	//用这个方法来决定说话的时候的小图用哪一个（左边还是右边）
 	private string theSpeakerNameNow = "--";
@@ -160,7 +210,8 @@ public class UIController : MonoBehaviour {
 			if (theItem.theSpeekerName.Equals (thePeopleSmallPictureName) == false)
 			{
 				string textureName = "people/small/" + theItem.theSpeekerName;
-				getPart(theItem.theSpeekerName).sprite = systemInformations.makeLoadSprite (textureName);
+				//getPart(theItem.theSpeekerName).sprite = systemInformations.makeLoadSprite (textureName);
+				loadWithCheckForSmallPicture(getPart(theItem.theSpeekerName), textureName);
 				thePeopleSmallPictureName = theItem.theSpeekerName;
 			}
 		}

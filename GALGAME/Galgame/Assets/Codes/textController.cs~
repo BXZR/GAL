@@ -88,21 +88,29 @@ public class textController : MonoBehaviour {
 		}
 	}
 
-	//void Start () 
-	//{
-
-	//}
-
-
-	void Update ()
+	private void makeUpdate()
 	{
-		theFlashWaitTime -= Time.deltaTime;
+		//这个时间需要配合更新总时间长度，实际上直接使用invoke做更新也行，但是可动态配置的特性没有这样做好
+		theFlashWaitTime -= 0.05f;
 		if (theFlashWaitTime < 0) 
 		{
 			theFlashWaitTime = systemInformations.textShowTime;
 			makeShowUpdate ();
 		}
 	}
+	void Start () 
+	{
+		//值得注意的是TimeScale也可以影响InvokeRepeate
+		//因此直接这样写不会出错，还可以减少一定计算量
+		InvokeRepeating ("makeUpdate",0f,0.05f);
+	}
+
+
+	//void Update ()
+	//{
+		
+	//}
+
 	void OnDestroy()//非常必要
 	{
 		CancelInvoke ();//取消Invoke调用
