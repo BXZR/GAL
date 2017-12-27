@@ -66,7 +66,7 @@ public class movieController : MonoBehaviour {
 		#else
 		if (Application.platform == RuntimePlatform.Android)
 		{
-			Handheld.PlayFullScreenMovie ("OP2.mp4",Color .black,FullScreenMovieControlMode.Hidden);
+			Handheld.PlayFullScreenMovie ("OP2.mp4",Color .black,FullScreenMovieControlMode.CancelOnInput,FullScreenMovieScalingMode.Fill);
 		} 
 		#endif
 

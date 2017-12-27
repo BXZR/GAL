@@ -14,8 +14,22 @@ public class systemInformations : MonoBehaviour {
 	public static int indexForLoad = -99;//存档的编号
 	public static bool canControll = true;//在渐入转场的时候鼠标是不可以有效果的
 	//think 是旁白，不显示人名的时候用
-	private static string [] proName = {"alice","fione","jik","Caim" ,"mert","fione", "aozi","noOne" , "get"} ;
-	private static string [] showName = {"艾莉斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "菲奥奈", "奥兹","" , "戈尔"};
+	private static string [] proName = { "alice" ,"fione" ,"jik"  , "Caim"   ,"mert",   "aozi", "noOne" , "get"} ;
+	private static string [] showName = {"艾莉斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "奥兹",  ""     , "戈尔"};
+	private static Dictionary <string , string > playerNames = null;
+	//使用数组顺序查找似乎没有字典快
+	public static void makePlayerNamesStartIfNull()
+	{
+		if (playerNames == null) 
+		{
+			playerNames = new Dictionary<string, string> ();
+			for (int i = 0; i < proName.Length; i++)
+			{
+				playerNames.Add (proName[i] , showName[i]);
+			}
+		}
+	}
+
 	//好感度系统的好感度百分比
 	//从左到右分别是艾莉斯，菲奥奈，吉克
 	//也就是说只有这三个任务是可以被攻略的
@@ -112,12 +126,18 @@ public class systemInformations : MonoBehaviour {
 
 	public static string getShowNameWithProName(string pro)
 	{
-		for (int i = 0; i < proName.Length; i++)
-		{
-			if (proName [i].Equals (pro))
-				return showName [i];
-		}
-		return "???";
+		//这种方法是顺序查找，或许可以用字典哈希查找来提速
+		//但是这种方法予以保留
+		//for (int i = 0; i < proName.Length; i++)
+		//{
+		//	if (proName [i].Equals (pro))
+		//		return showName [i];
+		//}
+		//return "???";
+
+		//看上去更快一点的字典查找
+		makePlayerNamesStartIfNull();
+		return playerNames[pro];
 	}
 
 	//----------------------system panel的相关记录逻辑---------------------------//

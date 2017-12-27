@@ -23,7 +23,7 @@ public class REController : MonoBehaviour {
 		//Screen.fullScreen = false;需要做两遍，否则就会出现不正确的情况
 		//但是如果将GUI的影片播放延迟一小点时间就不会出现问题
 		//这可能是因为最开始的时候的GUImovieTexture与screen之间的值的矛盾
-		Destroy (this.gameObject.GetComponent (this.GetType ()));
+		Destroy (this);
 	}
 	
  

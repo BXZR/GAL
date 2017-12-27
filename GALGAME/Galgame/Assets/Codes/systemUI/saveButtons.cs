@@ -102,7 +102,7 @@ public class saveButtons : MonoBehaviour {
 
 	IEnumerator loadPicture()
 	{
-		yield return  new WaitForSeconds (0.1f);
+		yield return  new WaitForSeconds (0.05f);
 		string  path   = @"file:///" + Application .persistentDataPath+"/save"  + this.saveIndex + ".jpg";
 		string chaeckPath =  Application .persistentDataPath+"/save"  + this.saveIndex + ".jpg";
 		//print (path);

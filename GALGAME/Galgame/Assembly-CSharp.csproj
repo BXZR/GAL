@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Codes\Audio\AudioGetter.cs" />
      <Compile Include="Assets\Codes\Audio\tipForAudioController.cs" />
+     <Compile Include="Assets\Codes\CGModeScene\CGModeButton.cs" />
      <Compile Include="Assets\Codes\CGModeScene\CGModeController.cs" />
      <Compile Include="Assets\Codes\CGModeScene\CGModeFile.cs" />
      <Compile Include="Assets\Codes\CreaterSpeaking\theCreaterShowerMove.cs" />
@@ -62,11 +63,9 @@
      <Compile Include="Assets\Codes\LoveSystem\LoveSystem.cs" />
      <Compile Include="Assets\Codes\MusicController.cs" />
      <Compile Include="Assets\Codes\MusicModeScene\MusicModeController.cs" />
+     <Compile Include="Assets\Codes\MusicModeScene\musicModeButton.cs" />
      <Compile Include="Assets\Codes\UIController.cs" />
-     <Compile Include="Assets\Codes\buttons\CGModeButton.cs" />
      <Compile Include="Assets\Codes\buttons\dataSystmButtons.cs" />
-     <Compile Include="Assets\Codes\buttons\musicModeButton.cs" />
-     <Compile Include="Assets\Codes\buttons\sceneModeButton.cs" />
      <Compile Include="Assets\Codes\buttons\sceneSkipButton.cs" />
      <Compile Include="Assets\Codes\buttons\startButtons.cs" />
      <Compile Include="Assets\Codes\buttons\startOpenShutButton.cs" />
@@ -87,6 +86,7 @@
      <Compile Include="Assets\Codes\saveLoadController.cs" />
      <Compile Include="Assets\Codes\sceneModeScene\SceneModeController.cs" />
      <Compile Include="Assets\Codes\sceneModeScene\SceneModeFile.cs" />
+     <Compile Include="Assets\Codes\sceneModeScene\sceneModeButton.cs" />
      <Compile Include="Assets\Codes\soundController.cs" />
      <Compile Include="Assets\Codes\systemInformations.cs" />
      <Compile Include="Assets\Codes\systemUI\fontButton.cs" />

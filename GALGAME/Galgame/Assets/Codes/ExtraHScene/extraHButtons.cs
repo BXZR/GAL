@@ -25,7 +25,7 @@ public class extraHButtons : MonoBehaviour {
 		else 
 		{
 			Text theText = this.GetComponentInChildren<Text> ();
-			theText.text = "[尚未激活]";
+			theText.text = "[未解锁]";
 			theText.color = Color.gray;
 			theImage.color = Color.gray;
 

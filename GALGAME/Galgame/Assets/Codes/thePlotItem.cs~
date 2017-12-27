@@ -162,9 +162,13 @@ public class thePlotItem : MonoBehaviour {
 	//此方法是一个判定标记
 	public bool  isASpitRoot()
 	{
-		if (this.theChildItems.Count > 1)
-			return true;
-		return false;
+		//原始的基础方法
+		//if (this.theChildItems.Count > 1)
+		//	return true;
+		//return false;
+
+		//下面的这种方法似乎更加简洁也更快
+		return (this.theChildItems.Count > 1);
 	}
 
 	//跳转到下一个节点
