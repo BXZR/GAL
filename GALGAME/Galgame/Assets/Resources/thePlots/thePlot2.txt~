@@ -127,7 +127,7 @@
 200,102, noOne,mert_dark ,fione_happy ,,bar , ......., ,manWork,,,,
 200,103, noOne, mert_dark, fione_happy,,bar , 梅尔特最近总是喜欢这么邪恶地看我。, ,manWork,,,,
 200,104, noOne,mert_dark ,fione_happy ,,bar , 到底是何居心啊...., ,manWork,,,,
-200,105, ,mert_dark ,fione_happy ,,bar , 梅尔特，来瓶朗姆酒！ , ,manWork,,,,
+200,105, NPC,mert_dark ,fione_happy ,,bar , 梅尔特，来瓶朗姆酒！ , ,manWork,,,,
 200,106, mert_normal, mert_normal ,fione_happy,,bar , 你们好好商量吧，我去招呼客人了。, ,manWork,,,,
 200,107, noOne, ,fione_happy ,,bar , 梅尔特邪恶地看了我一眼，转身招呼客人。, ,manWork,,,,
 200,108, noOne, ,fione_happy ,,bar , 既然酒足饭饱，果然还是应该谈谈正事。, ,manWork,,,,

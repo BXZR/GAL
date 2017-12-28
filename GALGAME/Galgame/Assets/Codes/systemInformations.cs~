@@ -14,8 +14,8 @@ public class systemInformations : MonoBehaviour {
 	public static int indexForLoad = -99;//存档的编号
 	public static bool canControll = true;//在渐入转场的时候鼠标是不可以有效果的
 	//think 是旁白，不显示人名的时候用
-	private static string [] proName = { "alice" ,"fione" ,"jik"  , "Caim"   ,"mert",   "aozi", "noOne" , "get"} ;
-	private static string [] showName = {"艾莉斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "奥兹",  ""     , "戈尔"};
+	private static string [] proName = { "alice" ,"fione" ,"jik"  , "Caim"   ,"mert",   "aozi", "noOne" , "get" , "darkPlume" ,"NPC"} ;
+	private static string [] showName = {"艾莉斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "奥兹",  ""     , "戈尔" , "黑羽" , "路人"};
 	private static Dictionary <string , string > playerNames = null;
 	//使用数组顺序查找似乎没有字典快
 	public static void makePlayerNamesStartIfNull()

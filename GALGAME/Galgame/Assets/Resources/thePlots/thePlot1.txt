@@ -33,7 +33,7 @@
 //艾丽斯来找凯伊姆
 100,012,Caim,,,,home, ？  有人？ , ,smile,openDoor,,Caim3,
 100,013,alice_happy,alice_happy,,,home,日上三竿还不起床的也就是你了吧？,,smile,,,,
-100,014,Caim,alice_happy,,,home,艾丽斯么？,,smile,,,Caim4,
+100,014,Caim,alice_happy,,,home,艾莉斯么？,,smile,,,Caim4,
 100,015,alice_shock,alice_shock,,,home,啊啦，你居然还能认出来我？,,smile,,,,
 100,016,Caim,alice_shock,,,home,我还没到人事不省的程度......,,smile,,,Caim5,
 100,017,alice_dark ,alice_dark,,,home,那你还记得你昨天晚上对我说了什么吗？,,smile,,,,

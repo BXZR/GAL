@@ -171,7 +171,9 @@ public class thePlot : MonoBehaviour {
 		//尝试激活Scene
 		//规则是当一个剧本帧的下标到达了某一个scene的最后一个下标，那么这个scerne就可以被解锁
 		SceneModeFile.activeScene(theItem.ThePlotItemID);
-
+		//每一次新跑一个剧本帧的时候才会真的初始化这个剧本帧的儿子节点
+		//性能消耗均摊，这样看上去要比初始化的时候气归初始化要好一点
+		theItem.makeStart ();
 		theItemNow = theItem;
 		watiForSkipTimer = theItemNow .waitTimeForAutoSkip;
 		//剧本完成度控制

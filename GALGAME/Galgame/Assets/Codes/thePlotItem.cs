@@ -146,7 +146,11 @@ public class thePlotItem : MonoBehaviour {
 			{
 				thePlotItem theItem = theChild.GetComponent<thePlotItem> ();
 				theChildItems.Add (theItem);
-				theItem.makeStart ();//递归初始化
+				//递归初始化
+				//1. 两种初始化的策略，一种就是在这里直接递归makeStart，开销比较大，但是比较全面和安全
+				//2. 还有一种是在thePlot playTheItem里面，每一次经过这个剧本帧才会进行初始化
+				//当前选择的是第二种
+				//theItem.makeStart ();//递归初始化（一次性初始化）
 			}
 		}
 	}
