@@ -89,6 +89,7 @@
      <Compile Include="Assets\Codes\sceneModeScene\sceneModeButton.cs" />
      <Compile Include="Assets\Codes\soundController.cs" />
      <Compile Include="Assets\Codes\systemInformations.cs" />
+     <Compile Include="Assets\Codes\systemUI\animationShowsSwitcher.cs" />
      <Compile Include="Assets\Codes\systemUI\fontButton.cs" />
      <Compile Include="Assets\Codes\systemUI\readText\ReadTextPanel.cs" />
      <Compile Include="Assets\Codes\systemUI\readText\readTextButton.cs" />

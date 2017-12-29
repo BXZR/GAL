@@ -39,6 +39,8 @@ public class textBackModeSwicher : MonoBehaviour  , configUser {
 		}
 	}
 
+ 
+
 	private void changeMode(int indexAim)
 	{
 		TextBackImages [indexUse].SetActive (false);

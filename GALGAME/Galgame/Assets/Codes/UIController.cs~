@@ -98,7 +98,9 @@ public class UIController : MonoBehaviour {
 
 				//------------------土一些的立即数方法，有针对性的刷新----------------------------------------------------------------------------------------//
 				bigPeoplePictures [0].sprite = null;
-				loadWithCheckForBigPicture(bigPeoplePictures [1] , "people/big/" + picNames [0]+"_B" );
+				//loadWithCheckForBigPicture(bigPeoplePictures [1] , "people/big/" + picNames [0]+"_B" );
+				//带有转换效果的换图
+				StartCoroutine(changeBigPeoplePicture(bigPeoplePictures [1] ,"people/big/" + picNames [0]+"_B" ) );
 				bigPeoplePictures [2].sprite = null;
 			}
 			break;
@@ -113,9 +115,11 @@ public class UIController : MonoBehaviour {
 				//bigPeoplePictures [0].sprite = systemInformations.makeLoadSprite ( "people/big/" +picNames [0]+"_B");
 				//bigPeoplePictures [2].sprite =systemInformations. makeLoadSprite ("people/big/" +picNames [1]+"_B");
 				//------------------土一些的立即数方法，有针对性的刷新----------------------------------------------------------------------------------------//
-				loadWithCheckForBigPicture(bigPeoplePictures [0] , "people/big/" + picNames [0]+"_B" );
+				//loadWithCheckForBigPicture(bigPeoplePictures [0] , "people/big/" + picNames [0]+"_B" );
+				StartCoroutine(changeBigPeoplePicture(bigPeoplePictures [0],"people/big/" + picNames [0]+"_B" ) );
 				bigPeoplePictures [1].sprite = null;
-				loadWithCheckForBigPicture(bigPeoplePictures [2], "people/big/" + picNames [1]+"_B" );
+				//loadWithCheckForBigPicture(bigPeoplePictures [2], "people/big/" + picNames [1]+"_B" );
+				StartCoroutine(changeBigPeoplePicture(bigPeoplePictures [2], "people/big/" + picNames [1]+"_B" ) );
 			}
 			break;
 			//第三种情况，说话的有三个人,，所以三张图都显示
@@ -123,8 +127,9 @@ public class UIController : MonoBehaviour {
 			{
 				for (int i = 0; i < bigPeoplePictures.Length; i++) 
 				{
-					loadWithCheckForBigPicture(bigPeoplePictures [i] , "people/big/" + picNames [i]+"_B" );
 					//bigPeoplePictures [i].sprite = systemInformations.makeLoadSprite ("people/big/" + picNames [i]+"_B");
+					//loadWithCheckForBigPicture(bigPeoplePictures [i] , "people/big/" + picNames [i]+"_B" );
+					StartCoroutine(changeBigPeoplePicture(bigPeoplePictures [i], "people/big/" + picNames [i]+"_B" ) );
 				}
 			}
 			break;
@@ -136,6 +141,45 @@ public class UIController : MonoBehaviour {
 			int index = System.Convert.ToInt16 (extra [1]);
 			bigPeoplePictures [index].gameObject.AddComponent (System.Type.GetType(extra[0]));
 		}
+	}
+
+	IEnumerator changeBigPeoplePicture(SpriteRenderer thePic, string pictureName)
+	{
+		if (thePic.sprite == null || systemInformations.showExtraEffectsForAnimation == 0)
+		{
+			loadWithCheckForBigPicture (thePic, pictureName);
+		} 
+		else if (thePic.sprite!= null)
+		{
+
+			string[] filter = pictureName.Split ('/');
+			string[] filter0 = thePic.sprite.name.Split ('/');
+			string thePeopleName = filter0[filter0.Length-1].Split ('_') [0];
+			string theNewPeopleName =   filter [filter.Length-1].Split ('_') [0];
+			//同一个人的不同图片切换会有一个透明度的变化
+			//print(pictureName +" -++- "+ thePic.sprite.name);
+			//print (thePeopleName +" ---- "+ theNewPeopleName);
+			if(thePeopleName == theNewPeopleName && pictureName != thePic.sprite.name)
+			{
+				Color theColor = Color.white;
+				for (int i = 0; i < 3; i++) 
+				{
+					yield return new WaitForSeconds (0.025f);
+					theColor.a -= 0.05f;
+					thePic.color = theColor;
+				}
+				loadWithCheckForBigPicture (thePic, pictureName);
+				for (int i = 0; i < 3; i++) 
+				{
+					yield return new WaitForSeconds (0.025f);
+					theColor.a += 0.05f;
+					thePic.color = theColor;
+				}
+			}
+			else
+			  loadWithCheckForBigPicture (thePic, pictureName);
+		}
+
 	}
 
 	//如果只是检查单纯地load人物图的话，其实每一个剧本帧都是在不断重复加载 systemInformations.makeLoadSprite
