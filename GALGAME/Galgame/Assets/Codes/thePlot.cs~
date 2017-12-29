@@ -176,10 +176,7 @@ public class thePlot : MonoBehaviour {
 		theItem.makeStart ();
 		theItemNow = theItem;
 		watiForSkipTimer = theItemNow .waitTimeForAutoSkip;
-		//剧本完成度控制
-		systemInformations.addPlotOverPercent(theItem);
-		//好感度控制
-		theItem.makeAddLoveValue();
+
 		//各种控制单元对这个单元的操作
 		theTextController.setTheString (theItem);
 		theUIController.makeShow (theItem);	
@@ -187,6 +184,12 @@ public class thePlot : MonoBehaviour {
 		theMusicController.playBackMusic (theItem);
 		theSoundController.playSound (theItem);
 		thePeopleSoundController.playSound (theItem , true);
+
+		//剧本帧完成之后这些计算才能生效
+		//剧本完成度控制
+		systemInformations.addPlotOverPercent(theItem);
+		//好感度控制
+		theItem.makeAddLoveValue();
 	}
 
 

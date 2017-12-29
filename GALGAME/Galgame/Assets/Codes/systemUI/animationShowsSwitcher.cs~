@@ -46,7 +46,7 @@ public class animationShowsSwitcher : MonoBehaviour  , configUser {
 	{
 		//初始化的时候尝试读取配置文件，没有文件默认返回1
 		float savedType  = configController.getConfigItem (theConfigType);
-		indexUse = savedType < 1f ? 1 : 0;
+		indexUse = savedType < 1f ? 0 : 1;
 		changeMode(indexUse);
 		//informationPanel.showInformation (configController. chekcConfigFile());
 	}

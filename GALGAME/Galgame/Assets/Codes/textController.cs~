@@ -21,6 +21,7 @@ public class textController : MonoBehaviour {
 	//此外这个方法仅仅会被调用一次
 	public void setTheString(thePlotItem theItem)
 	{
+		theShowInformationText.color = systemInformations.getTextColor (theItem.ThePlotItemID);
 		string getName = systemInformations.getShowNameWithProName (theItem.theSpeekerName.Split ('_')[0]);
 			if(string .IsNullOrEmpty (getName) == false)
 			{
@@ -39,6 +40,7 @@ public class textController : MonoBehaviour {
 		}
 		indexNow = 0;//这个可以更稳妥地关掉显示文本的显示器
 		theShowString = "";
+
 	}
 
 	public void setTheString(string theInformationGet)

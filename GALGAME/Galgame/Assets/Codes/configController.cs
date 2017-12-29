@@ -8,7 +8,7 @@ using System.Text;
 using System.IO;
 using System;
 
-public enum ConfigItems { Font,BGMVolume,SouneVolume,SpeakSoundVolume,AutoTextSpeed,TextSpeed , TextBack , showAnimation}
+public enum ConfigItems { Font,BGMVolume,SouneVolume,SpeakSoundVolume,AutoTextSpeed,TextSpeed , TextBack , showAnimation , readTextChangeColor}
 public class configController : MonoBehaviour  {
 
 	//系统设置的保存和重新配置管理单元
@@ -129,6 +129,8 @@ public class configController : MonoBehaviour  {
 		configKey .Add (ConfigItems.TextBack.ToString ());
 		configValue.Add ("0");
 		configKey .Add (ConfigItems.showAnimation.ToString ());
+		configValue.Add ("1");
+		configKey .Add (ConfigItems.readTextChangeColor.ToString ());
 		configValue.Add ("1");
 	}
 

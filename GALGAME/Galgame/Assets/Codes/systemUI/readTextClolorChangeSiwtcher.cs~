@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class animationShowsSwitcher : MonoBehaviour  , configUser {
+public class readTextClolorChangeSiwtcher : MonoBehaviour  , configUser {
 
 	//其实就是换一张图
 	//因为有时候文本框有点占地方，妨碍看CG，因此给出选项
 	public Text theShowText;
 	private int indexUse =1;
-	public ConfigItems theConfigType = ConfigItems.showAnimation;
+	public ConfigItems theConfigType = ConfigItems.readTextChangeColor;
 	//用来和配置文件配合使用的标记
 	string setting = "1";
 
@@ -32,7 +32,7 @@ public class animationShowsSwitcher : MonoBehaviour  , configUser {
 	{
 		indexUse = indexAim;
 		setting = indexUse.ToString ();
-		systemInformations.showExtraEffectsForAnimation = (indexUse == 1 )? 1 : 0;
+		systemInformations.readTextColorChange = (indexUse == 1 )? 1 : 0;
 		theShowText.text =( indexUse == 1 )? "开启" : "关闭";
 	}
 
@@ -47,7 +47,7 @@ public class animationShowsSwitcher : MonoBehaviour  , configUser {
 		//初始化的时候尝试读取配置文件，没有文件默认返回1
 		float savedType  = configController.getConfigItem (theConfigType);
 		indexUse = savedType < 1f ? 0 : 1;
-		changeMode(indexUse);
+		changeMode (indexUse);
 		//informationPanel.showInformation (configController. chekcConfigFile());
 	}
 }

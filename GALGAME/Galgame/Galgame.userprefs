@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\systemUI\animationShowsSwitcher.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Codes\extra\startController.cs">
     <Files>
       <File FileName="Assets\Codes\systemUI\soundSliders.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\Audio\AudioGetter.cs" Line="1" Column="1" />
@@ -17,18 +17,22 @@
       <File FileName="Assets\Codes\extra\movieController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\extra\REController.cs" Line="1" Column="1" />
       <File FileName="Assets\Codes\extra\saveLoadPicture.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\extra\startController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\extra\startController.cs" Line="62" Column="6" />
       <File FileName="Assets\Codes\extraActions\extraRotation.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\thePlot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\thePlot.cs" Line="188" Column="20" />
       <File FileName="Assets\Codes\thePlotItem.cs" Line="1" Column="1" />
-      <File FileName="Assets\Codes\systemInformations.cs" Line="16" Column="75" />
+      <File FileName="Assets\Codes\systemInformations.cs" Line="82" Column="31" />
       <File FileName="Assets\Resources\thePlots\thePlot2.txt" Line="1" Column="1" />
       <File FileName="Assets\Resources\thePlots\thePlot1.txt" Line="1" Column="1" />
-      <File FileName="Assets\Codes\UIController.cs" Line="148" Column="84" />
-      <File FileName="Assets\Codes\systemUI\textBackModeSwicher.cs" Line="67" Column="1" />
-      <File FileName="Assets\Codes\systemUI\animationShowsSwitcher.cs" Line="26" Column="19" />
-      <File FileName="Assets\Codes\configController.cs" Line="132" Column="22" />
+      <File FileName="Assets\Codes\UIController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\systemUI\textBackModeSwicher.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\systemUI\animationShowsSwitcher.cs" Line="49" Column="36" />
+      <File FileName="Assets\Codes\configController.cs" Line="133" Column="1" />
       <File FileName="Assets\Codes\soundController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\systemUI\showAllOverPercentLabel.cs" Line="20" Column="5" />
+      <File FileName="Assets\Codes\systemUI\saveButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Codes\systemUI\readTextClolorChangeSiwtcher.cs" Line="49" Column="36" />
+      <File FileName="Assets\Codes\textController.cs" Line="30" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

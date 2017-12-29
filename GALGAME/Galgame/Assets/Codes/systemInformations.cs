@@ -14,6 +14,14 @@ public class systemInformations : MonoBehaviour {
 	public static int indexForLoad = -99;//存档的编号
 	public static bool canControll = true;//在渐入转场的时候鼠标是不可以有效果的
 	public static int showExtraEffectsForAnimation = 1;//舞台效果需要不需要 0 不需要 1 需要
+	public static int readTextColorChange = 1;//已读文本颜色是否会变化 0 不需要 1 需要
+	public static Color getTextColor (int plotItemID)//返回文本框的颜色
+	{
+		if (readTextColorChange == 0)
+			return Color.white;
+
+		return plotIDRead.Contains (plotItemID) ? Color.yellow : Color.white;
+	}
 	//think 是旁白，不显示人名的时候用
 	private static string [] proName = { "alice" ,"fione" ,"jik"  , "Caim"   ,"mert",   "aozi", "noOne" , "get" , "darkPlume" ,"NPC"} ;
 	private static string [] showName = {"艾莉斯","菲奥奈","吉克" , "凯伊姆" ,"梅尔特", "奥兹",  ""     , "戈尔" , "黑羽" , "路人"};
